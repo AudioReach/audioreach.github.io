@@ -1,0 +1,9 @@
+
+/* make the page width fill the window */
+.wy-nav-content {
+    max-width: none;
+}
+
+.fig-center {
+    text-align: center;
+}

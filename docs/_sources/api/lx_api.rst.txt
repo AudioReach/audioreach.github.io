@@ -1,0 +1,10 @@
+.. _lx_api:
+
+Linux Adaptation APIs
+##################################################
+
+.. toctree::
+   :maxdepth: 1
+
+   lx_agm
+

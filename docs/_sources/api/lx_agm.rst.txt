@@ -1,0 +1,7 @@
+.. _lx_agm_api:
+
+Audio Graph Manager
+##################################################
+
+.. doxygenfile:: agm_api.h
+   :project: lx_agm
