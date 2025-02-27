@@ -76,6 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/index.html">AudioReach Developer Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../platform/index.html">Platform Reference Guide</a></li>
 </ul>
 
         </div>
@@ -948,7 +949,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv420ar_osal_servreg_initv">
 <span id="_CPPv320ar_osal_servreg_initv"></span><span id="_CPPv220ar_osal_servreg_initv"></span><span id="ar_osal_servreg_init__void"></span><span class="target" id="ar__osal__servreg_8h_1af2fe6a28bd5b5d8596699538d36d7ff8"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_osal_servreg_init</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420ar_osal_servreg_initv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>ar_osal_servreg_init Initialize servreg interface. ……..Note:This API has to be called before any other API in this interface. ……..Should be called at least once and is expected to be serialized if called multiple times. </p>
+<dd><p>ar_osal_servreg_init Initialize servreg interface. Note:This API has to be called before any other API in this interface. Should be called at least once and is expected to be serialized if called multiple times. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>0 &#8212; Success Nonzero &#8212; Failure </p>
@@ -959,7 +960,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv422ar_osal_servreg_deinitv">
 <span id="_CPPv322ar_osal_servreg_deinitv"></span><span id="_CPPv222ar_osal_servreg_deinitv"></span><span id="ar_osal_servreg_deinit__void"></span><span class="target" id="ar__osal__servreg_8h_1aa3804d6f98b442c0b83536758391b2b9"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_osal_servreg_deinit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422ar_osal_servreg_deinitv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>ar_osal_servreg_deinit Uninitialize servreg interface. ……..Should be called in pair with <a class="reference internal" href="#ar__osal__servreg_8h_1af2fe6a28bd5b5d8596699538d36d7ff8"><span class="std std-ref">ar_osal_servreg_init()</span></a> and ……..should be a serialized call. </p>
+<dd><p>ar_osal_servreg_deinit Uninitialize servreg interface. Should be called in pair with <a class="reference internal" href="#ar__osal__servreg_8h_1af2fe6a28bd5b5d8596699538d36d7ff8"><span class="std std-ref">ar_osal_servreg_init()</span></a> and should be a serialized call. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>0 &#8212; Success Nonzero &#8212; Failure </p>

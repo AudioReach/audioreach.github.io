@@ -60,6 +60,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/index.html">AudioReach Developer Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../platform/index.html">Platform Reference Guide</a></li>
 </ul>
 
         </div>
@@ -133,7 +134,7 @@
 <dd class="field-even"><p><strong>[in]</strong> Client-supplied data pointer that the service provided at registration time.</p>
 </dd>
 <dt class="field-odd">Return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful, indicates that the callee has taken ownership of the packet. </p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful, indicates that the callee has taken ownership of the packet. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -170,7 +171,7 @@
 <p>int32_t rc = <a class="reference internal" href="#group__gpr__core__routines_1gab15625235972d2cba5a74ba29504163e"><span class="std std-ref">gpr_init()</span></a>; if ( rc ) { printf( “Could not initialize the GPR infrastructure” ); }   </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -186,7 +187,7 @@
 </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -205,7 +206,7 @@
 <p>int32_t rc = <a class="reference internal" href="#group__gpr__core__routines_1ga016878f24f20e4e5807feddb5e2f44ba"><span class="std std-ref">gpr_deinit()</span></a>; if ( rc ) { printf( “Could not deinitialize the GPR infrastructure” ); }   </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -537,7 +538,7 @@
 <dd class="field-even"><p><strong>[out]</strong> Double pointer to the function table that contains the functions each IPC data link layer provides to the GPR. It is populated by each data link during initialization.</p>
 </dd>
 <dt class="field-odd">Return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -566,7 +567,7 @@
 <dd class="field-even"><p><strong>[in]</strong> Domain ID of the destination with which the src_domain_id must close communication.</p>
 </dd>
 <dt class="field-odd">Return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -599,7 +600,7 @@
 <dd class="field-even"><p><strong>[in]</strong> Size of the packet.</p>
 </dd>
 <dt class="field-odd">Return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -623,7 +624,7 @@
 <dd class="field-even"><p><strong>[in]</strong> Size of the packet.</p>
 </dd>
 <dt class="field-odd">Return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -661,7 +662,7 @@
 <dd class="field-odd"><p><strong>[in]</strong> Size of the packet.</p>
 </dd>
 <dt class="field-even">Return<span class="colon">:</span></dt>
-<dd class="field-even"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-even"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -685,7 +686,7 @@
 <dd class="field-even"><p><strong>[in]</strong> Pointer to the packet.</p>
 </dd>
 <dt class="field-odd">Return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>#AR_EOK &#8212; When successful.</p>
+<dd class="field-odd"><p><a class="reference internal" href="args_arosal.html#ar__osal__error_8h_1a0a092831d3ed0214cc9770c6fd3fdc8e"><span class="std std-ref">AR_EOK</span></a> &#8212; When successful.</p>
 </dd>
 </dl>
 </dd></dl>

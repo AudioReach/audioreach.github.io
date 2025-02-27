@@ -7,6 +7,12 @@ AudioReach\ :sup:`TM` Documentation
 ====================================================
 Welcome to AudioReach
 
+Announcements
+**************
+
+* We are excited to announce that AudioReach adds Raspberry Pi to its portfolio of platforms!
+  For more details, please refer :ref:`raspberry_pi4` platform reference guide
+
 Table of Contents
 *****************************************
 
@@ -17,6 +23,7 @@ Table of Contents
    design/index.rst
    api/index.rst
    dev/index.rst
+   platform/index.rst
    
 Indices and tables
 ****************************************
