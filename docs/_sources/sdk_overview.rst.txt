@@ -53,9 +53,19 @@ Boards
 Tools
 +++++++++++++++++
 
-- AudioReach Creator(ARC), also known as Qualcomm Audio Configuration Tool (QACT) currently, is the most essential tool of entire SDK. ARC enables the entire audio system design workflow. QACT public edition is available through Qualcomm Package Manager which can be downloaded from `Qualcomm Developer Network <https://developer.qualcomm.com/downloads/qualcomm-package-manager-windows-v10>`_.
+- AudioReach Creator(ARC), also known as Qualcomm Audio Configuration Tool (QACT) currently, is the most essential tool of entire SDK. ARC enables the entire audio system design workflow.
 
 **NOTE**: QACT currently runs only on Windows, with future plans to support on Linux and release an open-source version.
+
+.. _steps_to_install_arc:
+Steps to install ARC
+^^^^^^^^^^^^^^^^^^^^
+
+ARC public edition is available through `Qualcomm Software Center <https://softwarecenter.qualcomm.com/#/>`_. Follow below steps to install ARC:
+
+* Download and install **Qualcomm Software Center** on Windows host using steps `here <https://docs.qualcomm.com/bundle/publicresource/topics/80-72780-2/install_qsc.html#download-and-install-qsc-on-windows>`_.
+* Launch Qualcomm Software Center from start menu.
+* Install required version of **Qualcomm Audio Calibration Tool** using steps shown `here <https://docs.qualcomm.com/bundle/publicresource/topics/80-72780-2/tools_and_sdks.html>`_.
 
 Source Code Repository
 ++++++++++++++++++++++++++++

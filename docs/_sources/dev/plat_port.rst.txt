@@ -43,7 +43,7 @@ Platform & OS Abstraction Layer
 
 Hardware & Software Endpoint Modules
 ------------------------------------
-Reference ALSA Endpoint module to be released soon.
+Refer ALSA Endpoint module code `here <https://github.com/Audioreach/audioreach-engine/tree/master/fwk/platform/modules/generic/endpoint/alsa_device>`_.
 
 Provide Execution Environment
 ------------------------------

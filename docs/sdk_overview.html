@@ -54,7 +54,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#hardware-platform">Hardware Platform</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#steps-to-install-arc">Steps to install ARC</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#source-code-repository">Source Code Repository</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#build-recipe">Build Recipe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#contribution-project-governance">Contribution &amp; Project Governance</a></li>
@@ -100,16 +103,16 @@
 <h2>SDK Overview<a class="headerlink" href="#sdk-overview" title="Permalink to this heading"></a></h2>
 <p>AudioReach project aims to deliver a comprehensive and complete end-to-end audio software solution to support a broad range of audio and voice use cases across a diverse set of SoC’s and product devices (handset, compute, wearables, hearables, xr, automotive telematics / infotainment, etc). The AudioReach SDK contains the essential components to support a seamless development workflow from off-target to on-target and flexibility to customize and tailor the processing to the capabilities and constraints of the SoC and product device (multiple cores, peripheral devices, etc). See diagrams below for highlights of SDK and workflow enabled by the SDK. In addition, refer to <a class="reference internal" href="design/arch_overview.html#arch-overview"><span class="std std-ref">AudioReach Architecture Overview</span></a> to learn about overall architecture as this page makes several references to key software components in the AudioReach software offering.</p>
 <blockquote>
-<div><figure class="fig-center align-default" id="id1">
+<div><figure class="fig-center align-default" id="id3">
 <a class="reference internal image-reference" href="_images/sw_highlights.png"><img alt="_images/sw_highlights.png" src="_images/sw_highlights.png" style="width: 849.5500000000001px; height: 460.2px;" /></a>
 <figcaption>
-<p><span class="caption-text"><cite>SDK Highlights</cite></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><cite>SDK Highlights</cite></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="fig-center align-default" id="id2">
+<figure class="fig-center align-default" id="id4">
 <a class="reference internal image-reference" href="_images/dev_workflow.png"><img alt="_images/dev_workflow.png" src="_images/dev_workflow.png" style="width: 848.9px; height: 432.25px;" /></a>
 <figcaption>
-<p><span class="caption-text"><cite>Development Workflow Enabled by SDK</cite></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><cite>Development Workflow Enabled by SDK</cite></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -145,9 +148,18 @@
 <section id="tools">
 <h3>Tools<a class="headerlink" href="#tools" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>AudioReach Creator(ARC), also known as Qualcomm Audio Configuration Tool (QACT) currently, is the most essential tool of entire SDK. ARC enables the entire audio system design workflow. QACT public edition is available through Qualcomm Package Manager which can be downloaded from <a class="reference external" href="https://developer.qualcomm.com/downloads/qualcomm-package-manager-windows-v10">Qualcomm Developer Network</a>.</p></li>
+<li><p>AudioReach Creator(ARC), also known as Qualcomm Audio Configuration Tool (QACT) currently, is the most essential tool of entire SDK. ARC enables the entire audio system design workflow.</p></li>
 </ul>
 <p><strong>NOTE</strong>: QACT currently runs only on Windows, with future plans to support on Linux and release an open-source version.</p>
+<section id="steps-to-install-arc">
+<span id="id1"></span><h4>Steps to install ARC<a class="headerlink" href="#steps-to-install-arc" title="Permalink to this heading"></a></h4>
+<p>ARC public edition is available through <a class="reference external" href="https://softwarecenter.qualcomm.com/#/">Qualcomm Software Center</a>. Follow below steps to install ARC:</p>
+<ul class="simple">
+<li><p>Download and install <strong>Qualcomm Software Center</strong> on Windows host using steps <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-72780-2/install_qsc.html#download-and-install-qsc-on-windows">here</a>.</p></li>
+<li><p>Launch Qualcomm Software Center from start menu.</p></li>
+<li><p>Install required version of <strong>Qualcomm Audio Calibration Tool</strong> using steps shown <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-72780-2/tools_and_sdks.html">here</a>.</p></li>
+</ul>
+</section>
 </section>
 <section id="source-code-repository">
 <h3>Source Code Repository<a class="headerlink" href="#source-code-repository" title="Permalink to this heading"></a></h3>
@@ -168,10 +180,10 @@ the diagram below. Following software components would need to be pulled from co
 <li><p>Audio Graph Manager</p></li>
 </ul>
 <blockquote>
-<div><figure class="fig-center align-default" id="id3">
+<div><figure class="fig-center align-default" id="id5">
 <img alt="_images/gitrepo_mapping.png" src="_images/gitrepo_mapping.png" />
 <figcaption>
-<p><span class="caption-text"><cite>AudioReach Source Repository Diagram</cite></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><cite>AudioReach Source Repository Diagram</cite></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -200,10 +212,10 @@ the diagram below. Following software components would need to be pulled from co
 <section id="roadmap">
 <span id="sdk-roadmap"></span><h2>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this heading"></a></h2>
 <blockquote>
-<div><figure class="fig-center align-default" id="id4">
+<div><figure class="fig-center align-default" id="id6">
 <img alt="_images/roadmap.png" src="_images/roadmap.png" />
 <figcaption>
-<p><span class="caption-text"><cite>AudioReach Development Phases</cite></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><cite>AudioReach Development Phases</cite></span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
