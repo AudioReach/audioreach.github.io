@@ -1,25 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Raspberry Pi 4 &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -104,7 +101,7 @@
            <div itemprop="articleBody">
              
   <section id="raspberry-pi-4">
-<span id="raspberry-pi4"></span><h1>Raspberry Pi 4<a class="headerlink" href="#raspberry-pi-4" title="Permalink to this heading"></a></h1>
+<span id="raspberry-pi4"></span><h1>Raspberry Pi 4<a class="headerlink" href="#raspberry-pi-4" title="Link to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="#ArchitectureOverview">Architecture Overview</a></p></li>
 <li><p><a class="reference external" href="#create-a-yocto-image">Create a Yocto Image</a></p></li>
@@ -115,10 +112,11 @@
 <p>This page provides AudioReach Architecture overview on Raspberry Pi platform and walks through steps on how to create a Yocto image that integrates AudioReach,
 load that image on your Raspberry Pi4, and then run an AudioReach usecase.</p>
 <section id="architecture-overview">
-<h2>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permalink to this heading"></a></h2>
+<h2>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Link to this heading"></a></h2>
 <blockquote>
 <div><figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/raspberry_pi_reference.png"><img alt="../_images/raspberry_pi_reference.png" src="../_images/raspberry_pi_reference.png" style="width: 509.6px; height: 428.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/raspberry_pi_reference.png"><img alt="../_images/raspberry_pi_reference.png" src="../_images/raspberry_pi_reference.png" style="width: 509.6px; height: 428.0px;" />
+</a>
 </figure>
 </div></blockquote>
 <p>The above architecture diagram illustrates the playback use-case on a Raspberry
@@ -142,13 +140,13 @@ visualized in real-time using a PC-based GUI tool called AudioReach
 Creator (ARC, also known as QACT).</p>
 </section>
 <section id="create-a-yocto-image">
-<h2>Create a Yocto image<a class="headerlink" href="#create-a-yocto-image" title="Permalink to this heading"></a></h2>
+<h2>Create a Yocto image<a class="headerlink" href="#create-a-yocto-image" title="Link to this heading"></a></h2>
 <p>The first step is to integrate our AudioReach components
 into a Yocto build that you can use with Raspberry Pi. To do
 this, we will take the Yocto build and use meta-audioreach layer
 from the AudioReach Github.</p>
 <section id="step-1-set-up-your-yocto-build">
-<h3>Step 1: Set up your Yocto build<a class="headerlink" href="#step-1-set-up-your-yocto-build" title="Permalink to this heading"></a></h3>
+<h3>Step 1: Set up your Yocto build<a class="headerlink" href="#step-1-set-up-your-yocto-build" title="Link to this heading"></a></h3>
 <p>Please follow the below steps to setup your Yocto build:</p>
 <blockquote>
 <div><ul class="simple">
@@ -174,27 +172,28 @@ git<span class="w"> </span>clone<span class="w"> </span>https://git.openembedded
 BBFILES<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
 
 BBLAYERS<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/poky/meta \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/poky/meta-poky \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/poky/meta-yocto-bsp \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/meta-raspberrypi \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/meta-openembedded/meta-oe \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/meta-openembedded/meta-multimedia \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/meta-openembedded/meta-networking \</span>
-<span class="s2">   </span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span><span class="s2">/yocto/sources/meta-openembedded/meta-python \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/poky/meta \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/poky/meta-poky \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/poky/meta-yocto-bsp \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/meta-raspberrypi \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/meta-openembedded/meta-oe \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/meta-openembedded/meta-multimedia \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/meta-openembedded/meta-networking \</span>
+<span class="s2">   &lt;path_to_build&gt;/yocto/sources/meta-openembedded/meta-python \</span>
+<span class="s2">  &quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>Note: Please make sure that your system has the requirements needed for yocto scarthgap builds. If not, you can download the pre-built “buildtools” for yocto:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;build&gt;/yocto/sources/poky/scripts
-<span class="nb">source</span><span class="w"> </span>./install-buildtools
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;path_to_build&gt;/yocto/sources/poky
+scripts/install-buildtools
 </pre></div>
 </div>
 </div></blockquote>
 <p>Then run the following commands to setup your build environment to use buildtools:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;build_root&gt;/yocto/
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;path_to_build&gt;/yocto/
 <span class="nb">source</span><span class="w"> </span>./sources/poky/oe-init-build-env
 <span class="nb">source</span><span class="w"> </span>./sources/poky/buildtools/environment-setup-x86_64-pokysdk-linux
 </pre></div>
@@ -202,17 +201,17 @@ BBLAYERS<span class="w"> </span>?<span class="o">=</span><span class="w"> </span
 </div></blockquote>
 </section>
 <section id="step-2-get-audioreach-meta-layer">
-<h3>Step 2: Get AudioReach Meta Layer<a class="headerlink" href="#step-2-get-audioreach-meta-layer" title="Permalink to this heading"></a></h3>
+<h3>Step 2: Get AudioReach Meta Layer<a class="headerlink" href="#step-2-get-audioreach-meta-layer" title="Link to this heading"></a></h3>
 <p>Use the below commands to get the AudioReach meta image:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/yocto/sources
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;path_to_build&gt;/yocto/sources
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Audioreach/meta-audioreach.git
 </pre></div>
 </div>
 </div></blockquote>
 </section>
 <section id="step-3-add-audioreach-to-system-image">
-<h3>Step 3: Add AudioReach to system image<a class="headerlink" href="#step-3-add-audioreach-to-system-image" title="Permalink to this heading"></a></h3>
+<h3>Step 3: Add AudioReach to system image<a class="headerlink" href="#step-3-add-audioreach-to-system-image" title="Link to this heading"></a></h3>
 <p>The last step is to add AudioReach to the system image to make sure it’s compiled.</p>
 <blockquote>
 <div><ul>
@@ -224,7 +223,7 @@ line to the file:</p>
 </div>
 </div></blockquote>
 </li>
-<li><p>Append below to local.conf to enable support for ARE (AudioReach Engine) on APPS processor, as Raspberry Pi does not have DSP</p>
+<li><p>Then add these additional lines to local.conf to enable support for ARE (AudioReach Engine) on APPS processor, as Raspberry Pi does not have DSP:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PACKAGECONFIG:pn-audioreach-graphmgr<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;are_on_apps use_default_acdb_path&quot;</span>
 PACKAGECONFIG:pn-audioreach-graphservices<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;are_on_apps&quot;</span>
@@ -232,9 +231,9 @@ PACKAGECONFIG:pn-audioreach-graphservices<span class="w"> </span><span class="o"
 </div>
 </div></blockquote>
 </li>
-<li><p>Navigate to <strong>yocto/build/conf/bblayers.conf</strong> and under the <strong>BBLAYERS ?= ” \</strong> section, add the AudioReach meta path:</p>
+<li><p>Navigate to <strong>yocto/build/conf/bblayers.conf</strong> and under the <strong>BBLAYERS ?= “ \</strong> section, add the AudioReach meta path:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="si">${</span><span class="nv">TOPDIR</span><span class="si">}</span>/yocto/sources/meta-audioreach<span class="w"> </span><span class="se">\</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;path_to_build&gt;/yocto/sources/meta-audioreach<span class="w"> </span><span class="se">\</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -243,23 +242,28 @@ PACKAGECONFIG:pn-audioreach-graphservices<span class="w"> </span><span class="o"
 </div></blockquote>
 </section>
 <section id="step-4-compile-the-image">
-<h3>Step 4: Compile the image<a class="headerlink" href="#step-4-compile-the-image" title="Permalink to this heading"></a></h3>
+<h3>Step 4: Compile the image<a class="headerlink" href="#step-4-compile-the-image" title="Link to this heading"></a></h3>
 <p>Now we can compile the build. Navigate to <strong>yocto/build</strong> directory
 and run the command: <strong>bitbake core-image-sato</strong></p>
-<ul class="simple">
+<ul>
 <li><p>Note: If you get a “umask” error after compiling the build, run the command <strong>umask 022</strong> and try compiling again.</p></li>
-<li><p>If you see a “restricted license” error, navigate to the local.conf file and append the line: <strong>LICENSE_FLAGS_ACCEPTED = “synaptics-killswitch”</strong></p></li>
+<li><p>If you see a “restricted license” error, navigate to the local.conf file and append the below line:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">LICENSE_FLAGS_ACCEPTED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;synaptics-killswitch&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
 </ul>
-<p>If the compilation was successful, you should be able to find the
-newly generated Yocto image in your workspace.</p>
-<p>Navigate to the folder <strong>yocto/build/tmp/deploy/images/raspberrypi4</strong> and unzip the folder <strong>core-image-sato-raspberrypi4.wic.bz2</strong>. This will give you the .wic
+<p>If the compilation was successful, you should be able to find the newly generated Yocto image in your workspace.</p>
+<p>Navigate to the folder <strong>yocto/build/tmp/deploy/images/raspberrypi4</strong> and unzip the folder <strong>core-image-sato-raspberrypi4.rootfs.wic.bz2</strong>. This will give you the .wic
 file that you will use to flash your Raspberry Pi.</p>
 <p>Alternatively, you can run the command
-<strong>bzip2 -d -f tmp/deploy/images/raspberrypi4/core-image-sato-raspberrypi4.wic.bz2</strong>
+<strong>bzip2 -d -f tmp/deploy/images/raspberrypi4/core-image-sato-raspberrypi4.rootfs.wic.bz2</strong>
 in your build directory after compiling to unzip the image.</p>
 </section>
 <section id="step-5-flash-the-yocto-image">
-<h3>Step 5: Flash the Yocto image<a class="headerlink" href="#step-5-flash-the-yocto-image" title="Permalink to this heading"></a></h3>
+<h3>Step 5: Flash the Yocto image<a class="headerlink" href="#step-5-flash-the-yocto-image" title="Link to this heading"></a></h3>
 <p>Now we’re going to flash the Yocto image using Raspberry Pi Imager. You can install
 this from <strong>raspberrypi.com/software</strong>, or by running <strong>sudo apt install rpi-imager</strong> on your terminal.</p>
 <ul class="simple">
@@ -267,17 +271,17 @@ this from <strong>raspberrypi.com/software</strong>, or by running <strong>sudo 
 <li><p>Under the Choose OS options, select the “Use custom” option. Make sure you are searching for all file types (by default it doesn’t search for .wic files). Then search for your .wic file and select it.</p></li>
 <li><p>Under Storage, select the SD card that you want to flash the image onto, and click Flash.</p></li>
 </ul>
-<p>Now you use your SD card to bootup your Raspberry Pi.</p>
+<p>Now you can use your SD card to bootup your Raspberry Pi.</p>
 </section>
 </section>
 <section id="setting-up-your-raspberry-pi">
-<h2>Setting up your Raspberry Pi<a class="headerlink" href="#setting-up-your-raspberry-pi" title="Permalink to this heading"></a></h2>
+<h2>Setting up your Raspberry Pi<a class="headerlink" href="#setting-up-your-raspberry-pi" title="Link to this heading"></a></h2>
 <p>First you’ll want to setup the hardware on your Raspberry Pi, if not done already.
 For this you can follow the steps on the official Raspberry Pi
 documentation page here: <a class="reference external" href="https://www.raspberrypi.com/documentation/computers/getting-started.html">https://www.raspberrypi.com/documentation/computers/getting-started.html</a></p>
 <p>Follow the steps until the section “Install an operating system”.</p>
 <section id="configure-bootup-settings">
-<h3>Configure bootup settings<a class="headerlink" href="#configure-bootup-settings" title="Permalink to this heading"></a></h3>
+<h3>Configure bootup settings<a class="headerlink" href="#configure-bootup-settings" title="Link to this heading"></a></h3>
 <p>Next, we will need to complete a few steps to enable the audio and update
 the logging settings. You can update the configuration files mentioned
 below using “vi” on the terminal; however, it is much easier to just
@@ -320,13 +324,13 @@ will be short. We will want to update the settings to make the logs longer:</p>
 <li><p>Save the file.</p></li>
 </ul>
 </div></blockquote>
-<p>Next, you’ll want to push a mono channel .wav audio file to some location in the Raspberry Pi (such as the “/etc” folder).</p>
+<p>Next, you’ll want to push a “.wav” audio file to some location in the Raspberry Pi (such as the “/etc” folder).</p>
 <p>With this the configuration should be finished. Shut down the Raspberry Pi through
 the homescreen or by running the command <strong>shutdown -r -time “now”</strong> through the
 terminal so the changes can take effect.</p>
 </section>
 <section id="enable-real-time-calibration-mode">
-<h3>Enable Real-time Calibration Mode<a class="headerlink" href="#enable-real-time-calibration-mode" title="Permalink to this heading"></a></h3>
+<h3>Enable Real-time Calibration Mode<a class="headerlink" href="#enable-real-time-calibration-mode" title="Link to this heading"></a></h3>
 <p>ARC (AudioReach Creator) is a tool that allows you to see the current graph
 configuration while running a usecase, as well as create and modify your own graphs.
 These steps are optional, as you don’t technically need ARC to run the usecase.</p>
@@ -384,13 +388,14 @@ graph on ARC.</p>
 </section>
 </section>
 <section id="running-an-audioreach-usecase">
-<h2>Running an AudioReach Usecase<a class="headerlink" href="#running-an-audioreach-usecase" title="Permalink to this heading"></a></h2>
-<p>Now all the setup is finished, and we should finally be able to use our
+<h2>Running an AudioReach Usecase<a class="headerlink" href="#running-an-audioreach-usecase" title="Link to this heading"></a></h2>
+<p>Now all the setup is finished, and you should finally be able to use the
 Raspberry Pi to play audio.</p>
 <blockquote>
 <div><ul>
 <li><p>Connect your headphones/other audio device to the audio port on your Raspberry Pi.</p></li>
-<li><p>Open a third terminal window and run the below command to start the playback usecase:</p>
+<li><p>Open a terminal and run the command <strong>agm_server</strong> (if not done already).</p></li>
+<li><p>Open another terminal window and run the below command to start the playback usecase:</p>
 <blockquote>
 <div><p><strong>agmplay /[path_to_audio_file]/&lt;clip_name&gt;.wav -D 100 -d 100 -i PCM_RT_PROXY-RX-2</strong></p>
 </div></blockquote>
@@ -401,17 +406,17 @@ Raspberry Pi to play audio.</p>
 The system logs for the usecase will be saved in /var/log/messages.</p>
 </section>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <p>If you get an error while trying to run the usecase, below are some things you can
 try:</p>
 <section id="check-the-sound-card">
-<h3>Check the sound card<a class="headerlink" href="#check-the-sound-card" title="Permalink to this heading"></a></h3>
+<h3>Check the sound card<a class="headerlink" href="#check-the-sound-card" title="Link to this heading"></a></h3>
 <p>On your Raspberry Pi, open the file /proc/asound/cards. You should see a couple
 sound card entries in this list. If it says “no sound cards available”, you likely
 forgot to enable the sound card (see section <a class="reference external" href="#configure-bootup-settings">Configure bootup settings</a>).</p>
 </section>
 <section id="check-the-sound-card-id">
-<h3>Check the sound card ID<a class="headerlink" href="#check-the-sound-card-id" title="Permalink to this heading"></a></h3>
+<h3>Check the sound card ID<a class="headerlink" href="#check-the-sound-card-id" title="Link to this heading"></a></h3>
 <p>If your Raspberry Pi is connected to the monitor, the HDMI-based soundcard might get enumerated in proc/asound/cards, causing the
 card ID of the Headphones to change. For this you will need to have ARC installed on a secondary computer (see <em>Enable
 ARC connection</em>).</p>
@@ -430,14 +435,16 @@ that you copied from your Raspberry Pi.</p></li>
 select any usecase that uses “Headphones”.</p></li>
 <li><p>Double click the “ALSA device sink” module shown below</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/headphone_screenshot.png"><img alt="../_images/headphone_screenshot.png" src="../_images/headphone_screenshot.png" style="width: 610.4px; height: 328.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/headphone_screenshot.png"><img alt="../_images/headphone_screenshot.png" src="../_images/headphone_screenshot.png" style="width: 610.4px; height: 328.0px;" />
+</a>
 </figure>
 </li>
 <li><p>On the menu that comes up, check the card_id. We want the card_id here to
 be the same as the ID that corresponds with the Headphones entry on the
 /proc/asound/cards file on your Raspberry Pi.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/alsa_sink_module.png"><img alt="../_images/alsa_sink_module.png" src="../_images/alsa_sink_module.png" style="width: 551.2px; height: 478.40000000000003px;" /></a>
+<a class="reference internal image-reference" href="../_images/alsa_sink_module.png"><img alt="../_images/alsa_sink_module.png" src="../_images/alsa_sink_module.png" style="width: 551.2px; height: 478.40000000000003px;" />
+</a>
 </figure>
 <p>If it is not the same, update the value, and click “Set to ACDB” on the
 bottom for the changes to take effect.</p>
