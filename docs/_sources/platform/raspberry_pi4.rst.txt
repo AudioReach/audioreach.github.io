@@ -86,27 +86,28 @@ Please follow the below steps to setup your Yocto build:
       BBFILES ?= ""
 
       BBLAYERS ?= " \
-         ${TOPDIR}/yocto/sources/poky/meta \
-         ${TOPDIR}/yocto/sources/poky/meta-poky \
-         ${TOPDIR}/yocto/sources/poky/meta-yocto-bsp \
-         ${TOPDIR}/yocto/sources/meta-raspberrypi \
-         ${TOPDIR}/yocto/sources/meta-openembedded/meta-oe \
-         ${TOPDIR}/yocto/sources/meta-openembedded/meta-multimedia \
-         ${TOPDIR}/yocto/sources/meta-openembedded/meta-networking \
-         ${TOPDIR}/yocto/sources/meta-openembedded/meta-python \
+         <path_to_build>/yocto/sources/poky/meta \
+         <path_to_build>/yocto/sources/poky/meta-poky \
+         <path_to_build>/yocto/sources/poky/meta-yocto-bsp \
+         <path_to_build>/yocto/sources/meta-raspberrypi \
+         <path_to_build>/yocto/sources/meta-openembedded/meta-oe \
+         <path_to_build>/yocto/sources/meta-openembedded/meta-multimedia \
+         <path_to_build>/yocto/sources/meta-openembedded/meta-networking \
+         <path_to_build>/yocto/sources/meta-openembedded/meta-python \
+	"
 
 Note: Please make sure that your system has the requirements needed for yocto scarthgap builds. If not, you can download the pre-built "buildtools" for yocto:
 
    .. code-block:: bash
 
-	  cd <build>/yocto/sources/poky/scripts
-	  source ./install-buildtools
+	  cd <path_to_build>/yocto/sources/poky
+	  scripts/install-buildtools
 
 Then run the following commands to setup your build environment to use buildtools:
 
    .. code-block:: bash
 
-	  cd <build_root>/yocto/
+	  cd <path_to_build>/yocto/
 	  source ./sources/poky/oe-init-build-env
 	  source ./sources/poky/buildtools/environment-setup-x86_64-pokysdk-linux
 
@@ -118,7 +119,7 @@ Use the below commands to get the AudioReach meta image:
 
    .. code-block:: bash
 
-      cd /yocto/sources
+      cd <path_to_build>/yocto/sources
       git clone https://github.com/Audioreach/meta-audioreach.git
 
 
@@ -134,7 +135,7 @@ The last step is to add AudioReach to the system image to make sure it's compile
 
 			IMAGE_INSTALL:append = "audioreach-graphservices tinyalsa audioreach-graphmgr audioreach-engine audioreach-conf"
 
-   * Append below to local.conf to enable support for ARE (AudioReach Engine) on APPS processor, as Raspberry Pi does not have DSP
+   * Then add these additional lines to local.conf to enable support for ARE (AudioReach Engine) on APPS processor, as Raspberry Pi does not have DSP:
 
 		.. code-block:: bash
 
@@ -145,7 +146,7 @@ The last step is to add AudioReach to the system image to make sure it's compile
 
 		.. code-block:: bash
 
-			${TOPDIR}/yocto/sources/meta-audioreach \
+			<path_to_build>/yocto/sources/meta-audioreach \
 
 Step 4: Compile the image
 -------------------------
@@ -154,17 +155,19 @@ Now we can compile the build. Navigate to **yocto/build** directory
 and run the command: **bitbake core-image-sato**
 
 * Note: If you get a "umask" error after compiling the build, run the command **umask 022** and try compiling again.
+* If you see a "restricted license" error, navigate to the local.conf file and append the below line:
 
-* If you see a "restricted license" error, navigate to the local.conf file and append the line: **LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"**
+	.. code-block:: bash
 
-If the compilation was successful, you should be able to find the
-newly generated Yocto image in your workspace.
+		LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
 
-Navigate to the folder **yocto/build/tmp/deploy/images/raspberrypi4** and unzip the folder **core-image-sato-raspberrypi4.wic.bz2**. This will give you the .wic
+If the compilation was successful, you should be able to find the newly generated Yocto image in your workspace.
+
+Navigate to the folder **yocto/build/tmp/deploy/images/raspberrypi4** and unzip the folder **core-image-sato-raspberrypi4.rootfs.wic.bz2**. This will give you the .wic
 file that you will use to flash your Raspberry Pi.
 
 Alternatively, you can run the command
-**bzip2 -d -f tmp/deploy/images/raspberrypi4/core-image-sato-raspberrypi4.wic.bz2**
+**bzip2 -d -f tmp/deploy/images/raspberrypi4/core-image-sato-raspberrypi4.rootfs.wic.bz2**
 in your build directory after compiling to unzip the image.
 
 Step 5: Flash the Yocto image
@@ -177,7 +180,7 @@ this from **raspberrypi.com/software**, or by running **sudo apt install rpi-ima
 * Under the Choose OS options, select the "Use custom" option. Make sure you are searching for all file types (by default it doesn't search for .wic files). Then search for your .wic file and select it.
 * Under Storage, select the SD card that you want to flash the image onto, and click Flash.
 
-Now you use your SD card to bootup your Raspberry Pi.
+Now you can use your SD card to bootup your Raspberry Pi.
 
 
 Setting up your Raspberry Pi
@@ -219,7 +222,7 @@ will be short. We will want to update the settings to make the logs longer:
       * This indicates the maximum number of log files that we can generate.
    * Save the file.
 
-Next, you'll want to push a mono channel .wav audio file to some location in the Raspberry Pi (such as the "/etc" folder).
+Next, you'll want to push a ".wav" audio file to some location in the Raspberry Pi (such as the "/etc" folder).
 
 With this the configuration should be finished. Shut down the Raspberry Pi through
 the homescreen or by running the command **shutdown -r -time "now"** through the
@@ -261,11 +264,12 @@ graph on ARC.
 Running an AudioReach Usecase
 =============================
 
-Now all the setup is finished, and we should finally be able to use our
+Now all the setup is finished, and you should finally be able to use the
 Raspberry Pi to play audio.
 
    * Connect your headphones/other audio device to the audio port on your Raspberry Pi.
-   * Open a third terminal window and run the below command to start the playback usecase:
+   * Open a terminal and run the command **agm_server** (if not done already).
+   * Open another terminal window and run the below command to start the playback usecase:
 
        **agmplay /[path_to_audio_file]/<clip_name>.wav -D 100 -d 100 -i PCM_RT_PROXY-RX-2**
 
