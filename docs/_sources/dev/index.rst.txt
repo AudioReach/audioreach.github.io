@@ -9,3 +9,4 @@ AudioReach Developer Guides
    dev_workflow	      
    capi_mod_dev
    plat_port
+   available_modules
