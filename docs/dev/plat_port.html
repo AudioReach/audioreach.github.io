@@ -1,29 +1,26 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Platform Porting Guide &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Platform Reference Guide" href="../platform/index.html" />
+    <link rel="next" title="Available Audio Modules" href="available_modules.html" />
     <link rel="prev" title="CAPI Module Development Guide" href="capi_mod_dev.html" /> 
 </head>
 
@@ -63,6 +60,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="available_modules.html">Available Audio Modules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../platform/index.html">Platform Reference Guide</a></li>
@@ -94,17 +92,17 @@
            <div itemprop="articleBody">
              
   <section id="platform-porting-guide">
-<span id="plat-port-dev"></span><h1>Platform Porting Guide<a class="headerlink" href="#platform-porting-guide" title="Permalink to this heading"></a></h1>
+<span id="plat-port-dev"></span><h1>Platform Porting Guide<a class="headerlink" href="#platform-porting-guide" title="Link to this heading"></a></h1>
 <section id="porting-dependency-and-requirements">
-<h2>Porting Dependency and requirements<a class="headerlink" href="#porting-dependency-and-requirements" title="Permalink to this heading"></a></h2>
+<h2>Porting Dependency and requirements<a class="headerlink" href="#porting-dependency-and-requirements" title="Link to this heading"></a></h2>
 </section>
 <section id="porting-manual">
-<h2>Porting Manual<a class="headerlink" href="#porting-manual" title="Permalink to this heading"></a></h2>
+<h2>Porting Manual<a class="headerlink" href="#porting-manual" title="Link to this heading"></a></h2>
 <p>AudioReach is designed with cross-platform requirement in mind. In order to port AudioReach onto desired hardware and software platform,
 developer are expected to develop platform &amp; OS abstraction layers and hardware &amp; software endpoint modules. In addition, platform should
 provide execution environment for AudioReach components to run on.</p>
 <section id="platform-os-abstraction-layer">
-<h3>Platform &amp; OS Abstraction Layer<a class="headerlink" href="#platform-os-abstraction-layer" title="Permalink to this heading"></a></h3>
+<h3>Platform &amp; OS Abstraction Layer<a class="headerlink" href="#platform-os-abstraction-layer" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt>ARGS OSAL</dt><dd><div class="line-block">
@@ -143,11 +141,11 @@ See <a class="reference internal" href="../design/args_design.html#args-osal"><s
 </ul>
 </section>
 <section id="hardware-software-endpoint-modules">
-<h3>Hardware &amp; Software Endpoint Modules<a class="headerlink" href="#hardware-software-endpoint-modules" title="Permalink to this heading"></a></h3>
+<h3>Hardware &amp; Software Endpoint Modules<a class="headerlink" href="#hardware-software-endpoint-modules" title="Link to this heading"></a></h3>
 <p>Refer ALSA Endpoint module code <a class="reference external" href="https://github.com/Audioreach/audioreach-engine/tree/master/fwk/platform/modules/generic/endpoint/alsa_device">here</a>.</p>
 </section>
 <section id="provide-execution-environment">
-<h3>Provide Execution Environment<a class="headerlink" href="#provide-execution-environment" title="Permalink to this heading"></a></h3>
+<h3>Provide Execution Environment<a class="headerlink" href="#provide-execution-environment" title="Link to this heading"></a></h3>
 <p>Platform should provide execution environment for AudioReach components like:</p>
 <ul class="simple">
 <li><p>GSL ( <a class="reference external" href="https://github.com/Audioreach/audioreach-graphservices/blob/master/gsl/src/gsl_main.c">gsl_init()</a> )</p></li>
@@ -155,7 +153,7 @@ See <a class="reference internal" href="../design/args_design.html#args-osal"><s
 </ul>
 <p>For example, as part of AGM initialization ( <a class="reference external" href="https://github.com/Audioreach/audioreach-graphmgr/blob/master/service/src/agm.c">agm_init()</a> ), GSL and ARE framework can be initialized. Where GSL in turn initializes OS Abstraction layer (OSAL), Audio Calibration Database (ACDB) and other utilities (say for logging data), framework pre init includes initializing Audio Module Data Base (AMDB), Data Logging Service (DLS), Integrated Resource Monitor (IRM) and framework post init initializes Audio Processing Manager (APM) service.</p>
 <section id="sample-are-framework-init-execution-environment">
-<h4>Sample ARE Framework init execution environment<a class="headerlink" href="#sample-are-framework-init-execution-environment" title="Permalink to this heading"></a></h4>
+<h4>Sample ARE Framework init execution environment<a class="headerlink" href="#sample-are-framework-init-execution-environment" title="Link to this heading"></a></h4>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="c1">// Sample framework init implementation.</span>
 <span class="n">ar_result_t</span><span class="w"> </span><span class="nf">audio_framework_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -192,7 +190,7 @@ See <a class="reference internal" href="../design/args_design.html#args-osal"><s
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="capi_mod_dev.html" class="btn btn-neutral float-left" title="CAPI Module Development Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../platform/index.html" class="btn btn-neutral float-right" title="Platform Reference Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="available_modules.html" class="btn btn-neutral float-right" title="Available Audio Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
