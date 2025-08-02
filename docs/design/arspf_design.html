@@ -1,25 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AudioReach Engine &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -101,6 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="args_design.html">AudioReach Graph Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpr_design.html">Generic Packet Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lx_design.html">Linux Adaptation Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arc_design.html">AudioReach Creator Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">AudioReach APIs</a></li>
@@ -134,7 +132,7 @@
            <div itemprop="articleBody">
              
   <section id="audioreach-engine">
-<span id="arspf-design"></span><h1>AudioReach Engine<a class="headerlink" href="#audioreach-engine" title="Permalink to this heading"></a></h1>
+<span id="arspf-design"></span><h1>AudioReach Engine<a class="headerlink" href="#audioreach-engine" title="Link to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#introduction" id="id16">Introduction</a></p></li>
@@ -190,15 +188,15 @@
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>This page walks through the high-level software requirements and design
 details of the AudioReach Engine (ARE) used in the context of
 the AudioReach™ architecture. Refer to <a class="reference internal" href="#arspf-acronym"><span class="std std-ref">Acronyms and terms</span></a> for definition of acronyms used in this page</p>
 </section>
 <section id="overview">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <section id="high-level-architecture">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">High-level architecture</a><a class="headerlink" href="#high-level-architecture" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">High-level architecture</a><a class="headerlink" href="#high-level-architecture" title="Link to this heading"></a></h3>
 <p>ARE follows client-server model where a server provides various
 functionalities, like realizing audio use cases, per the client
 requirements.</p>
@@ -214,39 +212,42 @@ hardware architectures.</p></li>
 <p>Below figure illustrates the high-level software architecture used in
 typical audio embedded systems.</p>
 <figure class="fig-center align-default" id="id1">
-<a class="reference internal image-reference" href="../_images/Image1.png"><img alt="../_images/Image1.png" src="../_images/Image1.png" style="width: 4.89010in; height: 6.26002in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image1.png"><img alt="../_images/Image1.png" src="../_images/Image1.png" style="width: 4.89010in; height: 6.26002in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">High-level audio software architecture</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">High-level audio software architecture</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="possible-use-cases">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">Possible use cases</a><a class="headerlink" href="#possible-use-cases" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Possible use cases</a><a class="headerlink" href="#possible-use-cases" title="Link to this heading"></a></h3>
 <p>The ARE can be used in various audio and voice use cases. This section
 includes, but is not limited to, the following high-level examples.
 Detailed use cases are illustrated in <a class="reference external" href="#use-cases">Use cases</a> section.</p>
 <section id="audio-capture-and-recording">
-<h4>Audio capture and recording<a class="headerlink" href="#audio-capture-and-recording" title="Permalink to this heading"></a></h4>
+<h4>Audio capture and recording<a class="headerlink" href="#audio-capture-and-recording" title="Link to this heading"></a></h4>
 <p>Audio capture involves the encoding of PCM data coming from a mic or any
 real-time device (end-point).</p>
 <p>Audio formats used for encoding are: PCM, AAC, WMA std, AMRWB, and so
 on.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image2.png"><img alt="../_images/Image2.png" src="../_images/Image2.png" style="width: 4.72918in; height: 0.80250in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image2.png"><img alt="../_images/Image2.png" src="../_images/Image2.png" style="width: 4.72918in; height: 0.80250in;" />
+</a>
 </figure>
 </section>
 <section id="audio-renderer-and-playback">
-<h4>Audio renderer and playback<a class="headerlink" href="#audio-renderer-and-playback" title="Permalink to this heading"></a></h4>
+<h4>Audio renderer and playback<a class="headerlink" href="#audio-renderer-and-playback" title="Link to this heading"></a></h4>
 <p>Audio playback involves the decoding of given audio data, and playing
 the PCM on a speaker or any real-time device.</p>
 <p>Typical audio formats used for decoding are: PCM, MP3, AAC, FLAC, ALAC,
 AC3, EAC3, Vorbis, WMA std, WMA Pro, DTS, APE, and so on.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image3.png"><img alt="../_images/Image3.png" src="../_images/Image3.png" style="width: 4.75001in; height: 0.87500in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image3.png"><img alt="../_images/Image3.png" src="../_images/Image3.png" style="width: 4.75001in; height: 0.87500in;" />
+</a>
 </figure>
 </section>
 <section id="voice-over-ip-voip">
-<h4>Voice over IP (VoIP)<a class="headerlink" href="#voice-over-ip-voip" title="Permalink to this heading"></a></h4>
+<h4>Voice over IP (VoIP)<a class="headerlink" href="#voice-over-ip-voip" title="Link to this heading"></a></h4>
 <p>Voice over Internet Protocol (VoIP) involves both playback and record
 paths simultaneously, and it is used for voice communication.</p>
 <p>Encoder and decoders interact with the host processor application that
@@ -255,19 +256,21 @@ far-end user.</p>
 <p>Typical audio formats used for encoding and decoding are: PCM, AAC,
 A-law, µ-law, and so on.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image4.png"><img alt="../_images/Image4.png" src="../_images/Image4.png" style="width: 4.76084in; height: 2.10417in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image4.png"><img alt="../_images/Image4.png" src="../_images/Image4.png" style="width: 4.76084in; height: 2.10417in;" />
+</a>
 </figure>
 </section>
 <section id="audio-transcoding">
-<h4>Audio transcoding<a class="headerlink" href="#audio-transcoding" title="Permalink to this heading"></a></h4>
+<h4>Audio transcoding<a class="headerlink" href="#audio-transcoding" title="Link to this heading"></a></h4>
 <p>Audio transcoding involves converting one audio format to another. For
 example, from MP3 to AAC.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image6.png"><img alt="../_images/Image6.png" src="../_images/Image6.png" style="width: 5.44834in; height: 0.88584in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image6.png"><img alt="../_images/Image6.png" src="../_images/Image6.png" style="width: 5.44834in; height: 0.88584in;" />
+</a>
 </figure>
 </section>
 <section id="audio-loopback">
-<h4>Audio loopback<a class="headerlink" href="#audio-loopback" title="Permalink to this heading"></a></h4>
+<h4>Audio loopback<a class="headerlink" href="#audio-loopback" title="Link to this heading"></a></h4>
 <p>Audio loopback involves receiving the data from one audio source and
 rendering it on an audio sink after optional processing.</p>
 <p>An audio loopback is used in various scenarios like mixing the side tone
@@ -283,26 +286,28 @@ depacketized, decoded, and transmitted to a speaker for rendering.</p></li>
 conversion.</p></li>
 </ul>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image7.png"><img alt="../_images/Image7.png" src="../_images/Image7.png" style="width: 4.01084in; height: 0.63583in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image7.png"><img alt="../_images/Image7.png" src="../_images/Image7.png" style="width: 4.01084in; height: 0.63583in;" />
+</a>
 </figure>
 </section>
 <section id="audio-detection">
-<h4>Audio detection<a class="headerlink" href="#audio-detection" title="Permalink to this heading"></a></h4>
+<h4>Audio detection<a class="headerlink" href="#audio-detection" title="Link to this heading"></a></h4>
 <p>Audio detection involves receiving the data from an audio source,
 processing it to improve the signal quality, detecting the intended
 attribute or event, and informing the registered clients.</p>
 <p>Audio detection is used in various scenarios like DTMF detection,
 keyword detection, audio context detection, and so on.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image8.png"><img alt="../_images/Image8.png" src="../_images/Image8.png" style="width: 4.85418in; height: 0.81250in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image8.png"><img alt="../_images/Image8.png" src="../_images/Image8.png" style="width: 4.85418in; height: 0.81250in;" />
+</a>
 </figure>
 </section>
 </section>
 </section>
 <section id="framework-requirements">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">Framework requirements</a><a class="headerlink" href="#framework-requirements" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Framework requirements</a><a class="headerlink" href="#framework-requirements" title="Link to this heading"></a></h2>
 <section id="general">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">General</a><a class="headerlink" href="#general" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">General</a><a class="headerlink" href="#general" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Must be processor and platform agnostic.</p></li>
 <li><p>Must be use case agnostic and data driven.</p></li>
@@ -321,7 +326,7 @@ distributed audio processing.</p></li>
 </ul>
 </section>
 <section id="client-interfaces">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">Client interfaces</a><a class="headerlink" href="#client-interfaces" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Client interfaces</a><a class="headerlink" href="#client-interfaces" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Must support client-server communication in the same processor,
 across the processors, or across the processing domains.</p></li>
@@ -341,7 +346,7 @@ customizations.</p></li>
 </ul>
 </section>
 <section id="processing-chains-topologies-and-graphs">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">Processing chains, topologies, and graphs</a><a class="headerlink" href="#processing-chains-topologies-and-graphs" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Processing chains, topologies, and graphs</a><a class="headerlink" href="#processing-chains-topologies-and-graphs" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Must support linear processing graphs (where modules are connected
 sequentially one by one).</p></li>
@@ -370,7 +375,7 @@ last sample of the playback stream is rendered out of the audio sink.</p></li>
 </ul>
 </section>
 <section id="media-formats">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">Media formats</a><a class="headerlink" href="#media-formats" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Media formats</a><a class="headerlink" href="#media-formats" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Must support the fixed and floating point PCM data format.</p></li>
 <li><p>Must support various standard compressed data formats and the generic
@@ -382,7 +387,7 @@ modules in the use case.</p></li>
 </ul>
 </section>
 <section id="scheduling-methods">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">Scheduling methods</a><a class="headerlink" href="#scheduling-methods" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Scheduling methods</a><a class="headerlink" href="#scheduling-methods" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Should support different scheduling modes and different data delivery
 mechanisms (buffer availability, timer scheduled trigger, timed
@@ -392,7 +397,7 @@ policies to handle complex scenarios.</p></li>
 </ul>
 </section>
 <section id="resource-management">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">Resource management</a><a class="headerlink" href="#resource-management" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Resource management</a><a class="headerlink" href="#resource-management" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Must provide the methods to manage the processing resources (memory
 management, processor cycles, band width, thread priorities, and so
@@ -406,7 +411,7 @@ cases or capabilities.</p></li>
 </ul>
 </section>
 <section id="debugging">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">Debugging</a><a class="headerlink" href="#debugging" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Debugging</a><a class="headerlink" href="#debugging" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Must provide the methods to log the diagnostic messages.</p></li>
 <li><p>Must provide the option to log the audio data (PCM and compressed) at
@@ -417,22 +422,23 @@ debug complex timing issues, memory leaks, and so on.</p></li>
 </section>
 </section>
 <section id="are-components">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">ARE components</a><a class="headerlink" href="#are-components" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">ARE components</a><a class="headerlink" href="#are-components" title="Link to this heading"></a></h2>
 <section id="high-level-architecture-of-the-are">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">High-level architecture of the ARE</a><a class="headerlink" href="#high-level-architecture-of-the-are" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">High-level architecture of the ARE</a><a class="headerlink" href="#high-level-architecture-of-the-are" title="Link to this heading"></a></h3>
 <figure class="fig-center align-default" id="id2">
-<a class="reference internal image-reference" href="../_images/Image9.png"><img alt="../_images/Image9.png" src="../_images/Image9.png" style="width: 4.90451in; height: 6.65094in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image9.png"><img alt="../_images/Image9.png" src="../_images/Image9.png" style="width: 4.90451in; height: 6.65094in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">ARE high-level architecture</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">ARE high-level architecture</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="functional-blocks">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink">Functional blocks</a><a class="headerlink" href="#functional-blocks" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Functional blocks</a><a class="headerlink" href="#functional-blocks" title="Link to this heading"></a></h3>
 <p>This section provides a high-level overview of the functional blocks
 used in the ARE.</p>
 <section id="generic-packet-router-gpr">
-<h4>Generic Packet Router (GPR)<a class="headerlink" href="#generic-packet-router-gpr" title="Permalink to this heading"></a></h4>
+<h4>Generic Packet Router (GPR)<a class="headerlink" href="#generic-packet-router-gpr" title="Link to this heading"></a></h4>
 <p>The Generic Packet Router (GPR) provides the routing functionality for
 audio message packets (control, data, events, responses) across the ARE
 (server framework) and Graph Service Library (GSL; that is, the client
@@ -444,16 +450,18 @@ and destination addresses (domain and port), token (useful for
 asynchronous communication to match the command and response), and
 operation code (opcode).</p>
 <figure class="fig-center align-default" id="id3">
-<a class="reference internal image-reference" href="../_images/Image10.png"><img alt="../_images/Image10.png" src="../_images/Image10.png" style="width: 4.64584in; height: 3.39584in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image10.png"><img alt="../_images/Image10.png" src="../_images/Image10.png" style="width: 4.64584in; height: 3.39584in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">GPR header format</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">GPR header format</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="opcodes">
-<h5>Opcodes<a class="headerlink" href="#opcodes" title="Permalink to this heading"></a></h5>
+<h5>Opcodes<a class="headerlink" href="#opcodes" title="Link to this heading"></a></h5>
 <p>All opcodes are to follow the GUID format.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image11.png"><img alt="../_images/Image11.png" src="../_images/Image11.png" style="width: 4.01084in; height: 0.83334in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image11.png"><img alt="../_images/Image11.png" src="../_images/Image11.png" style="width: 4.01084in; height: 0.83334in;" />
+</a>
 </figure>
 <ul class="simple">
 <li><p><strong>Owner</strong> – Indicates the owner of the GUID, that is, whether the
@@ -467,18 +475,19 @@ acknowledgment.</p></li>
 </ul>
 </section>
 <section id="messaging-between-are-and-gsl">
-<h5>Messaging between ARE and GSL<a class="headerlink" href="#messaging-between-are-and-gsl" title="Permalink to this heading"></a></h5>
+<h5>Messaging between ARE and GSL<a class="headerlink" href="#messaging-between-are-and-gsl" title="Link to this heading"></a></h5>
 <p>The ARE supports two types of messaging approaches for optimal system
 performance: in-band and out-of-band messages.</p>
 <figure class="fig-center align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/Image12.png"><img alt="../_images/Image12.png" src="../_images/Image12.png" style="width: 5.74001in; height: 4.63584in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image12.png"><img alt="../_images/Image12.png" src="../_images/Image12.png" style="width: 5.74001in; height: 4.63584in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">In-band and out-of-band messaging methods</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">In-band and out-of-band messaging methods</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="in-band-messages">
-<h5>In-band messages<a class="headerlink" href="#in-band-messages" title="Permalink to this heading"></a></h5>
+<h5>In-band messages<a class="headerlink" href="#in-band-messages" title="Link to this heading"></a></h5>
 <ul class="simple">
 <li><p>Contain the actual payload/message as part of the GPR payload.</p></li>
 <li><p>The GPR forwards the full packet (that is, GPR header + actual
@@ -492,7 +501,7 @@ events, and so on.</p></li>
 </ul>
 </section>
 <section id="out-of-band-messages">
-<h5>Out of band messages<a class="headerlink" href="#out-of-band-messages" title="Permalink to this heading"></a></h5>
+<h5>Out of band messages<a class="headerlink" href="#out-of-band-messages" title="Link to this heading"></a></h5>
 <ul class="simple">
 <li><p>Use separate shared memory to keep the actual payload/message.</p></li>
 <li><p>The GPR forwards the packet with the address of the actual payload
@@ -506,7 +515,7 @@ data buffers, and so on.</p></li>
 </section>
 </section>
 <section id="modules">
-<h4>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h4>
+<h4>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h4>
 <p>A module is an addressable <em>functionality</em> in the ARE.</p>
 <ul class="simple">
 <li><p>A <em>module ID</em> is used to identify the functionality, and it is useful
@@ -521,7 +530,7 @@ clients.</p></li>
 <p>Two types of modules are used in the ARE: control modules and data
 processing modules.</p>
 <section id="control-modules">
-<h5>Control modules<a class="headerlink" href="#control-modules" title="Permalink to this heading"></a></h5>
+<h5>Control modules<a class="headerlink" href="#control-modules" title="Link to this heading"></a></h5>
 <p>Control modules provide the public interfaces to the clients (like GSL,
 Codec Driver, and so on) to control the ARE resources and
 functionalities (each module acts like service that provides specific
@@ -531,7 +540,7 @@ are a few examples of the control modules.
 These modules are not represented in use case graphs.</p>
 </section>
 <section id="data-processing-modules">
-<h5>Data processing modules<a class="headerlink" href="#data-processing-modules" title="Permalink to this heading"></a></h5>
+<h5>Data processing modules<a class="headerlink" href="#data-processing-modules" title="Link to this heading"></a></h5>
 <p>Data processing modules can be static or dynamic, and they are typically
 wrapped with the Common Audio Processing Interface (CAPI). The CAPI
 interface acts as the bridge between the framework and core module
@@ -548,19 +557,20 @@ postprocessing modules, hardware or software end-points, DTMF generator
 </section>
 </section>
 <section id="links-and-connections">
-<h4>Links and connections<a class="headerlink" href="#links-and-connections" title="Permalink to this heading"></a></h4>
+<h4>Links and connections<a class="headerlink" href="#links-and-connections" title="Link to this heading"></a></h4>
 <p>Links and connections are used to connect the data processing modules to
 create the use case graphs or chains. Originating and terminating points
 of the link are represented by port.</p>
 <p>Two types of links are used in the ARE: control links and data links.</p>
 <figure class="fig-center align-default" id="id5">
-<a class="reference internal image-reference" href="../_images/Image13.png"><img alt="../_images/Image13.png" src="../_images/Image13.png" style="width: 5.76085in; height: 2.22917in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image13.png"><img alt="../_images/Image13.png" src="../_images/Image13.png" style="width: 5.76085in; height: 2.22917in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">CAPI-wrapped modules with control or data links</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">CAPI-wrapped modules with control or data links</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="control-links">
-<h5>Control links<a class="headerlink" href="#control-links" title="Permalink to this heading"></a></h5>
+<h5>Control links<a class="headerlink" href="#control-links" title="Link to this heading"></a></h5>
 <p>Control links are bi-directional, point-to-point, and dynamic (variable
 in number) or static (fixed in number with a specific label on the
 control port).</p>
@@ -571,7 +581,7 @@ involvement. They are used for exchanging control messages or intents
 modules.</p>
 </section>
 <section id="data-links">
-<h5>Data links<a class="headerlink" href="#data-links" title="Permalink to this heading"></a></h5>
+<h5>Data links<a class="headerlink" href="#data-links" title="Link to this heading"></a></h5>
 <p>Data links are unidirectional, point-to-point, dynamic (variable in
 number, for example, input to the accumulator module can be variable),
 or static (fixed in number with a specific label on the data port, for
@@ -584,7 +594,7 @@ output side for sink modules.</p>
 </section>
 </section>
 <section id="graph-and-subgraph">
-<h4>Graph and subgraph<a class="headerlink" href="#graph-and-subgraph" title="Permalink to this heading"></a></h4>
+<h4>Graph and subgraph<a class="headerlink" href="#graph-and-subgraph" title="Link to this heading"></a></h4>
 <p>A <em>graph</em> is the interconnection of a list of data path modules (with
 input and output ports) to achieve an end-to-end use case.</p>
 <p>A <em>subgraph</em> is like a graph and is used to represent a section (to
@@ -602,14 +612,15 @@ so on.</p></li>
 <p>The ARE supports directed acyclic graphs (no feedback path) only.</p>
 </section>
 <section id="containers">
-<h4>Containers<a class="headerlink" href="#containers" title="Permalink to this heading"></a></h4>
+<h4>Containers<a class="headerlink" href="#containers" title="Link to this heading"></a></h4>
 <p>A <em>container</em> is a framework implementation that helps in executing a
 group of data processing modules in the same software thread. Following figure
 illustrates this concept.</p>
 <figure class="fig-center align-default" id="id6">
-<a class="reference internal image-reference" href="../_images/Image14.png"><img alt="../_images/Image14.png" src="../_images/Image14.png" style="width: 9.00000in; height: 5.47222in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image14.png"><img alt="../_images/Image14.png" src="../_images/Image14.png" style="width: 9.00000in; height: 5.47222in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Containers</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Containers</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -628,7 +639,7 @@ to distribute the processing modules in different software threads.</p></li>
 use case modules and product needs, there are three container types:</p>
 </section>
 <section id="generic-container">
-<h4><strong>Generic container</strong><a class="headerlink" href="#generic-container" title="Permalink to this heading"></a></h4>
+<h4><strong>Generic container</strong><a class="headerlink" href="#generic-container" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Supports hardware end-point/signal triggered modules, shared memory
 end‑points, encoders, decoders, packetizers, depacketizer,
@@ -672,7 +683,7 @@ then the container frame size is 5 ms</p></li>
 </ul>
 </section>
 <section id="specialized-container">
-<h4><strong>Specialized container</strong><a class="headerlink" href="#specialized-container" title="Permalink to this heading"></a></h4>
+<h4><strong>Specialized container</strong><a class="headerlink" href="#specialized-container" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Mainly designed for PP modules, including complex modules like rate
 matching and multi-port modules such as EC, which need syncing
@@ -724,7 +735,7 @@ used and for audio playback stream-pp, 10 ms is the threshold.</p></li>
 </ul>
 </section>
 <section id="off-load-container">
-<h4><strong>Off-load container</strong><a class="headerlink" href="#off-load-container" title="Permalink to this heading"></a></h4>
+<h4><strong>Off-load container</strong><a class="headerlink" href="#off-load-container" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Supports reduction of the processing load on the local process domain
 by helping to off-load an intended module or a group of data
@@ -771,9 +782,10 @@ useful for updating the scheduling policies at run-time.</p></li>
 <p>Below figure provides an example dataflow and scheduling policies involved
 in a simple use case with containers.</p>
 <figure class="fig-center align-default" id="id7">
-<a class="reference internal image-reference" href="../_images/Image15.png"><img alt="../_images/Image15.png" src="../_images/Image15.png" style="width: 9.00000in; height: 3.79167in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image15.png"><img alt="../_images/Image15.png" src="../_images/Image15.png" style="width: 9.00000in; height: 3.79167in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Example dataflow across containers</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Example dataflow across containers</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>When the use case is started with the default trigger policy:</p>
@@ -797,7 +809,7 @@ modules might want to be called whenever input or output buffer is
 available (such as the buffering type of modules).</p>
 </section>
 <section id="audio-processing-manager-apm">
-<h4>Audio Processing Manager (APM)<a class="headerlink" href="#audio-processing-manager-apm" title="Permalink to this heading"></a></h4>
+<h4>Audio Processing Manager (APM)<a class="headerlink" href="#audio-processing-manager-apm" title="Link to this heading"></a></h4>
 <p>The Audio Processing Manager (APM) is responsible for setting up and
 managing the use case graphs in the ARE.</p>
 <p>As illustrated in Figure: <a class="reference internal" href="#audio-processing-module-image"><span class="std std-ref">Audio Processing Manager</span></a>, the APM provides generic public interfaces
@@ -816,28 +828,30 @@ and modules from the graph.</p></li>
 CLOSE_ALL command.</p></li>
 </ul>
 <figure class="fig-center align-default" id="id8">
-<span id="audio-processing-module-image"></span><a class="reference internal image-reference" href="../_images/Image16.png"><img alt="../_images/Image16.png" src="../_images/Image16.png" style="width: 6.01085in; height: 7.76085in;" /></a>
+<span id="audio-processing-module-image"></span><a class="reference internal image-reference" href="../_images/Image16.png"><img alt="../_images/Image16.png" src="../_images/Image16.png" style="width: 6.01085in; height: 7.76085in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Audio Processing Manager</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Audio Processing Manager</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The APM also handles the commands for controlling a subgraph’s state
 machine:</p>
 <figure class="fig-center align-default" id="id9">
-<a class="reference internal image-reference" href="../_images/Image17.png"><img alt="../_images/Image17.png" src="../_images/Image17.png" style="width: 5.97918in; height: 4.63584in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image17.png"><img alt="../_images/Image17.png" src="../_images/Image17.png" style="width: 5.97918in; height: 4.63584in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">APM state machine</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">APM state machine</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="closed">
-<h4><strong>CLOSED</strong><a class="headerlink" href="#closed" title="Permalink to this heading"></a></h4>
+<h4><strong>CLOSED</strong><a class="headerlink" href="#closed" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The logical/non-existent graph state before OPEN and after CLOSE.</p></li>
 </ul>
 </section>
 <section id="stopped">
-<h4><strong>STOPPED</strong><a class="headerlink" href="#stopped" title="Permalink to this heading"></a></h4>
+<h4><strong>STOPPED</strong><a class="headerlink" href="#stopped" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The state after the graph is opened or transitioned from STARTED as
 part of STOP.</p></li>
@@ -848,7 +862,7 @@ de-voted.</p></li>
 </ul>
 </section>
 <section id="prepared">
-<h4><strong>PREPARED</strong><a class="headerlink" href="#prepared" title="Permalink to this heading"></a></h4>
+<h4><strong>PREPARED</strong><a class="headerlink" href="#prepared" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>The media format is propagated through a module topology, if
 available.</p></li>
@@ -856,7 +870,7 @@ available.</p></li>
 </ul>
 </section>
 <section id="started">
-<h4><strong>STARTED</strong><a class="headerlink" href="#started" title="Permalink to this heading"></a></h4>
+<h4><strong>STARTED</strong><a class="headerlink" href="#started" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Platform-specific resources (MIPS, bus bandwidth, and so on) are
 voted.</p></li>
@@ -866,7 +880,7 @@ are enabled.</p></li>
 </ul>
 </section>
 <section id="suspended">
-<h4><strong>SUSPENDED</strong><a class="headerlink" href="#suspended" title="Permalink to this heading"></a></h4>
+<h4><strong>SUSPENDED</strong><a class="headerlink" href="#suspended" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Platform-specific resources (MIPS, bus bandwidth, and so on)
 de-voted.</p></li>
@@ -890,13 +904,14 @@ with respect to data flow direction from the data source to the sink,
 graph search, and traversal routines.</p>
 </section>
 <section id="audio-module-data-base-amdb">
-<h4>Audio Module Data Base (AMDB)<a class="headerlink" href="#audio-module-data-base-amdb" title="Permalink to this heading"></a></h4>
+<h4>Audio Module Data Base (AMDB)<a class="headerlink" href="#audio-module-data-base-amdb" title="Link to this heading"></a></h4>
 <p>The Audio Module database (AMDB) provides the database of CAPI-wrapped
 modules (both static and dynamic modules) in the ARE.</p>
 <figure class="fig-center align-default" id="id10">
-<span id="audio-module-data-base"></span><a class="reference internal image-reference" href="../_images/Image19.png"><img alt="../_images/Image19.png" src="../_images/Image19.png" style="width: 4.27084in; height: 3.52084in;" /></a>
+<span id="audio-module-data-base"></span><a class="reference internal image-reference" href="../_images/Image19.png"><img alt="../_images/Image19.png" src="../_images/Image19.png" style="width: 4.27084in; height: 3.52084in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Audio Module Data Base</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Audio Module Data Base</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The AMDB is responsible for the following operations.</p>
@@ -915,7 +930,7 @@ it is being used by active use cases.</p></li>
 <p>As shown in Figure: <a class="reference internal" href="#audio-module-data-base"><span class="std std-ref">Audio Module Data Base</span></a></p>
 </section>
 <section id="built-in-modules">
-<h4><strong>Built-in modules</strong><a class="headerlink" href="#built-in-modules" title="Permalink to this heading"></a></h4>
+<h4><strong>Built-in modules</strong><a class="headerlink" href="#built-in-modules" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Modules that are built with the ARE, both static and dynamic objects.</p></li>
 <li><p>The AMDB uses the module database (module ID, entry point functions
@@ -924,7 +939,7 @@ no separate registration or deregistration is required.</p></li>
 </ul>
 </section>
 <section id="custom-modules">
-<h4><strong>Custom modules</strong><a class="headerlink" href="#custom-modules" title="Permalink to this heading"></a></h4>
+<h4><strong>Custom modules</strong><a class="headerlink" href="#custom-modules" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Modules that are built as standalone dynamic objects instead of building with ARE</p></li>
 <li><p>These modules and dynamic objects must be registered with the
@@ -933,33 +948,34 @@ registers them with the AMDB in the ARE.</p></li>
 </ul>
 </section>
 <section id="static-modules">
-<h4><strong>Static Modules</strong><a class="headerlink" href="#static-modules" title="Permalink to this heading"></a></h4>
+<h4><strong>Static Modules</strong><a class="headerlink" href="#static-modules" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Static modules are loaded at boot time along with the ARE.</p></li>
 </ul>
 </section>
 <section id="dynamic-modules">
-<h4><strong>Dynamic Modules</strong><a class="headerlink" href="#dynamic-modules" title="Permalink to this heading"></a></h4>
+<h4><strong>Dynamic Modules</strong><a class="headerlink" href="#dynamic-modules" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p>Depending on the memory and latency tradeoffs, dynamic modules can be
 loaded at boot time or at a use case boundary.</p></li>
 </ul>
 </section>
 <section id="integrated-resource-monitor-irm">
-<h4>Integrated Resource Monitor (IRM)<a class="headerlink" href="#integrated-resource-monitor-irm" title="Permalink to this heading"></a></h4>
+<h4>Integrated Resource Monitor (IRM)<a class="headerlink" href="#integrated-resource-monitor-irm" title="Link to this heading"></a></h4>
 <p>The Integrated Resource Monitor (IRM) provides the profiling metrics for
 different resources in the underlying platform.</p>
 <p>The ARC platform displays resource metrics (MIPs, bandwidth, heap
 usage, and so on) for system designers.</p>
 <figure class="fig-center align-default" id="id11">
-<a class="reference internal image-reference" href="../_images/Image21.png"><img alt="../_images/Image21.png" src="../_images/Image21.png" style="width: 5.02085in; height: 3.65084in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image21.png"><img alt="../_images/Image21.png" src="../_images/Image21.png" style="width: 5.02085in; height: 3.65084in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Integrated Resource Monitor</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Integrated Resource Monitor</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="platform-and-os-abstraction-layer">
-<h4>Platform and OS Abstraction Layer<a class="headerlink" href="#platform-and-os-abstraction-layer" title="Permalink to this heading"></a></h4>
+<h4>Platform and OS Abstraction Layer<a class="headerlink" href="#platform-and-os-abstraction-layer" title="Link to this heading"></a></h4>
 <p>The platform and operating system abstraction layer (POSAL) provides the
 necessary abstraction to the framework and makes it processor (hardware)
 or platform (software) agnostic.</p>
@@ -986,20 +1002,21 @@ mapping and so on)</p></li>
 </section>
 </section>
 <section id="calibration-and-configuration">
-<span id="spf-cal-config-mode"></span><h3><a class="toc-backref" href="#id31" role="doc-backlink">Calibration and configuration</a><a class="headerlink" href="#calibration-and-configuration" title="Permalink to this heading"></a></h3>
+<span id="spf-cal-config-mode"></span><h3><a class="toc-backref" href="#id31" role="doc-backlink">Calibration and configuration</a><a class="headerlink" href="#calibration-and-configuration" title="Link to this heading"></a></h3>
 <p>Calibration and configuration comprise the control information provided
 to the module at setup and runtime to control the module’s
 functionality.</p>
 <figure class="fig-center align-default" id="id12">
-<a class="reference internal image-reference" href="../_images/Image22.png"><img alt="../_images/Image22.png" src="../_images/Image22.png" style="width: 6.01085in; height: 2.70584in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image22.png"><img alt="../_images/Image22.png" src="../_images/Image22.png" style="width: 6.01085in; height: 2.70584in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Calibration modes</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Calibration modes</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Following are the three types of calibration interfaces exposed by the
 AudioReach Engine.</p>
 <section id="regular-and-non-shared-calibration">
-<h4>Regular and non-shared calibration<a class="headerlink" href="#regular-and-non-shared-calibration" title="Permalink to this heading"></a></h4>
+<h4>Regular and non-shared calibration<a class="headerlink" href="#regular-and-non-shared-calibration" title="Link to this heading"></a></h4>
 <p>Steps:</p>
 <ol class="arabic simple">
 <li><p>The client provides the calibration memory to the module.</p></li>
@@ -1014,7 +1031,7 @@ AudioReach Engine.</p>
 <p>The ARE supports both in-band and out-of-band calibration methods.</p>
 </section>
 <section id="persistent-and-shared-calibration">
-<h4>Persistent and shared calibration<a class="headerlink" href="#persistent-and-shared-calibration" title="Permalink to this heading"></a></h4>
+<h4>Persistent and shared calibration<a class="headerlink" href="#persistent-and-shared-calibration" title="Link to this heading"></a></h4>
 <p>Steps:</p>
 <ol class="arabic simple">
 <li><p>The client provides the calibration memory to the module through an
@@ -1034,7 +1051,7 @@ and configuration blocks (like machine learning models).</p>
 <p>Only out-of-band calibration is supported.</p>
 </section>
 <section id="shared-persistent-or-global-shared-calibration">
-<h4>Shared-persistent or global-shared calibration<a class="headerlink" href="#shared-persistent-or-global-shared-calibration" title="Permalink to this heading"></a></h4>
+<h4>Shared-persistent or global-shared calibration<a class="headerlink" href="#shared-persistent-or-global-shared-calibration" title="Link to this heading"></a></h4>
 <p>This approach is like persistent calibration. However, in this case, the
 same data is shared to multiple modules, which can help to save more
 memory.</p>
@@ -1046,13 +1063,13 @@ module instances (such as resampler coefficients).</p>
 </section>
 </section>
 <section id="multi-instance-and-multi-core">
-<h3><a class="toc-backref" href="#id32" role="doc-backlink">Multi-instance and multi-core</a><a class="headerlink" href="#multi-instance-and-multi-core" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Multi-instance and multi-core</a><a class="headerlink" href="#multi-instance-and-multi-core" title="Link to this heading"></a></h3>
 <p>The ARE enables multi-core and multi-instance system configurations with
 the help of Master and Satellite architecture. These capabilities help
 in distributing audio processing loads across the processors to achieve
 functional and performance goals.</p>
 <section id="multi-instance-configuration">
-<h4>Multi-Instance configuration<a class="headerlink" href="#multi-instance-configuration" title="Permalink to this heading"></a></h4>
+<h4>Multi-Instance configuration<a class="headerlink" href="#multi-instance-configuration" title="Link to this heading"></a></h4>
 <p>Use multi-instance configuration for running disjointed and complete use
 cases in different process domains.</p>
 <p>To route a specific use case to a specific process domain, the use case
@@ -1066,14 +1083,15 @@ different power profiles:</p>
 <li><p>Another high-power use case is routed to another processor</p></li>
 </ul>
 <figure class="fig-center align-default" id="id13">
-<a class="reference internal image-reference" href="../_images/Image23.png"><img alt="../_images/Image23.png" src="../_images/Image23.png" style="width: 5.76085in; height: 4.51084in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image23.png"><img alt="../_images/Image23.png" src="../_images/Image23.png" style="width: 5.76085in; height: 4.51084in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">ARE in multi-core and multi-instance configuration</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">ARE in multi-core and multi-instance configuration</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="multi-core-configuration">
-<h4>Multi-core configuration<a class="headerlink" href="#multi-core-configuration" title="Permalink to this heading"></a></h4>
+<h4>Multi-core configuration<a class="headerlink" href="#multi-core-configuration" title="Link to this heading"></a></h4>
 <p>Use multi-core configuration to distribute a given use case across
 multiple process domains. Like a star topology, each off-load graph
 originates and terminates with the master ARE.</p>
@@ -1093,9 +1111,10 @@ increase. Hence the control of selecting the use cases and modules
 given to the use case designer (with the help of ARC).</p></li>
 </ul>
 <figure class="fig-center align-default" id="id14">
-<span id="playback-with-offload-module-use-case-designer-view"></span><a class="reference internal image-reference" href="../_images/Image24.png"><img alt="../_images/Image24.png" src="../_images/Image24.png" style="width: 5.76085in; height: 2.91084in;" /></a>
+<span id="playback-with-offload-module-use-case-designer-view"></span><a class="reference internal image-reference" href="../_images/Image24.png"><img alt="../_images/Image24.png" src="../_images/Image24.png" style="width: 5.76085in; height: 2.91084in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Playback with off-load modules – Use case designer’s view</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Playback with off-load modules – Use case designer’s view</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Both ARE-Master and ARE-Satellite support most of the capabilities
@@ -1117,9 +1136,10 @@ containers to enable the parallel processing.</p></li>
 </li>
 </ul>
 <figure class="fig-center align-default" id="id15">
-<span id="playback-with-offload-modules-implementation-view"></span><a class="reference internal image-reference" href="../_images/Image25.png"><img alt="../_images/Image25.png" src="../_images/Image25.png" style="width: 5.76085in; height: 2.91084in;" /></a>
+<span id="playback-with-offload-modules-implementation-view"></span><a class="reference internal image-reference" href="../_images/Image25.png"><img alt="../_images/Image25.png" src="../_images/Image25.png" style="width: 5.76085in; height: 2.91084in;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Playback with off-load modules – ARE implementation view</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Playback with off-load modules – ARE implementation view</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The off-load container is inter-operable with other reference
@@ -1130,9 +1150,9 @@ off-loading modules.</p>
 </section>
 </section>
 <section id="customizations">
-<h2><a class="toc-backref" href="#id33" role="doc-backlink">Customizations</a><a class="headerlink" href="#customizations" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">Customizations</a><a class="headerlink" href="#customizations" title="Link to this heading"></a></h2>
 <section id="custom-module">
-<h3><a class="toc-backref" href="#id34" role="doc-backlink">Custom module</a><a class="headerlink" href="#custom-module" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Custom module</a><a class="headerlink" href="#custom-module" title="Link to this heading"></a></h3>
 <p>The custom module development workflow involves the following high-level steps:</p>
 <ol class="arabic simple">
 <li><p>Start custom algorithm using standard industrial tool such as Matlab and optimize the algorithm
@@ -1159,7 +1179,7 @@ file and provides them to the ARE to realize the use case.</p></li>
 </ol>
 </section>
 <section id="custom-container">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink">Custom container</a><a class="headerlink" href="#custom-container" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Custom container</a><a class="headerlink" href="#custom-container" title="Link to this heading"></a></h3>
 <p>The custom container development workflow involves the following steps:</p>
 <ol class="arabic simple">
 <li><p>The custom container must use the internal messaging APIs defined
@@ -1180,11 +1200,11 @@ container and supported modules for creating use case graphs.</p></li>
 </section>
 </section>
 <section id="use-cases">
-<h2><a class="toc-backref" href="#id36" role="doc-backlink">Use cases</a><a class="headerlink" href="#use-cases" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Use cases</a><a class="headerlink" href="#use-cases" title="Link to this heading"></a></h2>
 <p>This section lists some common use cases that are realized using
 AudioReach. <strong>NOTE:</strong> This is not an exhaustive list.</p>
 <section id="playback">
-<h3><a class="toc-backref" href="#id37" role="doc-backlink">Playback</a><a class="headerlink" href="#playback" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">Playback</a><a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
 <p>The playback use case is the most common audio use case and it involves
 decoding, postprocessing, and rendering. AudioReach software is
 data-driven and doesn’t assume anything about the graph shape or its
@@ -1223,40 +1243,44 @@ limiter, the inputs are synchronized using a sync module. In the global
 device SG, further mixing is possible (with low latency audio) and
 ultimately, the data is rendered through the codec DMA sink module.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image27.png"><img alt="../_images/Image27.png" src="../_images/Image27.png" style="width: 5.76085in; height: 2.81084in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image27.png"><img alt="../_images/Image27.png" src="../_images/Image27.png" style="width: 5.76085in; height: 2.81084in;" />
+</a>
 </figure>
 </section>
 <section id="capture">
-<h3><a class="toc-backref" href="#id38" role="doc-backlink">Capture</a><a class="headerlink" href="#capture" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">Capture</a><a class="headerlink" href="#capture" title="Link to this heading"></a></h3>
 <p>The following capture path contains 3 subgraphs and 4 containers. The
 data from the hardware received through the codec DMA source is passed
 through several stages of processing and is ultimately read by HLOS
 through a read shared memory end-point.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image28.png"><img alt="../_images/Image28.png" src="../_images/Image28.png" style="width: 5.76085in; height: 3.21084in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image28.png"><img alt="../_images/Image28.png" src="../_images/Image28.png" style="width: 5.76085in; height: 3.21084in;" />
+</a>
 </figure>
 </section>
 <section id="use-cases-with-source-and-sink-modules">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">Use cases with source and sink modules</a><a class="headerlink" href="#use-cases-with-source-and-sink-modules" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Use cases with source and sink modules</a><a class="headerlink" href="#use-cases-with-source-and-sink-modules" title="Link to this heading"></a></h3>
 <p>The following example graphs contain source (DTMF generator) and sink
 (DTMF detector) modules.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image29.png"><img alt="../_images/Image29.png" src="../_images/Image29.png" style="width: 5.76085in; height: 1.51084in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image29.png"><img alt="../_images/Image29.png" src="../_images/Image29.png" style="width: 5.76085in; height: 1.51084in;" />
+</a>
 </figure>
 </section>
 <section id="hands-free-profile-hfp">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">Hands free profile (HFP)</a><a class="headerlink" href="#hands-free-profile-hfp" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">Hands free profile (HFP)</a><a class="headerlink" href="#hands-free-profile-hfp" title="Link to this heading"></a></h3>
 <p>The following HFP graph contains 2 loopbacks between hardware source to
 hardware sink. There’s also a feedback path for EC. The top graph is the
 mic path on the local device being sent to Bluetooth (connected through
 I2S). The botton graph is the speaker path where BT data coming from I2S
 is rendered on the codec DMA sink.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image30.png"><img alt="../_images/Image30.png" src="../_images/Image30.png" style="width: 6.46085in; height: 3.21084in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image30.png"><img alt="../_images/Image30.png" src="../_images/Image30.png" style="width: 6.46085in; height: 3.21084in;" />
+</a>
 </figure>
 </section>
 <section id="voice-activation">
-<h3><a class="toc-backref" href="#id41" role="doc-backlink">Voice activation</a><a class="headerlink" href="#voice-activation" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Voice activation</a><a class="headerlink" href="#voice-activation" title="Link to this heading"></a></h3>
 <p>The voice activation use case involves receiving mic data and running it
 through a voice activation module after preprocessing for noise. The
 history buffer stores large amounts of pre-roll data (&gt; 1 sec). This
@@ -1265,12 +1289,13 @@ keyword is detected by the voice activation engine. The 2 modules
 communicate through the control link. This graph consists of real-time
 as well as non-real-time processing.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image31.png"><img alt="../_images/Image31.png" src="../_images/Image31.png" style="width: 6.46085in; height: 1.41084in;" /></a>
+<a class="reference internal image-reference" href="../_images/Image31.png"><img alt="../_images/Image31.png" src="../_images/Image31.png" style="width: 6.46085in; height: 1.41084in;" />
+</a>
 </figure>
 </section>
 </section>
 <section id="graph-designer-faq">
-<h2><a class="toc-backref" href="#id42" role="doc-backlink">Graph designer FAQ</a><a class="headerlink" href="#graph-designer-faq" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Graph designer FAQ</a><a class="headerlink" href="#graph-designer-faq" title="Link to this heading"></a></h2>
 <p>Use case graphs must satisfy both functional and performance
 requirements simultaneously. Graph designers typically focus on
 functionality and don’t realize the importance of proper graph shapes on
@@ -1278,14 +1303,14 @@ performance. An improper graph can consume extra cycle overheads or
 consume additional memory. This chapter describes aspects related to
 graph drawing. More information is available in <a class="reference internal" href="../dev/capi_mod_dev.html#capi-mod-dev-guide"><span class="std std-ref">CAPI Module Development Guide</span></a>.</p>
 <section id="how-many-subgraphs-to-draw">
-<h3><a class="toc-backref" href="#id43" role="doc-backlink">How many subgraphs to draw?</a><a class="headerlink" href="#how-many-subgraphs-to-draw" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">How many subgraphs to draw?</a><a class="headerlink" href="#how-many-subgraphs-to-draw" title="Link to this heading"></a></h3>
 <p>A graph for a given use case consists of one or more subgraphs. Signal
 Processing Framework (ARE) is agnostic to subgraphs. Subgraphs are drawn
 based on how a client wants to control the graphs, e.g., a device-switch
 use case demands stream vs. device subgraphs.</p>
 </section>
 <section id="how-many-containers-should-i-use">
-<h3><a class="toc-backref" href="#id44" role="doc-backlink">How many containers should I use?</a><a class="headerlink" href="#how-many-containers-should-i-use" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">How many containers should I use?</a><a class="headerlink" href="#how-many-containers-should-i-use" title="Link to this heading"></a></h3>
 <p>Containers like GC and SC are data processing threads (a custom
 container may have multiple data processing threads, but this guidance
 only considers GC and SC). Data processing threads typically run
@@ -1325,7 +1350,7 @@ boundaries within a container. This graph {[A-&gt;B]-&gt;[C-&gt;D]}, also doesn�
 have a subgraph boundary within a container.</p>
 </section>
 <section id="should-i-use-sc-or-gc">
-<h3><a class="toc-backref" href="#id45" role="doc-backlink">Should I use SC or GC?</a><a class="headerlink" href="#should-i-use-sc-or-gc" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">Should I use SC or GC?</a><a class="headerlink" href="#should-i-use-sc-or-gc" title="Link to this heading"></a></h3>
 <p>Some modules are supported only in GC and some may be only available in
 SC. The h2xml of the module specifies the supported container type.</p>
 <p>The generic container can satisfy most requirements, except:</p>
@@ -1342,7 +1367,7 @@ be exercised mainly when those modules have to work alongside other
 modules which are supported only in GC.</p>
 </section>
 <section id="how-can-i-improve-efficiency">
-<h3><a class="toc-backref" href="#id46" role="doc-backlink">How can I improve efficiency?</a><a class="headerlink" href="#how-can-i-improve-efficiency" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">How can I improve efficiency?</a><a class="headerlink" href="#how-can-i-improve-efficiency" title="Link to this heading"></a></h3>
 <p>Memory, MIPS (overheads), and latency are some KPIs that cannot be
 improved unless efficient graphs are used. Some general guidelines are:</p>
 <ul class="simple">
@@ -1371,7 +1396,7 @@ use case, or module level)</p></li>
 </section>
 </section>
 <section id="acronyms-and-terms">
-<span id="arspf-acronym"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink">Acronyms and terms</a><a class="headerlink" href="#acronyms-and-terms" title="Permalink to this heading"></a></h2>
+<span id="arspf-acronym"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink">Acronyms and terms</a><a class="headerlink" href="#acronyms-and-terms" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Acronym or term</p></th>

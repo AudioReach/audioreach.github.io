@@ -1,25 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AudioReach Concept and Terminology &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -80,6 +77,7 @@
 <li class="toctree-l2"><a class="reference internal" href="args_design.html">AudioReach Graph Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpr_design.html">Generic Packet Router</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lx_design.html">Linux Adaptation Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arc_design.html">AudioReach Creator Design</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">AudioReach APIs</a></li>
@@ -113,7 +111,7 @@
            <div itemprop="articleBody">
              
   <section id="audioreach-concept-and-terminology">
-<h1>AudioReach Concept and Terminology<a class="headerlink" href="#audioreach-concept-and-terminology" title="Permalink to this heading"></a></h1>
+<h1>AudioReach Concept and Terminology<a class="headerlink" href="#audioreach-concept-and-terminology" title="Link to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#introduction" id="id9">Introduction</a></p></li>
@@ -146,7 +144,7 @@
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>Design and implementation of AudioReach software revolves around following core concepts and associated terminology. Before developing audio applications using AudioReach, it is important for developers to comprehend these concepts.</p>
 <blockquote>
 <div><ul class="simple">
@@ -159,20 +157,21 @@
 </div></blockquote>
 </section>
 <section id="audio-graph">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Audio Graph</a><a class="headerlink" href="#audio-graph" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Audio Graph</a><a class="headerlink" href="#audio-graph" title="Link to this heading"></a></h2>
 <section id="concept">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Concept</a><a class="headerlink" href="#concept" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Concept</a><a class="headerlink" href="#concept" title="Link to this heading"></a></h3>
 <p>Figure below illustrates key constructs and composition of a typical audio playback use case graph consisting of multiple sub-graphs. Inside each sub-graph, there are multiple modules, all assigned with unique IDs (instance id), which can be grouped into one or multiple containers. Please note that container may not be associated with only one sub-graph.</p>
 <p>Breaking audio graph into sub-graphs enables audio system designer group audio processing modules into higher-level constructs such as stream-leg and device-leg. Then, designer can develop middleware layer to manage audio use case and sink/source endpoint in form of stream and device. Endpoint can be hardware base such as I2S and software base such as shared memory for exchanging audio sample between client and AudioReach Engine. During state transition such as switching audio output to different sink endpoint, middleware layer only needs to tear down device-leg sub-graph while retaining stream-leg sub-graph. Then, resume the use case by instantiating another device-leg subgraph for new sink endpoint and reattach to stream-leg subgraph to form new full graph.</p>
 <figure class="fig-center align-default" id="id7">
-<span id="example-audiopb-graph"></span><a class="reference internal image-reference" href="../_images/graph_concept.png"><img alt="../_images/graph_concept.png" src="../_images/graph_concept.png" style="width: 1051.5px; height: 327.75px;" /></a>
+<span id="example-audiopb-graph"></span><a class="reference internal image-reference" href="../_images/graph_concept.png"><img alt="../_images/graph_concept.png" src="../_images/graph_concept.png" style="width: 1051.5px; height: 327.75px;" />
+</a>
 <figcaption>
-<p><span class="caption-text">Example Audio Playback Graph</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Example Audio Playback Graph</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="constructs">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Constructs</a><a class="headerlink" href="#constructs" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Constructs</a><a class="headerlink" href="#constructs" title="Link to this heading"></a></h3>
 <p>This section provides high-level description of audio graph constructs. More detail information of each construct can be found in <a class="reference internal" href="arspf_design.html#arspf-design"><span class="std std-ref">AudioReach Engine</span></a>.</p>
 <p><strong>Module:</strong> is the smallest independent processing unit within signal
 processing framework.</p>
@@ -188,14 +187,14 @@ in single software thread</p>
 </section>
 </section>
 <section id="use-case-to-audio-graph-mapping">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Use Case to Audio Graph Mapping</a><a class="headerlink" href="#use-case-to-audio-graph-mapping" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Use Case to Audio Graph Mapping</a><a class="headerlink" href="#use-case-to-audio-graph-mapping" title="Link to this heading"></a></h2>
 <section id="id1">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Concept</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Concept</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>Refer to <a class="reference internal" href="arch_overview.html#arch-overview"><span class="std std-ref">AudioReach Architecture Overview</span></a>. Audio graph definitions are stored in ACDB. During use case setup time, audio graph definition is retrieved from ACDB with use case handle passed by the client which is in form of key vector. In the figure - <a class="reference internal" href="#example-audiopb-graph"><span class="std std-ref">Example Audio Playback Graph</span></a>, GKV is consisted of 3 key-value pairs in this example. What attributes to be used as keys to form key vector depends on platform requirement. For example, sound device can be used as key with potential value such as headphone and speaker.</p>
 <p>Once audio graph definition is retrieved by looking up ACDB with GKV, graph definition is pushed down to ARE by ARGS.</p>
 </section>
 <section id="id2">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">Constructs</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Constructs</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>This section provides high-level description of constructs involved in use case to audio graph mapping. More detail information of each construct can be found in <a class="reference internal" href="args_design.html#args-design"><span class="std std-ref">AudioReach Graph Services</span></a>.</p>
 <p><strong>Use Case</strong>: An audio use case is a graph of modules from source end point(s) to sink end point(s) that satisfies the product defined use case.</p>
 <p><strong>Key value pair</strong>: is the individual key and associated values in the key vector. For example, sound device can be a key and value can be headphone, speaker, or other sound device.</p>
@@ -204,15 +203,15 @@ in single software thread</p>
 </section>
 </section>
 <section id="use-case-to-calibration-data-mapping">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Use Case to Calibration Data Mapping</a><a class="headerlink" href="#use-case-to-calibration-data-mapping" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Use Case to Calibration Data Mapping</a><a class="headerlink" href="#use-case-to-calibration-data-mapping" title="Link to this heading"></a></h2>
 <section id="id3">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">Concept</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Concept</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>Once a graph is loaded on ARE, the next step is to push the corresponding calibration for all the modules in the graph so modules can produce desired acoustic output for intended use cases.
 Mapping of calibration data to use case is by querying ACDB with calibration handle in form of key-vector (CKV) as depicted in figure - <a class="reference internal" href="#example-audiopb-graph"><span class="std std-ref">Example Audio Playback Graph</span></a>.</p>
 <p>Typically, calibration data being applied is highly dependent on runtime parameters such as sample-rate, bitwidth, channels, gains, and etc. Hence, it is likely system designer would use these run-time parameters as keys.</p>
 </section>
 <section id="id4">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">Constructs</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Constructs</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>This section provides high-level description of constructs involved in use case to calibration mapping. More detail information of each construct can be found in <a class="reference internal" href="args_design.html#args-design"><span class="std std-ref">AudioReach Graph Services</span></a>.</p>
 <p><strong>Key value pair</strong>: is the individual key and associated values in the key vector. For example, sample rate can be a key with values such as 8Khz, 16Khz, 48Khz.</p>
 <p><strong>Key Vector</strong>: Uniquely identify calibration data through a set of key value pairs.</p>
@@ -220,31 +219,31 @@ Mapping of calibration data to use case is by querying ACDB with calibration han
 </section>
 </section>
 <section id="module-identification-and-configuration">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">Module Identification and Configuration</a><a class="headerlink" href="#module-identification-and-configuration" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Module Identification and Configuration</a><a class="headerlink" href="#module-identification-and-configuration" title="Link to this heading"></a></h2>
 <section id="id5">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">Concept</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Concept</a><a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <p>A usecase may require enable/disable/configure certain capability at runtime e.g controllable audio effects: equalizer, volume, and echo cancellation. The capability can be supported by one or multiple modules in the audio graph. Different algorithm developers can develop modules supporting same capability but different configuration parameters. Audio system designer may select one module over the other for his/her product.</p>
 <p>Since the module implementing this capability may be different across different subgraphs and software does not want to be hard coded to work with fixed set of modules, a mechanism to identify and configure these modules in a generic way is needed. AudioReach architecture refers generic identification and configuration mechanism as “tagging”. Audio system designer tags the module in the graph with identifier(tag ID) and defines keys to represent different configuration of given module through ARC and save into ACDB. For example, an audio application needs to support turning on/off echo cancellation at run-time. Audio system designer defines tag as “echo cancellation” and keys as ON and OFF. Then, tag the EC module in the graph with the tag “echo cancellation” and map key - ON/OFF to module specific parameters and values</p>
 <p>When the capability needs to enable/disable/configured, software fetches tagged module info and configuration parameters from ACDB by passing tag and key. So software, at run-time, can address and package the configuration to desired module running on ARE in generic fashion.</p>
 </section>
 <section id="id6">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">Constructs</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Constructs</a><a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <p><strong>Tag &amp; Tag Key Vector</strong>: Tag is an identifier set on a module to identify/set runtime controllable params of one or more modules. Use case may require updating configuration of one or more modules in a graph to enable/disable/configure certain capability of a module at runtime. e.g. echo cancellation, and equalizer</p>
 <p><strong>Module Parameter Structure</strong>: In AudioReach architecture, commands and events exchanged with ARE are always packaged as depicted in the figure below</p>
 <figure class="fig-center align-default" id="id8">
 <img alt="../_images/module_structure.png" src="../_images/module_structure.png" />
 <figcaption>
-<p><span class="caption-text">Module Parameter Structure</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Module Parameter Structure</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="data-exchange-modes">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">Data Exchange Modes</a><a class="headerlink" href="#data-exchange-modes" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Data Exchange Modes</a><a class="headerlink" href="#data-exchange-modes" title="Link to this heading"></a></h3>
 <p>There are different modes which calibration/configuration data can be applied on targeted module(s). Choice of mode is based on whether module has the mode implemented in consideration of size of configuration data, available memory to hold the calibration data, or memory access requirement (Read-Only, Read-Write). Refer to <a class="reference internal" href="arspf_design.html#spf-cal-config-mode"><span class="std std-ref">Calibration and configuration</span></a> to learn more about data change modes. Note that GSL does not support shared-persistent calibration at time of writing.</p>
 </section>
 </section>
 <section id="data-driven-through-h2xml">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">Data Driven through H2XML</a><a class="headerlink" href="#data-driven-through-h2xml" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Data Driven through H2XML</a><a class="headerlink" href="#data-driven-through-h2xml" title="Link to this heading"></a></h2>
 <p>H2XML (Header to XML) is a generic tool for generating XML files from annotated C header files. Grammar and syntax of the annotations are similar to Doxygen. H2XML plays big part in enabling data-driven workflow. For example, audio algorithm developers can generate metadata (in form of XML files) of their processing module from module header files using H2XML and import generated XML file into ACDB via ARC tool to incorporate and configure audio processing module in use case graph design.</p>
 </section>
 </section>
