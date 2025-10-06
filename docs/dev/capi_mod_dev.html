@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Platform Porting Guide" href="plat_port.html" />
-    <link rel="prev" title="Use Case Development Workflow" href="dev_workflow.html" /> 
+    <link rel="prev" title="How to add an Audio Module" href="adding_modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,148 +48,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../design/index.html">AudioReach Designs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">AudioReach APIs</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">AudioReach Developer Guides</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dev_workflow.html">Use Case Development Workflow</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">CAPI Module Development Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#functional-overview">Functional Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#module">Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#types-of-modules">Types of Modules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#life-cycle-of-a-capi">Life Cycle of a CAPI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#entry-point-functions">Entry Point Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#error-codes">Error Codes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#extensions">Extensions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#other-requirements">Other Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-integration">Module Integration</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workflow">Workflow</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#naming-convention-for-entry-point-functions">Naming Convention for Entry Point Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#functional-description">Functional Description</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#media-format">Media Format</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#buffering">Buffering</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#debugging">Debugging</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-ports">Data Ports</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-and-set-parameters">Get and Set Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#events">Events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#process-call">Process Call</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#key-framework-extensions">Key Framework Extensions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#key-interface-extensions">Key Interface Extensions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#supporting-libraries">Supporting Libraries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-flow-states">Data Flow States</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Data Port Operation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#open">Open</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#start">Start</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stop">Stop</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#close">Close</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-flow-state-vs-port-state">Data Flow State vs Port State</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#intermodule-control-link-imcl">Intermodule Control Link (IMCL)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#intents">Intents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#types-of-ports">Types of Ports</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#control-link-port-operations">Control Link Port Operations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#types-of-messages">Types of Messages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#typical-operation">Typical Operation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Metadata</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#common-metadata-interfaces">Common Metadata Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#eos-metadata">EOS Metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dfg-metadata">DFG Metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#virtual-function-table">Virtual Function Table</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Trigger Policy</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#types-of-triggers">Types of Triggers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#triggerable-ports">Triggerable Ports</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#non-triggerable-ports-and-blocked-ports">Non-triggerable Ports and Blocked Ports</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#default-trigger-policy">Default Trigger Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">Port Property Propagation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#real-time-flag">Real-time Flag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#downstream-state">Downstream State</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#interaction-between-port-properties-and-trigger-policy">Interaction Between Port Properties and Trigger Policy</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#frame-duration-and-threshold-related-extensions">Frame Duration and Threshold-related Extensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#threshold-configuration">Threshold Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#container-frame-duration">Container Frame Duration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#container-processing-duration">Container Processing Duration</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#data-duration-modifying-modules-and-container-handling">Data Duration Modifying Modules and Container Handling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#dm-modules">DM Modules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dm-handling-in-are">DM handling in ARE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#special-handling-for-fixed-output-mode-of-operation">Special handling for Fixed-Output mode of operation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#typical-recommendations">Typical Recommendations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#optimization">Optimization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#capi-interfaces">CAPI Interfaces</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id14">Virtual Function Table</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#process">process()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#end">end()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#set-param">set_param()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-param">get_param()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#set-properties">set_properties()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-properties">get_properties()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#capi-get-static-properties-f">capi_get_static_properties_f()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#capi-init-f">capi_init_f()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-types-and-payloads">Data Types and Payloads</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#capi-error-codes">Error Codes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#property-ids">Property IDs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id23">Events</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id24">Framework Extensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#example-of-using-a-framework-extension">Example of Using a Framework Extension</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bluetooth-codec">Bluetooth Codec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id26">Container Frame Duration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id28">Container Processing Duration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-duration-modifying-modules">Data Duration Modifying Modules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ecns">ECNS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#multi-port-buffering">Multi-port Buffering</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pcm">PCM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id34">Signal Triggered Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#async-signal-triggered-module">Async Signal Triggered Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#soft-timer">Soft Timer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#synchronization">Synchronization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id41">Threshold Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id43">Trigger Policy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#voice-delivery">Voice Delivery</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#island-handling">Island Handling</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id51">Interface Extensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data-port-operations">Data Port Operations</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#imcl">IMCL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id58">Metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#path-delay">Path Delay</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#propagated-port-properties">Propagated Port Properties</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#propagated-port-downstream-states">Propagated Port Downstream States</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mimo-modules-process-states">MIMO Modules Process States</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#duty-cycling-island">Duty Cycling Island</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#period-length">Period Length</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#signal-triggered-module-timestamp">Signal Triggered Module Timestamp</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#references">References</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#acronyms-and-terms">Acronyms and Terms</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dev_workflow.html">Development Workflow</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adding_modules.html">How to add an Audio Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CAPI Module Development Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functional-overview">Functional Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-integration">Module Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functional-description">Functional Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Data Port Operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intermodule-control-link-imcl">Intermodule Control Link (IMCL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Trigger Policy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Port Property Propagation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frame-duration-and-threshold-related-extensions">Frame Duration and Threshold-related Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-duration-modifying-modules-and-container-handling">Data Duration Modifying Modules and Container Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typical-recommendations">Typical Recommendations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optimization">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capi-interfaces">CAPI Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Framework Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id51">Interface Extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="plat_port.html">Platform Porting Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="available_modules.html">Available Audio Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding_modules.html">How to add an Audio Module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../platform/index.html">Platform Reference Guide</a></li>
@@ -210,6 +94,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">AudioReach Developer Guides</a></li>
+          <li class="breadcrumb-item"><a href="dev_workflow.html">Development Workflow</a></li>
       <li class="breadcrumb-item active">CAPI Module Development Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/dev/capi_mod_dev.rst.txt" rel="nofollow"> View page source</a>
@@ -7225,7 +7110,7 @@ ports.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="dev_workflow.html" class="btn btn-neutral float-left" title="Use Case Development Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adding_modules.html" class="btn btn-neutral float-left" title="How to add an Audio Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="plat_port.html" class="btn btn-neutral float-right" title="Platform Porting Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
