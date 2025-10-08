@@ -7,3 +7,4 @@ Platform Reference Guide
    :maxdepth: 1
 
    raspberry_pi4
+   rb3_gen2
