@@ -20,6 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RB3 Gen2" href="rb3_gen2.html" />
     <link rel="prev" title="Platform Reference Guide" href="index.html" /> 
 </head>
 
@@ -71,6 +72,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="rb3_gen2.html">RB3 Gen2</a></li>
 </ul>
 </li>
 </ul>
@@ -143,7 +145,7 @@ Creator (ARC, also known as QACT).</p>
 <h2>Create a Yocto image<a class="headerlink" href="#create-a-yocto-image" title="Link to this heading"></a></h2>
 <p>The first step is to integrate AudioReach components
 into a Yocto build that can be loaded onto the Raspberry Pi device. This involves syncing a Yocto build and then integrating the meta-audioreach layer, which is currently available as a Github repository.</p>
-<p>Before following these steps, it would be helpful to learn the basics of how to use a Yocto project. To do this, please refer to the official Yocto documentation site: <a class="reference external" href="https://docs.yoctoproject.org/2.0/yocto-project-qs/yocto-project-qs.html">https://docs.yoctoproject.org/2.0/yocto-project-qs/yocto-project-qs.html</a></p>
+<p>Before following these steps, it would be helpful to learn the basics of how to use a Yocto project. To do this, please refer to the official Yocto documentation site: <a class="reference external" href="https://docs.yoctoproject.org/5.0.12/brief-yoctoprojectqs/index.html">https://docs.yoctoproject.org/5.0.12/brief-yoctoprojectqs/index.html</a></p>
 <section id="step-1-create-a-yocto-build">
 <h3>Step 1: Create a Yocto build<a class="headerlink" href="#step-1-create-a-yocto-build" title="Link to this heading"></a></h3>
 <p>Follow the below steps to setup a Yocto build:</p>
@@ -167,7 +169,13 @@ git<span class="w"> </span>clone<span class="w"> </span>https://git.openembedded
 </div>
 </div></blockquote>
 </li>
-<li><p>Navigate to the file “&lt;yocto_build_root&gt;/build/conf/local.conf”. In this file, locate the line <strong>MACHINE ?= “&lt;machine&gt;”</strong> and replace it with the line <strong>MACHINE ?= “raspberrypi4”</strong></p></li>
+<li><p>Navigate to the file “&lt;yocto_build_root&gt;/build/conf/local.conf” and add the below line:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>MACHINE<span class="w"> </span>?<span class="o">=</span><span class="w"> </span><span class="s2">&quot;raspberrypi4&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
 <li><p>Navigate to the “build/conf/bblayers.conf” file and add the necessary meta layers by editing the file as shown:</p></li>
 </ul>
 <blockquote>
@@ -192,22 +200,9 @@ BBLAYERS<span class="w"> </span>?<span class="o">=</span><span class="w"> </span
 </div>
 </div></blockquote>
 </div></blockquote>
-<p><strong>Note:</strong> The AudioReach project currently uses the “scarthgap” version of Yocto. Please ensure that your local system has the requirements needed for Yocto scarthgap builds by checking the “Linux Distribution” section on the Yocto documentation page here: <a class="reference external" href="https://docs.yoctoproject.org/2.0/yocto-project-qs/yocto-project-qs.html">https://docs.yoctoproject.org/2.0/yocto-project-qs/yocto-project-qs.html</a>.</p>
-<p>If not, please download the pre-built “buildtools” for Yocto using the below steps:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;yocto_build_root&gt;/sources/poky
-scripts/install-buildtools
-</pre></div>
-</div>
-</div></blockquote>
-<p>Then run the following commands to setup your build environment to use buildtools:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;yocto_build_root&gt;
-<span class="nb">source</span><span class="w"> </span>./sources/poky/oe-init-build-env
-<span class="nb">source</span><span class="w"> </span>./sources/poky/buildtools/environment-setup-x86_64-pokysdk-linux
-</pre></div>
-</div>
-</div></blockquote>
+<p><strong>Note:</strong> The AudioReach project currently uses the “scarthgap” version of Yocto.
+Please ensure that all utilities required for Yocto scarthgap builds meet the minimum version numbers, which are listed on the Yocto documentation site: <a class="reference external" href="https://docs.yoctoproject.org/5.0.12/ref-manual/system-requirements.html#required-git-tar-python-make-and-gcc-versions">https://docs.yoctoproject.org/5.0.12/ref-manual/system-requirements.html#required-git-tar-python-make-and-gcc-versions</a>.</p>
+<p>If not, please follow the steps in section 1.5.1 at the above link to install and setup buildtools.</p>
 </section>
 <section id="step-2-get-audioreach-meta-layer">
 <h3>Step 2: Get AudioReach Meta Layer<a class="headerlink" href="#step-2-get-audioreach-meta-layer" title="Link to this heading"></a></h3>
@@ -244,7 +239,12 @@ PACKAGECONFIG:pn-audioreach-graphservices<span class="w"> </span><span class="o"
 <section id="step-4-compile-the-image">
 <h3>Step 4: Compile the image<a class="headerlink" href="#step-4-compile-the-image" title="Link to this heading"></a></h3>
 <p>Now the build setup is complete, and the full Yocto image can be generated. Navigate to the “build” directory
-and run the command <strong>bitbake core-image-sato</strong></p>
+and run the below command to generate the image:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bitbake<span class="w"> </span>core-image-sato
+</pre></div>
+</div>
+</div></blockquote>
 <ul>
 <li><p>If the bitbake command gives a “umask” error, run the command <strong>umask 022</strong> and try again.</p></li>
 <li><p>If there is a “restricted license” error, navigate to the “&lt;yocto_build_root&gt;/build/conf/local.conf” file and append the below line:</p>
@@ -262,8 +262,8 @@ be flashed onto the Raspberry Pi device. Unzip the “.bz2” file to obtain the
 <h3>Step 5: Flash the Yocto image<a class="headerlink" href="#step-5-flash-the-yocto-image" title="Link to this heading"></a></h3>
 <p>The generated Yocto image can be flashed to an SD card using Raspberry Pi Imager. This can be installed from raspberrypi.com/software, or by running <strong>sudo apt install rpi-imager</strong> on a Linux terminal. Then follow the below steps to flash the device:</p>
 <ul class="simple">
-<li><p>Open Raspberry Pi Imager, and select “RaspberryPi4” as the device type.</p></li>
-<li><p>Under the “Choose OS” options, select the “Use custom” option. Make sure to search for all file types. Then navigate to the “.wic” file and select it.</p></li>
+<li><p>Open Raspberry Pi Imager, and if there is a “Choose Device” option, select “RaspberryPi4” as the device type.</p></li>
+<li><p>Under the “Choose OS” option, select “Use custom”. Make sure to search for all file types. Then navigate to the “.wic” file and select it.</p></li>
 <li><p>Under “Storage”, select the desired SD card.</p></li>
 <li><p>Click “Flash” to start flashing the image.</p></li>
 </ul>
@@ -280,6 +280,11 @@ documentation page here: <a class="reference external" href="https://www.raspber
 <h3>Configure bootup settings<a class="headerlink" href="#configure-bootup-settings" title="Link to this heading"></a></h3>
 <p>Next, please complete the following steps to enable the audio and update
 the logging settings. The files mentioned below can be updated directly on the Raspberry Pi 4 UI if the device is plugged into an external monitor, or through a local computer using SCP.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Note: Users can also connect to the Raspberry Pi through SSH by opening a connection to “root&#64;&lt;Raspberry PI IP address&gt;”. By default, there is no password required to connect to SSH.</p></li>
+</ul>
+</div></blockquote>
 <p>To enable the sound card:</p>
 <blockquote>
 <div><ul>
@@ -292,6 +297,16 @@ the logging settings. The files mentioned below can be updated directly on the R
 </ul>
 </div></blockquote>
 </li>
+</ul>
+</div></blockquote>
+<p>Optional step: In the file /boot/config.txt, it is also possible to disable HDMI audio output if the Raspberry Pi will be
+connected to a display. This is helpful because it will prevent the HDMI sound card from being enumerated, which may cause
+some problems.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Navigate to the file “/boot/config.txt”</p></li>
+<li><p>Locate the line <strong>dtoverlay=vc4-kms-v3d</strong></p></li>
+<li><p>Change this line to <strong>dtoverlay=vc4-kms-v3d,noaudio</strong></p></li>
 </ul>
 </div></blockquote>
 <p>By default, the system logs printed while running a Raspberry Pi usecase will be short. The system log settings should be updated to capture the additional usecase logs that will be printed by AudioReach:</p>
@@ -317,13 +332,20 @@ the logging settings. The files mentioned below can be updated directly on the R
 </ul>
 </div></blockquote>
 <p>To apply the updated configuration settings, shut down the Raspberry Pi through
-the homescreen, or by running the command <strong>shutdown -r -time “now”</strong> through the
-terminal.</p>
+the homescreen, or by running the below command in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>shutdown<span class="w"> </span>-r<span class="w"> </span>-time<span class="w"> </span><span class="s2">&quot;now&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="enable-real-time-calibration-mode">
 <h3>Enable Real-time Calibration Mode<a class="headerlink" href="#enable-real-time-calibration-mode" title="Link to this heading"></a></h3>
 <p>ARC (AudioReach Creator) is a tool that allows the user to perform several functionalities related to the audio usecase, including creating and editing audio usecase graphs, and editing audio configurations while running an
 audio usecase in real time. For more information on ARC, please refer to the <a class="reference internal" href="../design/arc_design.html#arc-design"><span class="std std-ref">AudioReach Creator Design</span></a> page.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Please note that at this time, AudioReach Creator is only available on Windows.</p></li>
+</ul>
+</div></blockquote>
 <p>The below steps will demonstrate how to connect ARC to the Raspberry Pi so that the usecase graph can be viewed in real time.</p>
 <p>On the Raspberry Pi:</p>
 <blockquote>
@@ -395,9 +417,18 @@ The system logs for the usecase will be saved in the file “/var/log/messages�
 <p>If there are some issues running the usecase, please refer to the suggested fixes below:</p>
 <section id="check-the-sound-card">
 <h3>Check the sound card<a class="headerlink" href="#check-the-sound-card" title="Link to this heading"></a></h3>
-<p>On the Raspberry Pi, open the file “/proc/asound/cards”. There should be a few
-sound card entries in this list. If the file instead says “no sound cards available”, you likely
-forgot to enable the sound card (see section <a class="reference external" href="#configure-bootup-settings">Configure bootup settings</a>).</p>
+<p>On the Raspberry Pi terminal, run the below command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/proc/asound/cards
+</pre></div>
+</div>
+<p>This should output the available sound cards. If the output instead says “no sound cards available”, you likely
+forgot to enable the sound cards (see section <a class="reference external" href="#configure-bootup-settings">Configure bootup settings</a>).</p>
+<blockquote>
+<div><figure class="fig-left align-default">
+<a class="reference internal image-reference" href="../_images/rpi_sound_cards.png"><img alt="../_images/rpi_sound_cards.png" src="../_images/rpi_sound_cards.png" style="width: 480.0px; height: 117.0px;" />
+</a>
+</figure>
+</div></blockquote>
 </section>
 <section id="check-the-sound-card-id">
 <h3>Check the sound card ID<a class="headerlink" href="#check-the-sound-card-id" title="Link to this heading"></a></h3>
@@ -405,7 +436,7 @@ forgot to enable the sound card (see section <a class="reference external" href=
 card ID of the Headphones to change. To fix this, you will need to have ARC installed on a secondary computer (see section <a class="reference external" href="#enable-real-time-calibration-mode">Enable Real-time Calibration Mode</a>).</p>
 <blockquote>
 <div><ol class="arabic">
-<li><p>Copy the ACDB files from the Raspberry Pi to your local computer. These files
+<li><p>Copy the ACDB and workspace files from the Raspberry Pi to your local computer. These files
 can be found under the folder “/etc/acdbdata”.</p>
 <ul class="simple">
 <li><p>Note: This can be done by using “scp” commands on a Linux terminal or by using a program such as “WinScp”.</p></li>
@@ -415,10 +446,10 @@ can be found under the folder “/etc/acdbdata”.</p>
 This will prompt you to select a workspace file. Select the workspace file
 copied from the Raspberry Pi.</p></li>
 <li><p>On the top left drop down menu displaying the usecases,
-select any usecase that uses “Headphones”.</p></li>
-<li><p>Double click the “ALSA device sink” module shown below</p>
+select any usecase that uses “Speaker”.</p></li>
+<li><p>Double click the “ALSA Device Sink” module shown below</p>
 <figure class="fig-left align-default">
-<a class="reference internal image-reference" href="../_images/headphone_screenshot.png"><img alt="../_images/headphone_screenshot.png" src="../_images/headphone_screenshot.png" style="width: 610.4px; height: 328.0px;" />
+<a class="reference internal image-reference" href="../_images/alsa_sink_module.png"><img alt="../_images/alsa_sink_module.png" src="../_images/alsa_sink_module.png" style="width: 590.0px; height: 367.0px;" />
 </a>
 </figure>
 </li>
@@ -426,7 +457,7 @@ select any usecase that uses “Headphones”.</p></li>
 be the same as the ID that corresponds with the Headphones entry in the
 “/proc/asound/cards” file on the Raspberry Pi.</p>
 <figure class="fig-left align-default">
-<a class="reference internal image-reference" href="../_images/alsa_sink_module.png"><img alt="../_images/alsa_sink_module.png" src="../_images/alsa_sink_module.png" style="width: 689.0px; height: 598.0px;" />
+<a class="reference internal image-reference" href="../_images/alsa_configure_window.png"><img alt="../_images/alsa_configure_window.png" src="../_images/alsa_configure_window.png" style="width: 743.0px; height: 698.0px;" />
 </a>
 </figure>
 <p>If it is not the same, update the value, and click “Set to ACDB” on the
@@ -446,6 +477,7 @@ bottom for the changes to take effect.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Platform Reference Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rb3_gen2.html" class="btn btn-neutral float-right" title="RB3 Gen2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1153,30 +1153,7 @@ off-loading modules.</p>
 <h2><a class="toc-backref" href="#id33" role="doc-backlink">Customizations</a><a class="headerlink" href="#customizations" title="Link to this heading"></a></h2>
 <section id="custom-module">
 <h3><a class="toc-backref" href="#id34" role="doc-backlink">Custom module</a><a class="headerlink" href="#custom-module" title="Link to this heading"></a></h3>
-<p>The custom module development workflow involves the following high-level steps:</p>
-<ol class="arabic simple">
-<li><p>Start custom algorithm using standard industrial tool such as Matlab and optimize the algorithm
-for intended processor architecture</p></li>
-<li><p>Develop the Common Audio Processor Interface (CAPI) wrapper for the
-custom algorithm. For examples and detailed instructions, see the <a class="reference internal" href="../dev/capi_mod_dev.html#capi-mod-dev-guide"><span class="std std-ref">CAPI Module Development Guide</span></a></p></li>
-<li><p>Develop an API header file consisting of Module ID and configuration
-parameters related to the custom algorithm.</p></li>
-<li><p>Generate an API XML file by running the h2xml conversion tool on the API
-header file. The XML file provides the necessary information about configuration
-interfaces, supported containers, stack size, and any other policies
-that are required for the AudioReach configuration tool (ARC platform).</p></li>
-<li><p>Compile the CAPI-wrapped module as a built-in module as part of ARE image
-or standalone shared object.</p></li>
-<li><p>Import the custom module into the ARC platform through a module
-discovery workflow, and create use case graphs by placing the module
-in the appropriate container and subgraphs.</p></li>
-<li><p>Calibrate or configure the module together with an end-to-end use
-case, and store the data in the file system (through the ACDB file
-provided by the ARC platform).</p></li>
-<li><p>Launch the end-to-end use case from the application, which in turn
-uses the use case graph and calibration information from the ACDB
-file and provides them to the ARE to realize the use case.</p></li>
-</ol>
+<p>For steps on how to add a custom module, please refer to the <a class="reference internal" href="../dev/adding_modules.html#adding-modules"><span class="std std-ref">How to add an Audio Module</span></a> guide.</p>
 </section>
 <section id="custom-container">
 <h3><a class="toc-backref" href="#id35" role="doc-backlink">Custom container</a><a class="headerlink" href="#custom-container" title="Link to this heading"></a></h3>
