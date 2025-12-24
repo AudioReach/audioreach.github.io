@@ -1661,6 +1661,17 @@
 <dd><p>Last sub system ID </p>
 </dd></dl>
 
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.AR_SUB_SYS_IDS_MASK">
+<span class="target" id="ar__osal__sys__id_8h_1a4858ffc636c324dce084018039662d62"></span><span class="sig-name descname"><span class="n"><span class="pre">AR_SUB_SYS_IDS_MASK</span></span></span><a class="headerlink" href="#c.AR_SUB_SYS_IDS_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bit masks representing the subsystem IDs. Update when subystem gets added or removed. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.AR_DEFAULT_DSP">
+<span class="target" id="ar__osal__sys__id_8h_1abd002a9b83f2bef75ab487a31b585aae"></span><span class="sig-name descname"><span class="n"><span class="pre">AR_DEFAULT_DSP</span></span></span><a class="headerlink" href="#c.AR_DEFAULT_DSP" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
 </div>
 </section>
 <section id="ar-osal-types">
@@ -2100,8 +2111,19 @@
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv428ar_shmem_buffer_index_type_t">
 <span id="_CPPv328ar_shmem_buffer_index_type_t"></span><span id="_CPPv228ar_shmem_buffer_index_type_t"></span><span id="ar_shmem_buffer_index_type_t"></span><span class="target" id="ar__osal__shmem_8h_1a6a7ed7136c09958b94a3a837e861cb61"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv426ar_shmem_buffer_index_type" title="ar_shmem_buffer_index_type"><span class="n"><span class="pre">ar_shmem_buffer_index_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_shmem_buffer_index_type_t</span></span></span><a class="headerlink" href="#_CPPv428ar_shmem_buffer_index_type_t" title="Permalink to this definition"></a><br /></dt>
-<dd><p>enum for shmem offset/address buffer index type Bits to indicate if hardware accelerator is enabled/disabled </p>
+<dd><p>enum for shmem offset/address buffer index type </p>
 </dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv418ar_shmem_pd_type_t">
+<span id="_CPPv318ar_shmem_pd_type_t"></span><span id="_CPPv218ar_shmem_pd_type_t"></span><span id="ar_shmem_pd_type_t"></span><span class="target" id="ar__osal__shmem_8h_1a2bc70946dc9d3eb657a80069993b605d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv416ar_shmem_pd_type" title="ar_shmem_pd_type"><span class="n"><span class="pre">ar_shmem_pd_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_shmem_pd_type_t</span></span></span><a class="headerlink" href="#_CPPv418ar_shmem_pd_type_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bits to indicate if hardware accelerator is enabled/disabled </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv418ar_shmem_proc_info">
+<span id="_CPPv318ar_shmem_proc_info"></span><span id="_CPPv218ar_shmem_proc_info"></span><span id="ar_shmem_proc_info"></span><span class="target" id="ar__osal__shmem_8h_1a6d8c402b0a858c84d3be37ab6b260b46"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv420ar_shmem_proc_info_t" title="ar_shmem_proc_info_t"><span class="n"><span class="pre">ar_shmem_proc_info_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_shmem_proc_info</span></span></span><a class="headerlink" href="#_CPPv418ar_shmem_proc_info" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv413ar_shmem_info">
@@ -2190,6 +2212,22 @@
 <span id="_CPPv3N26ar_shmem_buffer_index_type22AR_SHMEM_BUFFER_OFFSETE"></span><span id="_CPPv2N26ar_shmem_buffer_index_type22AR_SHMEM_BUFFER_OFFSETE"></span><span class="target" id="ar__osal__shmem_8h_1ade8e203ea48a38f7eeca9d9b1ccdb0caa075d6ce4a0a0fc23dbafb9bdfed274f3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AR_SHMEM_BUFFER_OFFSET</span></span></span><a class="headerlink" href="#_CPPv4N26ar_shmem_buffer_index_type22AR_SHMEM_BUFFER_OFFSETE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>1 use offsets, the offset is from the base address. </p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv416ar_shmem_pd_type">
+<span id="_CPPv316ar_shmem_pd_type"></span><span id="_CPPv216ar_shmem_pd_type"></span><span class="target" id="ar__osal__shmem_8h_1a7a53ef5da07a3cba1a10b58d97142a92"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_shmem_pd_type</span></span></span><a class="headerlink" href="#_CPPv416ar_shmem_pd_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16ar_shmem_pd_type9STATIC_PDE">
+<span id="_CPPv3N16ar_shmem_pd_type9STATIC_PDE"></span><span id="_CPPv2N16ar_shmem_pd_type9STATIC_PDE"></span><span class="target" id="ar__osal__shmem_8h_1a7a53ef5da07a3cba1a10b58d97142a92aeb9921a2f4fa61262bb86df966c3941e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">STATIC_PD</span></span></span><a class="headerlink" href="#_CPPv4N16ar_shmem_pd_type9STATIC_PDE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16ar_shmem_pd_type10DYNAMIC_PDE">
+<span id="_CPPv3N16ar_shmem_pd_type10DYNAMIC_PDE"></span><span id="_CPPv2N16ar_shmem_pd_type10DYNAMIC_PDE"></span><span class="target" id="ar__osal__shmem_8h_1a7a53ef5da07a3cba1a10b58d97142a92a29794a4773b788aba8fdc85eca3ac40f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DYNAMIC_PD</span></span></span><a class="headerlink" href="#_CPPv4N16ar_shmem_pd_type10DYNAMIC_PDE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -2302,7 +2340,7 @@
 <dd><p>Helps unmap the shared memory allocated externally with SMMU. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>info</strong> – <strong>[in]</strong> pointer to ar_shmem_info. required input parameters in ar_shmem_info <a class="reference internal" href="#structar__shmem__info__t_1abd1831fa277e64311d99cbce4311fb20"><span class="std std-ref">ar_shmem_info_t.cache_type</span></a> <a class="reference internal" href="#structar__shmem__info__t_1a9f5dd18066e73fe5cbefcf250c3b56f1"><span class="std std-ref">ar_shmem_info_t.buf_size</span></a> <a class="reference internal" href="#structar__shmem__info__t_1a79ea9d56836c17738d22385a4ce6d59b"><span class="std std-ref">ar_shmem_info_t.mem_type</span></a> <a class="reference internal" href="#structar__shmem__info__t_1a886ca7e65ee32e99165edafb58304c3e"><span class="std std-ref">ar_shmem_info_t.pa_lsw</span></a> <a class="reference internal" href="#structar__shmem__info__t_1ae40dd851fb6bf9b062a0f90e7628b8e9"><span class="std std-ref">ar_shmem_info_t.pa_msw</span></a> <a class="reference internal" href="#structar__shmem__info__t_1abc1341868807283fe356d5da9b51cec3"><span class="std std-ref">ar_shmem_info_t.num_sys_id</span></a> <a class="reference internal" href="#structar__shmem__info__t_1a45eae75b1a0cf507f63c5e3347c1c459"><span class="std std-ref">ar_shmem_info_t.sys_id</span></a></p>
+<dd class="field-odd"><p><strong>info</strong> – <strong>[in]</strong> pointer to ar_shmem_info. required input parameters in ar_shmem_info <a class="reference internal" href="#structar__shmem__info__t_1abd1831fa277e64311d99cbce4311fb20"><span class="std std-ref">ar_shmem_info_t.cache_type</span></a> <a class="reference internal" href="#structar__shmem__info__t_1a9f5dd18066e73fe5cbefcf250c3b56f1"><span class="std std-ref">ar_shmem_info_t.buf_size</span></a> <a class="reference internal" href="#structar__shmem__info__t_1a79ea9d56836c17738d22385a4ce6d59b"><span class="std std-ref">ar_shmem_info_t.mem_type</span></a> <a class="reference internal" href="#structar__shmem__info__t_1a886ca7e65ee32e99165edafb58304c3e"><span class="std std-ref">ar_shmem_info_t.pa_lsw</span></a> <a class="reference internal" href="#structar__shmem__info__t_1ae40dd851fb6bf9b062a0f90e7628b8e9"><span class="std std-ref">ar_shmem_info_t.pa_msw</span></a> <a class="reference internal" href="#structar__shmem__info__t_1abc1341868807283fe356d5da9b51cec3"><span class="std std-ref">ar_shmem_info_t.num_sys_id</span></a> <a class="reference internal" href="#structar__shmem__info__t_1af19a828a80e2fa615610af52aaec168b"><span class="std std-ref">ar_shmem_info_t.sys_id</span></a></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 &#8212; Success Nonzero &#8212; Failure </p>
@@ -2353,6 +2391,31 @@
 </dd></dl>
 
 </div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv420ar_shmem_proc_info_t">
+<span id="_CPPv320ar_shmem_proc_info_t"></span><span id="_CPPv220ar_shmem_proc_info_t"></span><span id="ar_shmem_proc_info_t"></span><span class="target" id="structar__shmem__proc__info__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_shmem_proc_info_t</span></span></span><a class="headerlink" href="#_CPPv420ar_shmem_proc_info_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;ar_osal_shmem.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20ar_shmem_proc_info_t7proc_idE">
+<span id="_CPPv3N20ar_shmem_proc_info_t7proc_idE"></span><span id="_CPPv2N20ar_shmem_proc_info_t7proc_idE"></span><span id="ar_shmem_proc_info_t::proc_id__uint8_t"></span><span class="target" id="structar__shmem__proc__info__t_1a3589833ba3dd59847a2684339bf81500"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">proc_id</span></span></span><a class="headerlink" href="#_CPPv4N20ar_shmem_proc_info_t7proc_idE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20ar_shmem_proc_info_t9proc_typeE">
+<span id="_CPPv3N20ar_shmem_proc_info_t9proc_typeE"></span><span id="_CPPv2N20ar_shmem_proc_info_t9proc_typeE"></span><span id="ar_shmem_proc_info_t::proc_type__ar_shmem_pd_type_t"></span><span class="target" id="structar__shmem__proc__info__t_1aa9a909cc16ade89848ea3ee06420e0cf"></span><a class="reference internal" href="#_CPPv418ar_shmem_pd_type_t" title="ar_shmem_pd_type_t"><span class="n"><span class="pre">ar_shmem_pd_type_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">proc_type</span></span></span><a class="headerlink" href="#_CPPv4N20ar_shmem_proc_info_t9proc_typeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20ar_shmem_proc_info_t9is_activeE">
+<span id="_CPPv3N20ar_shmem_proc_info_t9is_activeE"></span><span id="_CPPv2N20ar_shmem_proc_info_t9is_activeE"></span><span id="ar_shmem_proc_info_t::is_active__bool_t"></span><span class="target" id="structar__shmem__proc__info__t_1a48a8ffdb48181a57375a3fbb031f9751"></span><a class="reference internal" href="#_CPPv46bool_t" title="bool_t"><span class="n"><span class="pre">bool_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_active</span></span></span><a class="headerlink" href="#_CPPv4N20ar_shmem_proc_info_t9is_activeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv415ar_shmem_info_t">
 <span id="_CPPv315ar_shmem_info_t"></span><span id="_CPPv215ar_shmem_info_t"></span><span id="ar_shmem_info_t"></span><span class="target" id="structar__shmem__info__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ar_shmem_info_t</span></span></span><a class="headerlink" href="#_CPPv415ar_shmem_info_t" title="Permalink to this definition"></a><br /></dt>
@@ -2429,7 +2492,7 @@
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N15ar_shmem_info_t6sys_idE">
-<span id="_CPPv3N15ar_shmem_info_t6sys_idE"></span><span id="_CPPv2N15ar_shmem_info_t6sys_idE"></span><span id="ar_shmem_info_t::sys_id__uint8_tP"></span><span class="target" id="structar__shmem__info__t_1a45eae75b1a0cf507f63c5e3347c1c459"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sys_id</span></span></span><a class="headerlink" href="#_CPPv4N15ar_shmem_info_t6sys_idE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N15ar_shmem_info_t6sys_idE"></span><span id="_CPPv2N15ar_shmem_info_t6sys_idE"></span><span id="ar_shmem_info_t::sys_id__ar_shmem_proc_infoP"></span><span class="target" id="structar__shmem__info__t_1af19a828a80e2fa615610af52aaec168b"></span><a class="reference internal" href="#_CPPv418ar_shmem_proc_info" title="ar_shmem_proc_info"><span class="n"><span class="pre">ar_shmem_proc_info</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sys_id</span></span></span><a class="headerlink" href="#_CPPv4N15ar_shmem_info_t6sys_idE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>in, pointer to array of size num_sys_id for sub-system Ids provided in ar_osal_sys_id.h, used to allocate shared memory between the given list of sys_id provided with <a class="reference internal" href="#ar__osal__shmem_8h_1a5acd28cc4ec09001fd4e8677707c5289"><span class="std std-ref">ar_shmem_alloc()</span></a>/ar_shmem_map() call. </p>
 </dd></dl>
 

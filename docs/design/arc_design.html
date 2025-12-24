@@ -1,22 +1,25 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AudioReach Creator Design &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,7 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk_overview.html">AudioReach Project Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">AudioReach Designs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arch_overview.html">AudioReach Architecture Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design_concept.html">AudioReach Concept and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_concept.html">AudioReach Concepts and Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arspf_design.html">AudioReach Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="args_design.html">AudioReach Graph Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gpr_design.html">Generic Packet Router</a></li>
@@ -94,7 +97,7 @@
            <div itemprop="articleBody">
              
   <section id="audioreach-creator-design">
-<span id="arc-design"></span><h1>AudioReach Creator Design<a class="headerlink" href="#audioreach-creator-design" title="Link to this heading"></a></h1>
+<span id="arc-design"></span><h1>AudioReach Creator Design<a class="headerlink" href="#audioreach-creator-design" title="Permalink to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#introduction" id="id5">Introduction</a></p></li>
@@ -118,38 +121,36 @@
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>AudioReach Creator (ARC), also known as Qualcomm Audio Calibration Tool (QACT) for older version, is an open source and cross-platform software providing a user interface to audio design, software, and tuning engineers for composing, configuring, tuning, and storing audio graphs into audio calibration database (ACDB) for intended use cases.</p>
 </section>
 <section id="architecture">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Architecture</a><a class="headerlink" href="#architecture" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h2>
 <p>AudioReach Creator (ARC) architecture will contain two separate parts: UI (Frontend) and ARC Engine (Backend).</p>
 <figure class="fig-center align-default" id="id2">
-<a class="reference internal image-reference" href="../_images/arc_hld_overview.png"><img alt="../_images/arc_hld_overview.png" src="../_images/arc_hld_overview.png" style="width: 856.0999999999999px; height: 393.4px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/arc_hld_overview.png"><img alt="../_images/arc_hld_overview.png" src="../_images/arc_hld_overview.png" style="width: 856.0999999999999px; height: 393.4px;" /></a>
 <figcaption>
-<p><span class="caption-text">AudioReach Creator (ARC) High-Level Software Component View</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">AudioReach Creator (ARC) High-Level Software Component View</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="arc-ui-frontend">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">ARC UI (Frontend)</a><a class="headerlink" href="#arc-ui-frontend" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">ARC UI (Frontend)</a><a class="headerlink" href="#arc-ui-frontend" title="Permalink to this heading"></a></h3>
 <p>Frontend will contain all the required user interfaces and will be developed using Electron and React.</p>
 <figure class="fig-center align-default" id="id3">
-<a class="reference internal image-reference" href="../_images/arc_hld_frontend.png"><img alt="../_images/arc_hld_frontend.png" src="../_images/arc_hld_frontend.png" style="width: 1392.0px; height: 509.6px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/arc_hld_frontend.png"><img alt="../_images/arc_hld_frontend.png" src="../_images/arc_hld_frontend.png" style="width: 1392.0px; height: 509.6px;" /></a>
 <figcaption>
-<p><span class="caption-text">AudioReach Creator (ARC) High-Level Software Component View (Frontend)</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-text">AudioReach Creator (ARC) High-Level Software Component View (Frontend)</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="presentation-layer">
-<h4><a class="toc-backref" href="#id8" role="doc-backlink">Presentation Layer</a><a class="headerlink" href="#presentation-layer" title="Link to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Presentation Layer</a><a class="headerlink" href="#presentation-layer" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>React components that handle UI and user interactions.</p></li>
 <li><p>Communicates only with the Facade.</p></li>
 <li><p>They receive data via &#64;Input() and emit events via &#64;Output().</p></li>
 </ul>
 <section id="major-ui-features">
-<h5>Major UI Features<a class="headerlink" href="#major-ui-features" title="Link to this heading"></a></h5>
+<h5>Major UI Features<a class="headerlink" href="#major-ui-features" title="Permalink to this heading"></a></h5>
 <p><strong>Start Page:</strong> Entry page of ARC application which will holds buttons to allow users to open file, connect to a device etc.</p>
 <p><strong>Graph View:</strong> After opening a file or connecting to a device, selected usecase’s graphs will be displayed. User can modify and tune usecases in Graph View.</p>
 <p><strong>Calibration View:</strong> For a selected module, its calibration data can be tuned through Calibration View.</p>
@@ -159,7 +160,7 @@
 </section>
 </section>
 <section id="facade-layer">
-<h4><a class="toc-backref" href="#id9" role="doc-backlink">Facade Layer</a><a class="headerlink" href="#facade-layer" title="Link to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Facade Layer</a><a class="headerlink" href="#facade-layer" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Acts as an intermediary between the presentation and state layers.</p></li>
 <li><p>Exposes observables and methods to the components.</p></li>
@@ -167,7 +168,7 @@
 </ul>
 </section>
 <section id="state-layer">
-<h4><a class="toc-backref" href="#id10" role="doc-backlink">State Layer</a><a class="headerlink" href="#state-layer" title="Link to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">State Layer</a><a class="headerlink" href="#state-layer" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Manages application state using a store (e.g., NgRx or a custom service).</p></li>
 <li><p>Handles API calls and updates state accordingly.</p></li>
@@ -176,17 +177,16 @@
 </section>
 </section>
 <section id="arc-engine-backend">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">ARC Engine (Backend)</a><a class="headerlink" href="#arc-engine-backend" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">ARC Engine (Backend)</a><a class="headerlink" href="#arc-engine-backend" title="Permalink to this heading"></a></h3>
 <p>ARC Engine will work as a web server to provide all APIs for Frontend to access/update data from database. It will contain Presentation and Domain layers.</p>
 <figure class="fig-center align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/arc_hld_backend.png"><img alt="../_images/arc_hld_backend.png" src="../_images/arc_hld_backend.png" style="width: 1147.2px; height: 502.40000000000003px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/arc_hld_backend.png"><img alt="../_images/arc_hld_backend.png" src="../_images/arc_hld_backend.png" style="width: 1147.2px; height: 502.40000000000003px;" /></a>
 <figcaption>
-<p><span class="caption-text">AudioReach Creator (ARC) High-Level Software Component View (Backend)</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-text">AudioReach Creator (ARC) High-Level Software Component View (Backend)</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="id1">
-<h4><a class="toc-backref" href="#id12" role="doc-backlink">Presentation Layer</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Presentation Layer</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Provides web REST apis to handle http/https requests.</p></li>
 <li><p>Provides gRPC apis to communicate large size data in real time for high-performance and low-latency requirement (typically used for RTM).</p></li>
@@ -194,7 +194,7 @@
 </ul>
 </section>
 <section id="domain-layer">
-<h4><a class="toc-backref" href="#id13" role="doc-backlink">Domain Layer</a><a class="headerlink" href="#domain-layer" title="Link to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Domain Layer</a><a class="headerlink" href="#domain-layer" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Provides services with core business logic and rules to query/update data from/to database.</p></li>
 </ul>

@@ -51,10 +51,10 @@ Create a Yocto image
 The first step is to integrate AudioReach components
 into a Yocto build that can be loaded onto the Raspberry Pi device. This involves syncing a Yocto build and then integrating the meta-audioreach layer, which is currently available as a Github repository.
 
-Before following these steps, it would be helpful to learn the basics of how to use a Yocto project. To do this, please refer to the official Yocto documentation site: https://docs.yoctoproject.org/2.0/yocto-project-qs/yocto-project-qs.html
+Before following these steps, it would be helpful to learn the basics of how to use a Yocto project. To do this, please refer to the official Yocto documentation site: https://docs.yoctoproject.org/5.0.12/brief-yoctoprojectqs/index.html
 
 Step 1: Create a Yocto build
--------------------------------
+-----------------------------
 
 Follow the below steps to setup a Yocto build:
 
@@ -74,7 +74,11 @@ Follow the below steps to setup a Yocto build:
 
 		source ./sources/poky/oe-init-build-env
 
-   * Navigate to the file "<yocto_build_root>/build/conf/local.conf". In this file, locate the line **MACHINE ?= "<machine>"** and replace it with the line **MACHINE ?= "raspberrypi4"**
+   * Navigate to the file "<yocto_build_root>/build/conf/local.conf" and add the below line:
+
+	.. code-block:: bash
+
+		MACHINE ?= "raspberrypi4"
 
    * Navigate to the "build/conf/bblayers.conf" file and add the necessary meta layers by editing the file as shown:
 
@@ -98,22 +102,10 @@ Follow the below steps to setup a Yocto build:
          <path_to_build>/sources/meta-openembedded/meta-python \
 	"
 
-**Note:** The AudioReach project currently uses the "scarthgap" version of Yocto. Please ensure that your local system has the requirements needed for Yocto scarthgap builds by checking the "Linux Distribution" section on the Yocto documentation page here: https://docs.yoctoproject.org/2.0/yocto-project-qs/yocto-project-qs.html. 
+**Note:** The AudioReach project currently uses the "scarthgap" version of Yocto.
+Please ensure that all utilities required for Yocto scarthgap builds meet the minimum version numbers, which are listed on the Yocto documentation site: https://docs.yoctoproject.org/5.0.12/ref-manual/system-requirements.html#required-git-tar-python-make-and-gcc-versions. 
 
-If not, please download the pre-built "buildtools" for Yocto using the below steps:
-
-   .. code-block:: bash
-
-	  cd <yocto_build_root>/sources/poky
-	  scripts/install-buildtools
-
-Then run the following commands to setup your build environment to use buildtools:
-
-   .. code-block:: bash
-
-	  cd <yocto_build_root>
-	  source ./sources/poky/oe-init-build-env
-	  source ./sources/poky/buildtools/environment-setup-x86_64-pokysdk-linux
+If not, please follow the steps in section 1.5.1 at the above link to install and setup buildtools.
 
 
 Step 2: Get AudioReach Meta Layer
@@ -153,7 +145,11 @@ Step 4: Compile the image
 -------------------------
 
 Now the build setup is complete, and the full Yocto image can be generated. Navigate to the "build" directory
-and run the command **bitbake core-image-sato**
+and run the below command to generate the image:
+
+	.. code-block:: bash
+
+		bitbake core-image-sato
 
 * If the bitbake command gives a "umask" error, run the command **umask 022** and try again.
 * If there is a "restricted license" error, navigate to the "<yocto_build_root>/build/conf/local.conf" file and append the below line:
@@ -170,8 +166,8 @@ Step 5: Flash the Yocto image
 
 The generated Yocto image can be flashed to an SD card using Raspberry Pi Imager. This can be installed from raspberrypi.com/software, or by running **sudo apt install rpi-imager** on a Linux terminal. Then follow the below steps to flash the device:
 
-* Open Raspberry Pi Imager, and select "RaspberryPi4" as the device type.
-* Under the "Choose OS" options, select the "Use custom" option. Make sure to search for all file types. Then navigate to the ".wic" file and select it.
+* Open Raspberry Pi Imager, and if there is a "Choose Device" option, select "RaspberryPi4" as the device type.
+* Under the "Choose OS" option, select "Use custom". Make sure to search for all file types. Then navigate to the ".wic" file and select it.
 * Under "Storage", select the desired SD card. 
 * Click "Flash" to start flashing the image.
 
@@ -193,6 +189,8 @@ Configure bootup settings
 Next, please complete the following steps to enable the audio and update
 the logging settings. The files mentioned below can be updated directly on the Raspberry Pi 4 UI if the device is plugged into an external monitor, or through a local computer using SCP.
 
+	* Note: Users can also connect to the Raspberry Pi through SSH by opening a connection to "root@<Raspberry PI IP address>". By default, there is no password required to connect to SSH.
+
 To enable the sound card:
 
    * Navigate to the file "/boot/config.txt"
@@ -200,6 +198,14 @@ To enable the sound card:
    * Change this line to **dtparam=audio=on**
 
       * Make sure to uncomment this line while updating.
+
+Optional step: In the file /boot/config.txt, it is also possible to disable HDMI audio output if the Raspberry Pi will be
+connected to a display. This is helpful because if the HDMI sound card is enumerated, it may change the sound card ID of the
+Headphones device, which would require the card ID to be updated in ARC.
+
+	* Navigate to the file "/boot/config.txt"
+	* Locate the line **dtoverlay=vc4-kms-v3d**
+	* Change this line to **dtoverlay=vc4-kms-v3d,noaudio**
 
 By default, the system logs printed while running a Raspberry Pi usecase will be short. The system log settings should be updated to capture the additional usecase logs that will be printed by AudioReach:
 
@@ -214,14 +220,19 @@ By default, the system logs printed while running a Raspberry Pi usecase will be
    * Save the file.
 
 To apply the updated configuration settings, shut down the Raspberry Pi through
-the homescreen, or by running the command **shutdown -r -time "now"** through the
-terminal.
+the homescreen, or by running the below command in the terminal:
+
+.. code-block:: bash
+
+	shutdown -r -time "now"
 
 Enable Real-time Calibration Mode
 ---------------------------------
 
 ARC (AudioReach Creator) is a tool that allows the user to perform several functionalities related to the audio usecase, including creating and editing audio usecase graphs, and editing audio configurations while running an
 audio usecase in real time. For more information on ARC, please refer to the :ref:`arc_design` page.
+
+	* Please note that at this time, AudioReach Creator is only available on Windows.
 
 The below steps will demonstrate how to connect ARC to the Raspberry Pi so that the usecase graph can be viewed in real time.
 
@@ -275,9 +286,18 @@ If there are some issues running the usecase, please refer to the suggested fixe
 Check the sound card
 --------------------
 
-On the Raspberry Pi, open the file "/proc/asound/cards". There should be a few
-sound card entries in this list. If the file instead says "no sound cards available", you likely
-forgot to enable the sound card (see section `Configure bootup settings <#configure-bootup-settings>`__).
+On the Raspberry Pi terminal, run the below command:
+
+.. code-block:: bash
+
+		cat /proc/asound/cards
+
+This should output the available sound cards. If the output instead says "no sound cards available", you likely
+forgot to enable the sound cards (see section `Configure bootup settings <#configure-bootup-settings>`__).
+
+	.. figure:: images/rpi_sound_cards.png
+         :figclass: fig-left
+         :scale: 100 %
 
 Check the sound card ID
 -----------------------
@@ -285,7 +305,7 @@ Check the sound card ID
 If the Raspberry Pi is connected to the monitor, the HDMI-based soundcard might get enumerated in the file "/proc/asound/cards", causing the
 card ID of the Headphones to change. To fix this, you will need to have ARC installed on a secondary computer (see section `Enable Real-time Calibration Mode <#enable-real-time-calibration-mode>`__).
 
-   #. Copy the ACDB files from the Raspberry Pi to your local computer. These files
+   #. Copy the ACDB and workspace files from the Raspberry Pi to your local computer. These files
       can be found under the folder "/etc/acdbdata".
 
       * Note: This can be done by using "scp" commands on a Linux terminal or by using a program such as "WinScp".
@@ -295,19 +315,19 @@ card ID of the Headphones to change. To fix this, you will need to have ARC inst
       copied from the Raspberry Pi.
 
    #. On the top left drop down menu displaying the usecases,
-      select any usecase that uses "Headphones".
+      select any usecase that uses "Speaker".
 
-   #. Double click the "ALSA device sink" module shown below
+   #. Double click the "ALSA Device Sink" module shown below
 
-      .. figure:: images/headphone_screenshot.png
+      .. figure:: images/alsa_sink_module.png
          :figclass: fig-left
-         :scale: 80 %
+         :scale: 100 %
 
    #. This will open the Configure Window. Check the "card_id" field here. The card_id should
       be the same as the ID that corresponds with the Headphones entry in the
       "/proc/asound/cards" file on the Raspberry Pi.
 
-      .. figure:: images/alsa_sink_module.png
+      .. figure:: images/alsa_configure_window.png
          :figclass: fig-left
          :scale: 100 %
 

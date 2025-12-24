@@ -1,22 +1,25 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AudioReach Graph Services &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,7 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk_overview.html">AudioReach Project Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">AudioReach Designs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arch_overview.html">AudioReach Architecture Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design_concept.html">AudioReach Concept and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_concept.html">AudioReach Concepts and Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arspf_design.html">AudioReach Engine</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">AudioReach Graph Services</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
@@ -98,9 +101,9 @@
            <div itemprop="articleBody">
              
   <section id="audioreach-graph-services">
-<span id="args-design"></span><h1>AudioReach Graph Services<a class="headerlink" href="#audioreach-graph-services" title="Link to this heading"></a></h1>
+<span id="args-design"></span><h1>AudioReach Graph Services<a class="headerlink" href="#audioreach-graph-services" title="Permalink to this heading"></a></h1>
 <section id="introduction">
-<span id="args-introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<span id="args-introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>AudioReach graph services (ARGS) are a collection of cross-platform software libraries which together provide following services</p>
 <p>Use Case Execution:</p>
 <ul class="simple">
@@ -120,24 +123,23 @@
 </ul>
 </section>
 <section id="architecture">
-<h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h2>
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h2>
 <section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
 <p>AudioReach graph services, as depicted below, is consisted of four cross-platform software components: Graph Service Library(GSL), ACDB Manager Library(AML), Generic Packet Router(GPR), and Audio Tuning Service (ATS). These components invoke utilities and obtain platform specific information provided by OS abstraction layer (OSAL) and platform wrapper in order to operate on intended platform.</p>
 <p>GSL serves as entry point for client to access functionalities provided by graph service and ARE. Through GSL APIs, client can initiate graph setup, exchange audio data, and operate on the audio graph running on ARE. GSL queries AML with GKV, CKV, and TKV which are passed by the client to retrieve graph definition, calibration, and tagged payload. Then, GSL packetizes retrieved data from AML and invokes GPR to send commands and receive response from ARE. If module running in DSP is capable of generating event such as key word detection, GSL would relay the detection event back to client.</p>
 <p>Apart from providing service to client, ARGS also plays a critical role in audio system development workflow. Audio tuning service works as bridge between ARC on host PC and rest of audioreach software running on target. ATS dispatches commands from ARC to various service handlers which interfaces with rest of AudioReach software components to achieve development workflow use cases described in <a class="reference internal" href="#args-introduction"><span class="std std-ref">Introduction</span></a>.</p>
 <figure class="fig-center align-default" id="id1">
-<a class="reference internal image-reference" href="../_images/args_arch.png"><img alt="../_images/args_arch.png" src="../_images/args_arch.png" style="width: 987.0px; height: 748.0px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/args_arch.png"><img alt="../_images/args_arch.png" src="../_images/args_arch.png" style="width: 987.0px; height: 748.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">AudioReach Graph Services Block Diagram</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-text">AudioReach Graph Services Block Diagram</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="graph-service-library">
-<h3>Graph Service Library<a class="headerlink" href="#graph-service-library" title="Link to this heading"></a></h3>
+<h3>Graph Service Library<a class="headerlink" href="#graph-service-library" title="Permalink to this heading"></a></h3>
 <section id="functionalities">
-<h4>Functionalities<a class="headerlink" href="#functionalities" title="Link to this heading"></a></h4>
+<h4>Functionalities<a class="headerlink" href="#functionalities" title="Permalink to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>Loading and Initialization of  Sub-Graphs and Graphs via Graph Key Vector.</p></li>
 <li><p>Graph setup and Dynamic handling of the sub-graphs within the graph</p></li>
@@ -147,7 +149,7 @@
 </ol>
 </section>
 <section id="compositions">
-<h4>Compositions<a class="headerlink" href="#compositions" title="Link to this heading"></a></h4>
+<h4>Compositions<a class="headerlink" href="#compositions" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>API Layer: GSL API layer defines and exposes APIs to GSL Clients.  It provides API’s to query graph handle from use-case key vector information and also graph management etc.
 Full List of APIs are listed in <a class="reference internal" href="../api/args_gsl.html#args-gsl-api"><span class="std std-ref">Graph Service Layer</span></a>.</p></li>
@@ -178,17 +180,17 @@ different instance of ARE running on different subsystem.</p></li>
 </section>
 </section>
 <section id="acdb-management-library">
-<h3>ACDB Management Library<a class="headerlink" href="#acdb-management-library" title="Link to this heading"></a></h3>
+<h3>ACDB Management Library<a class="headerlink" href="#acdb-management-library" title="Permalink to this heading"></a></h3>
 <p>AML provides both get/set APIs to retrieve and adjust data in the ACDB DATA files. It provides data abstractions and organization for how calibration data is to be consumed by its client, GSL.
 On device, there are ACDB file and ACDB delta file. ACDB file stores baseline calibration data needed by GSL and ARE in compressed binary form. Delta file contains data set by GSL and ARC during run time.
 These files are managed by corresponding file managers as part of AML.</p>
 </section>
 <section id="generic-package-router">
-<h3>Generic Package Router<a class="headerlink" href="#generic-package-router" title="Link to this heading"></a></h3>
+<h3>Generic Package Router<a class="headerlink" href="#generic-package-router" title="Permalink to this heading"></a></h3>
 <p>Refer to <a class="reference internal" href="gpr_design.html#gpr-overview"><span class="std std-ref">Functional Overview</span></a> for high level overview of GPR.</p>
 </section>
 <section id="audio-tuning-service">
-<h3>Audio Tuning Service<a class="headerlink" href="#audio-tuning-service" title="Link to this heading"></a></h3>
+<h3>Audio Tuning Service<a class="headerlink" href="#audio-tuning-service" title="Permalink to this heading"></a></h3>
 <p>When ARC is connected to device, ARC is considered in connected mode. Communication is established with ATS via supported transport layer such as TCP/IP. Upon receiving ARC commands, ATS routes the commands to responsible service modules:</p>
 <ul class="simple">
 <li><p>Online Calibration Service (OCS): The Online Calibration service allows ARC to operate portions of AML</p></li>
@@ -199,7 +201,7 @@ These files are managed by corresponding file managers as part of AML.</p>
 <p>ATS, beside depending on OSAL for OS related functionalities, relies on platform wrappers to provide platform specific utilities such as TCP/IP connection, playback/recording APIs.</p>
 </section>
 <section id="operating-system-abstraction-layer">
-<span id="args-osal"></span><h3>Operating System Abstraction Layer<a class="headerlink" href="#operating-system-abstraction-layer" title="Link to this heading"></a></h3>
+<span id="args-osal"></span><h3>Operating System Abstraction Layer<a class="headerlink" href="#operating-system-abstraction-layer" title="Permalink to this heading"></a></h3>
 <p>In order to run AudioReach graph services on desired OS platform, OSAL implementation shall provide the following functionalities:</p>
 <ul class="simple">
 <li><p>Signal, Sleep, Thread, Mutex</p></li>

@@ -9,10 +9,11 @@ Welcome to AudioReach
 
 Announcements
 *************
+* (10/6/2025): The newly added :ref:`dev_workflow` guide provides a starting point for developers to learn about the AudioReach developer workflow.
 
 * (8/22/2025): Two documentation pages have been recently released:
 
-	* The :ref:`available_modules` list provides an overview of all the available 
+	* The :ref:`available_modules` list provides an overview of all the available
 	  audio alogirithms in AudioReach, including where to locate them in the open source project and a basic description of their capabilities.
 	* The :ref:`adding_modules` guide outlines steps on how to add a custom audio algorithm to an AudioReach yocto build.
 
