@@ -1,22 +1,25 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How to add an Audio Module &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -61,6 +64,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="capi_mod_dev.html">CAPI Module Development Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system_workflow.html">System Integrator Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="plat_port.html">Platform Porting Guide</a></li>
@@ -97,7 +101,7 @@
            <div itemprop="articleBody">
              
   <section id="how-to-add-an-audio-module">
-<span id="adding-modules"></span><h1>How to add an Audio Module<a class="headerlink" href="#how-to-add-an-audio-module" title="Link to this heading"></a></h1>
+<span id="adding-modules"></span><h1>How to add an Audio Module<a class="headerlink" href="#how-to-add-an-audio-module" title="Permalink to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
 <li><p><a class="reference external" href="#create-the-folder-structure">Create the folder structure</a></p></li>
@@ -109,12 +113,11 @@
 <li><p><a class="reference external" href="#test-the-module">Test the module</a></p></li>
 </ol>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>This guide will outline how to incorporate, build, and test an audio algorithm in audioreach-engine, in the form of a <strong>module</strong>, using these basic steps:</p>
 <blockquote>
 <div><figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/workflow_diagram.png"><img alt="../_images/workflow_diagram.png" src="../_images/workflow_diagram.png" style="width: 1295.0px; height: 441.0px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/workflow_diagram.png"><img alt="../_images/workflow_diagram.png" src="../_images/workflow_diagram.png" style="width: 1295.0px; height: 441.0px;" /></a>
 </figure>
 </div></blockquote>
 <p>As noted in the workflow diagram above, this guide will show how to add a module with source code, or how to instead add a prebuilt “.a” binary file, which will be discussed in the section <a class="reference external" href="#create-a-build-file">Create a build file</a>.</p>
@@ -134,7 +137,7 @@ Because this guide is written based on audioreach-engine compiled using the yoct
 For example, on the Raspberry Pi 4, this folder will be located in “&lt;build_root&gt;/build/tmp/work/cortexa7t2hf-neon-vfpv4-poky-linux-gnueabi/audioreach-engine/1.0+git/audioreach-engine-1.0+git”.</p>
 </section>
 <section id="create-the-folder-structure">
-<h2>Create the folder structure<a class="headerlink" href="#create-the-folder-structure" title="Link to this heading"></a></h2>
+<h2>Create the folder structure<a class="headerlink" href="#create-the-folder-structure" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>First, choose a location to create the module folder. Most of the current modules are found in the <a class="reference external" href="https://github.com/Audioreach/audioreach-engine/tree/master/modules">modules</a> folder, in one of two locations:</p>
 <blockquote>
@@ -158,7 +161,7 @@ For example, on the Raspberry Pi 4, this folder will be located in “&lt;build_
 </ul>
 </section>
 <section id="create-an-api-file">
-<h2>Create an API file<a class="headerlink" href="#create-an-api-file" title="Link to this heading"></a></h2>
+<h2>Create an API file<a class="headerlink" href="#create-an-api-file" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>The API file will be used by AudioReach Creator to obtain information about the module, such as configurable structs and parameters, the module description, and the module ID. An API file is required for every module.</p>
 <blockquote>
@@ -166,8 +169,7 @@ For example, on the Raspberry Pi 4, this folder will be located in “&lt;build_
 <li><p>For example, the below image shows some of the information included in the API file for the Example Gain module:</p>
 <blockquote>
 <div><figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/3_api_module_entry_example_gain.png"><img alt="../_images/3_api_module_entry_example_gain.png" src="../_images/3_api_module_entry_example_gain.png" style="width: 743.2px; height: 646.4000000000001px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/3_api_module_entry_example_gain.png"><img alt="../_images/3_api_module_entry_example_gain.png" src="../_images/3_api_module_entry_example_gain.png" style="width: 743.2px; height: 646.4000000000001px;" /></a>
 </figure>
 </div></blockquote>
 </li>
@@ -179,16 +181,14 @@ For example, on the Raspberry Pi 4, this folder will be located in “&lt;build_
 <li><p>To better visualize how the Calibration Window is constructed from the a module’s API file, please note the image of API file for the Example Gain module below:</p>
 <blockquote>
 <div><figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/1_api_example_gain.png"><img alt="../_images/1_api_example_gain.png" src="../_images/1_api_example_gain.png" style="width: 687.2px; height: 622.4000000000001px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/1_api_example_gain.png"><img alt="../_images/1_api_example_gain.png" src="../_images/1_api_example_gain.png" style="width: 687.2px; height: 622.4000000000001px;" /></a>
 </figure>
 <ul class="simple">
 <li><p>This section of the API file depicts the parameter <strong>PARAM_ID_GAIN_MODULE_GAIN</strong>, as well as the struct <strong>param_id_module_gain_cfg_t</strong> that contains the variables <strong>gain</strong> and <strong>reserved</strong>. Additionally, underneath the parameters, there are some h2xml annotations.</p></li>
 <li><p>These parameters, structs, and h2xml entries in the API file will be used by ARC to construct the Calibration Window for the Example Gain module, shown below:</p></li>
 </ul>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/2_calibration_window_example_gain.png"><img alt="../_images/2_calibration_window_example_gain.png" src="../_images/2_calibration_window_example_gain.png" style="width: 584.8000000000001px; height: 176.8px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/2_calibration_window_example_gain.png"><img alt="../_images/2_calibration_window_example_gain.png" src="../_images/2_calibration_window_example_gain.png" style="width: 584.8000000000001px; height: 176.8px;" /></a>
 </figure>
 <ul>
 <li><p>The image above shows the <strong>PARAM_ID_GAIN_MODULE_GAIN</strong> parameter with two configurable variables, <strong>gain</strong> and <strong>reserved</strong>. This reflects the <strong>param_id_module_gain_cfg_t</strong> struct in the API file. However, the name of the struct is not shown in ARC; it is only used internally in the API file to define the configurable variables. Instead, the parameter name will be shown.</p></li>
@@ -207,7 +207,7 @@ For example, on the Raspberry Pi 4, this folder will be located in “&lt;build_
 </ul>
 </section>
 <section id="add-the-source-code-and-capi-wrapper">
-<h2>Add the source code and CAPI Wrapper<a class="headerlink" href="#add-the-source-code-and-capi-wrapper" title="Link to this heading"></a></h2>
+<h2>Add the source code and CAPI Wrapper<a class="headerlink" href="#add-the-source-code-and-capi-wrapper" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>The custom algorithm for the module can be developed and optimized using standard industrial tool such as Matlab.</p></li>
 <li><p>When developing the CAPI wrapper, there are a few functions that are mandatory to implement, including the entry point init functions, get_param, set_param, set_properties, get_properties, process, and end function.
@@ -224,7 +224,7 @@ For example, below is the list of the required CAPI functions from the Example G
 </ul>
 </section>
 <section id="create-a-build-file">
-<h2>Create a build file<a class="headerlink" href="#create-a-build-file" title="Link to this heading"></a></h2>
+<h2>Create a build file<a class="headerlink" href="#create-a-build-file" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>First, create a “CMakeLists.txt” file under the module’s “build” directory. Please refer to the existing build files, such as the <a class="reference external" href="https://github.com/Audioreach/audioreach-engine/blob/master/modules/examples/gain/CMakeLists.txt">Example Gain</a>.</p>
 <blockquote>
@@ -258,8 +258,7 @@ set<span class="o">(</span>module_name_includes
 As an example, here is the “spf_module_sources” section for the Example Gain module:</p>
 <blockquote>
 <div><figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/5_example_gain_build_file.png"><img alt="../_images/5_example_gain_build_file.png" src="../_images/5_example_gain_build_file.png" style="width: 800.0px; height: 560.0px;" />
-</a>
+<a class="reference internal image-reference" href="../_images/5_example_gain_build_file.png"><img alt="../_images/5_example_gain_build_file.png" src="../_images/5_example_gain_build_file.png" style="width: 800.0px; height: 560.0px;" /></a>
 </figure>
 </div></blockquote>
 </li>
@@ -290,7 +289,7 @@ As an example, here is the “spf_module_sources” section for the Example Gain
 </ul>
 </section>
 <section id="add-entries-to-build-the-module">
-<h2>Add entries to build the module<a class="headerlink" href="#add-entries-to-build-the-module" title="Link to this heading"></a></h2>
+<h2>Add entries to build the module<a class="headerlink" href="#add-entries-to-build-the-module" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>To ensure the module is compiled, it is required to add a few build entries in other audioreach-engine build files. Follow the below steps before building the module:</p>
 <blockquote>
@@ -333,7 +332,7 @@ on how to test the module, please see the steps below.</p></li>
 </ul>
 </section>
 <section id="build-the-module-and-import-to-arc">
-<h2>Build the module and import to ARC<a class="headerlink" href="#build-the-module-and-import-to-arc" title="Link to this heading"></a></h2>
+<h2>Build the module and import to ARC<a class="headerlink" href="#build-the-module-and-import-to-arc" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>Now all of the setup is completed. If using a yocto build, running “bitbake audioreach-engine” should build the module.</p>
 <blockquote>
@@ -347,7 +346,7 @@ on how to test the module, please see the steps below.</p></li>
 </ul>
 </section>
 <section id="test-the-module">
-<h2>Test the module<a class="headerlink" href="#test-the-module" title="Link to this heading"></a></h2>
+<h2>Test the module<a class="headerlink" href="#test-the-module" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>First, set up the preferred device. A full device image can be generated from the yocto build and flashed after successfully compiling “audioreach-engine” and then generating a full image by running “bitbake &lt;image_name&gt;”.</p></li>
 <li><p>If an image is already flashed onto the device, it is possible to use the module without re-flashing the image:</p>

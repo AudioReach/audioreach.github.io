@@ -1168,37 +1168,7 @@ Customizations
 
 Custom module
 -------------
-
-The custom module development workflow involves the following high-level steps:
-
-1. Start custom algorithm using standard industrial tool such as Matlab and optimize the algorithm
-   for intended processor architecture
-
-2. Develop the Common Audio Processor Interface (CAPI) wrapper for the
-   custom algorithm. For examples and detailed instructions, see the :ref:`capi_mod_dev_guide`
-
-3. Develop an API header file consisting of Module ID and configuration
-   parameters related to the custom algorithm.
-
-4. Generate an API XML file by running the h2xml conversion tool on the API
-   header file. The XML file provides the necessary information about configuration
-   interfaces, supported containers, stack size, and any other policies
-   that are required for the AudioReach configuration tool (ARC platform).
-
-5. Compile the CAPI-wrapped module as a built-in module as part of ARE image
-   or standalone shared object.
-
-6. Import the custom module into the ARC platform through a module
-   discovery workflow, and create use case graphs by placing the module
-   in the appropriate container and subgraphs.
-
-7. Calibrate or configure the module together with an end-to-end use
-   case, and store the data in the file system (through the ACDB file
-   provided by the ARC platform).
-
-8. Launch the end-to-end use case from the application, which in turn
-   uses the use case graph and calibration information from the ACDB
-   file and provides them to the ARE to realize the use case.
+For steps on how to add a custom module, please refer to the :ref:`adding_modules` guide.
 
 Custom container
 ----------------

@@ -1,22 +1,25 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generic Packet Router &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,7 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../sdk_overview.html">AudioReach Project Overview</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">AudioReach Designs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arch_overview.html">AudioReach Architecture Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design_concept.html">AudioReach Concept and Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_concept.html">AudioReach Concepts and Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arspf_design.html">AudioReach Engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="args_design.html">AudioReach Graph Services</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Generic Packet Router</a><ul>
@@ -168,7 +171,7 @@
            <div itemprop="articleBody">
              
   <section id="generic-packet-router">
-<span id="gpr-design"></span><h1>Generic Packet Router<a class="headerlink" href="#generic-packet-router" title="Link to this heading"></a></h1>
+<span id="gpr-design"></span><h1>Generic Packet Router<a class="headerlink" href="#generic-packet-router" title="Permalink to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#introduction" id="id37">Introduction</a></p>
@@ -269,9 +272,9 @@
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <section id="purpose">
-<h3><a class="toc-backref" href="#id38" role="doc-backlink">Purpose</a><a class="headerlink" href="#purpose" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">Purpose</a><a class="headerlink" href="#purpose" title="Permalink to this heading"></a></h3>
 <p>This document describes the Generic Packet Router (GPR) API, which
 is intended to help developers understand and use the GPR to access
 or publish new services. Readers are assumed to be developers with
@@ -283,11 +286,11 @@ provided.</p>
 </section>
 </section>
 <section id="functional-overview">
-<span id="gpr-overview"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink">Functional Overview</a><a class="headerlink" href="#functional-overview" title="Link to this heading"></a></h2>
+<span id="gpr-overview"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink">Functional Overview</a><a class="headerlink" href="#functional-overview" title="Permalink to this heading"></a></h2>
 <p>This chapter provides an overview of the GPR infrastructure and
 protocol.</p>
 <section id="gpr-infrastructure">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">GPR Infrastructure</a><a class="headerlink" href="#gpr-infrastructure" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">GPR Infrastructure</a><a class="headerlink" href="#gpr-infrastructure" title="Permalink to this heading"></a></h3>
 <p>The GPR infrastructure provides a common set of APIs across
 different platforms, software layers, and processor domains to
 enable them to communicate using asynchronous messages. The
@@ -298,10 +301,9 @@ Application domain, DSP domain, and so on. The GPR can also be used
 on different platforms such as the Arm processor and Windows
 operating system. Refer to  <a class="reference external" href="#id30">GPR infrastructure on different processing domains</a></p>
 <figure class="fig-center align-default" id="id30">
-<a class="reference internal image-reference" href="../_images/Image18.png"><img alt="../_images/Image18.png" src="../_images/Image18.png" style="width: 4.75583in; height: 4.38083in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image18.png"><img alt="../_images/Image18.png" src="../_images/Image18.png" style="width: 4.75583in; height: 4.38083in;" /></a>
 <figcaption>
-<p><span class="caption-text">GPR infrastructure on different processing domains</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+<p><span class="caption-text">GPR infrastructure on different processing domains</span><a class="headerlink" href="#id30" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The AudioReach Engine (ARE) provides the necessary
@@ -321,20 +323,19 @@ The GPR interfaces with the data link layer to achieve this remote
 routing.</p></li>
 </ul>
 <section id="gpr-software-layering">
-<h4>GPR Software Layering<a class="headerlink" href="#gpr-software-layering" title="Link to this heading"></a></h4>
+<h4>GPR Software Layering<a class="headerlink" href="#gpr-software-layering" title="Permalink to this heading"></a></h4>
 <p>The GPR infrastructure is categorized into three layers: core layer,
 data link layer, and platform layer. Below figure
 illustrates this simplified model.</p>
 <figure class="fig-center align-default" id="id31">
-<span id="gpr-layering-model"></span><a class="reference internal image-reference" href="../_images/Image26.png"><img alt="../_images/Image26.png" src="../_images/Image26.png" style="width: 6.50917in; height: 4.13583in;" />
-</a>
+<span id="gpr-layering-model"></span><a class="reference internal image-reference" href="../_images/Image26.png"><img alt="../_images/Image26.png" src="../_images/Image26.png" style="width: 6.50917in; height: 4.13583in;" /></a>
 <figcaption>
-<p><span class="caption-text">GPR layering model</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+<p><span class="caption-text">GPR layering model</span><a class="headerlink" href="#id31" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="core-layer">
-<h4>Core Layer<a class="headerlink" href="#core-layer" title="Link to this heading"></a></h4>
+<h4>Core Layer<a class="headerlink" href="#core-layer" title="Permalink to this heading"></a></h4>
 <p>The core layer implements the core GPR functionality and can be
 further classified into the following functional blocks.</p>
 <ul class="simple">
@@ -364,7 +365,7 @@ essential to enable remote routing (see Section
 </ul>
 </section>
 <section id="data-link-layer">
-<h4>Data Link Layer<a class="headerlink" href="#data-link-layer" title="Link to this heading"></a></h4>
+<h4>Data Link Layer<a class="headerlink" href="#data-link-layer" title="Permalink to this heading"></a></h4>
 <blockquote>
 <div><p>The GPR data link layer is responsible for remote routing, which is
 the routing between different processor domains. Every data link
@@ -398,7 +399,7 @@ only one data link between two given process domains.</p>
 </ul>
 </section>
 <section id="platform-layer">
-<h4>Platform layer<a class="headerlink" href="#platform-layer" title="Link to this heading"></a></h4>
+<h4>Platform layer<a class="headerlink" href="#platform-layer" title="Permalink to this heading"></a></h4>
 <p>The platform layer comprises all the platform
 specific-implementations and enables the GPR to be platform
 agnostic. It has two components:</p>
@@ -420,15 +421,15 @@ plug-in layers.</p></li>
 </section>
 </section>
 <section id="api-messaging-model">
-<h3><a class="toc-backref" href="#id41" role="doc-backlink">API Messaging Model</a><a class="headerlink" href="#api-messaging-model" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">API Messaging Model</a><a class="headerlink" href="#api-messaging-model" title="Permalink to this heading"></a></h3>
 <section id="asynchronous-messaging-design">
-<h4>Asynchronous Messaging Design<a class="headerlink" href="#asynchronous-messaging-design" title="Link to this heading"></a></h4>
+<h4>Asynchronous Messaging Design<a class="headerlink" href="#asynchronous-messaging-design" title="Permalink to this heading"></a></h4>
 <p>The GPR infrastructure follows an asynchronous messaging design that
 can deliver unidirectional messages quickly and support messaging in
 the interrupt context.</p>
 </section>
 <section id="message-structure">
-<h4>Message Structure<a class="headerlink" href="#message-structure" title="Link to this heading"></a></h4>
+<h4>Message Structure<a class="headerlink" href="#message-structure" title="Permalink to this heading"></a></h4>
 <p>The GPR infrastructure defines the GPR message send function, the
 message receive callback function, and the message structure. The
 current GPR protocol uses 4-byte aligned, little-endian messages.
@@ -440,7 +441,7 @@ infrastructure.</p>
 </section>
 </section>
 <section id="gpr-protocol">
-<h3><a class="toc-backref" href="#id42" role="doc-backlink">GPR Protocol</a><a class="headerlink" href="#gpr-protocol" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">GPR Protocol</a><a class="headerlink" href="#gpr-protocol" title="Permalink to this heading"></a></h3>
 <p>The GPR protocol is a core messaging protocol that runs on top of
 the GPR infrastructure and includes the following features:</p>
 <ul class="simple">
@@ -454,24 +455,22 @@ delivery.</p></li>
 late transactions.</p></li>
 </ul>
 <section id="packet-details">
-<span id="id1"></span><h4>Packet Details<a class="headerlink" href="#packet-details" title="Link to this heading"></a></h4>
+<span id="id1"></span><h4>Packet Details<a class="headerlink" href="#packet-details" title="Permalink to this heading"></a></h4>
 <p>Below figure illustrates the GPR message/packet
 structure (<a class="reference external" href="#struct-gpr-packet-t">gpr_packet_t</a>), where the
 numbers at the top indicate the bit positions. The following
 sections provide more details.</p>
 <figure class="fig-center align-default" id="id32">
-<a class="reference internal image-reference" href="../_images/Image32.png"><img alt="../_images/Image32.png" src="../_images/Image32.png" style="width: 6.17000in; height: 3.12583in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image32.png"><img alt="../_images/Image32.png" src="../_images/Image32.png" style="width: 6.17000in; height: 3.12583in;" /></a>
 <figcaption>
-<p><span class="caption-text">GPR packet data structure with all fields</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+<p><span class="caption-text">GPR packet data structure with all fields</span><a class="headerlink" href="#id32" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="size-and-version-fields">
-<h4>Size and Version Fields<a class="headerlink" href="#size-and-version-fields" title="Link to this heading"></a></h4>
+<h4>Size and Version Fields<a class="headerlink" href="#size-and-version-fields" title="Permalink to this heading"></a></h4>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image41.png"><img alt="../_images/Image41.png" src="../_images/Image41.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image41.png"><img alt="../_images/Image41.png" src="../_images/Image41.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 <p>The following table shows the information for these fields.</p>
 <table class="docutils align-default">
@@ -504,7 +503,7 @@ sections provide more details.</p>
 </table>
 </section>
 <section id="source-and-destination-domain-fields">
-<span id="id2"></span><h4>Source and Destination Domain Fields<a class="headerlink" href="#source-and-destination-domain-fields" title="Link to this heading"></a></h4>
+<span id="id2"></span><h4>Source and Destination Domain Fields<a class="headerlink" href="#source-and-destination-domain-fields" title="Permalink to this heading"></a></h4>
 <p>The GPR messaging protocol uses a domain ID to define the host
 process, processor, or target, and it uses a service ID to define
 the services or modules that live within the host.
@@ -515,48 +514,43 @@ domain value.
 Below figure illustrates two domains, each with its
 own GPR instance.</p>
 <figure class="fig-center align-default" id="id33">
-<a class="reference internal image-reference" href="../_images/Image5.png"><img alt="../_images/Image5.png" src="../_images/Image5.png" style="width: 3.49750in; height: 3.24750in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image5.png"><img alt="../_images/Image5.png" src="../_images/Image5.png" style="width: 3.49750in; height: 3.24750in;" /></a>
 <figcaption>
-<p><span class="caption-text">Example of interprocess communication</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+<p><span class="caption-text">Example of interprocess communication</span><a class="headerlink" href="#id33" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The following figure illustrates the destination domain field, which
 represents a processor or off-target location that contains the GPR
 to which the packet is sent.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image61.png"><img alt="../_images/Image61.png" src="../_images/Image61.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image61.png"><img alt="../_images/Image61.png" src="../_images/Image61.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 <p>The following figure illustrates the source domain field, which
 represents a processor or off-target location that contains the GPR
 from which the packet is sent.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image71.png"><img alt="../_images/Image71.png" src="../_images/Image71.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image71.png"><img alt="../_images/Image71.png" src="../_images/Image71.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 </section>
 <section id="client-data-field">
-<h4>Client Data Field<a class="headerlink" href="#client-data-field" title="Link to this heading"></a></h4>
+<h4>Client Data Field<a class="headerlink" href="#client-data-field" title="Permalink to this heading"></a></h4>
 <p>The client data field is used for client-specific needs. By default,
 this field must be set to 0 when unused.
 The following figure illustrates the field, in which 4 bits are open
 for use by the client and 4 bits are reserved and are set to 0.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image81.png"><img alt="../_images/Image81.png" src="../_images/Image81.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image81.png"><img alt="../_images/Image81.png" src="../_images/Image81.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 </section>
 <section id="reserved-field">
-<h4>Reserved Field<a class="headerlink" href="#reserved-field" title="Link to this heading"></a></h4>
+<h4>Reserved Field<a class="headerlink" href="#reserved-field" title="Permalink to this heading"></a></h4>
 <p>The reserved field must always be set to 0.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image91.png"><img alt="../_images/Image91.png" src="../_images/Image91.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image91.png"><img alt="../_images/Image91.png" src="../_images/Image91.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 </section>
 <section id="source-and-destination-port-fields">
-<span id="id3"></span><h4>Source and Destination Port Fields<a class="headerlink" href="#source-and-destination-port-fields" title="Link to this heading"></a></h4>
+<span id="id3"></span><h4>Source and Destination Port Fields<a class="headerlink" href="#source-and-destination-port-fields" title="Permalink to this heading"></a></h4>
 <p>The source port field represents a unique (within a given domain) ID
 that can be used to identify a service or module in the source
 domain. It is interpreted as the service ID of the source service or
@@ -564,8 +558,7 @@ module instance.
 <strong>NOTE:</strong> The terms <em>port</em> and <em>service ID</em> can be used
 interchangeably.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image101.png"><img alt="../_images/Image101.png" src="../_images/Image101.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image101.png"><img alt="../_images/Image101.png" src="../_images/Image101.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 <p>The destination port field represents the unique (within a domain)
 ID that can be used to identify a service or module in the
@@ -573,46 +566,42 @@ destination domain. It is interpreted as the service ID of the
 destination service or the module instance ID of the destination
 module.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image111.png"><img alt="../_images/Image111.png" src="../_images/Image111.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image111.png"><img alt="../_images/Image111.png" src="../_images/Image111.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 </section>
 <section id="token-field">
-<h4>Token Field<a class="headerlink" href="#token-field" title="Link to this heading"></a></h4>
+<h4>Token Field<a class="headerlink" href="#token-field" title="Permalink to this heading"></a></h4>
 <p>The token field no subfields. It is a transaction identifier, a
 sequence number, or any value that allows a client to identify which
 command is completed after receiving a command response message. The
 token field must be set to 0 when unused.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image121.png"><img alt="../_images/Image121.png" src="../_images/Image121.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image121.png"><img alt="../_images/Image121.png" src="../_images/Image121.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 </section>
 <section id="opcode-field">
-<span id="id4"></span><h4>Opcode Field<a class="headerlink" href="#opcode-field" title="Link to this heading"></a></h4>
+<span id="id4"></span><h4>Opcode Field<a class="headerlink" href="#opcode-field" title="Permalink to this heading"></a></h4>
 <p>The opcode is a GUID value that is used when selecting the operation
 and defining the payload structure. The operation selects the
 function call, and the payload contains the function arguments.</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image131.png"><img alt="../_images/Image131.png" src="../_images/Image131.png" style="width: 6.13667in; height: 0.62500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image131.png"><img alt="../_images/Image131.png" src="../_images/Image131.png" style="width: 6.13667in; height: 0.62500in;" /></a>
 </figure>
 </section>
 <section id="payload-field">
-<h4>Payload Field<a class="headerlink" href="#payload-field" title="Link to this heading"></a></h4>
+<h4>Payload Field<a class="headerlink" href="#payload-field" title="Permalink to this heading"></a></h4>
 <p>The payload field has no subfields. It contains the arguments to the
 function call specified in the opcode field (defined in section
 <a class="reference internal" href="#opcode-field"><span class="std std-ref">Opcode Field</span></a>).</p>
 <figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/Image141.png"><img alt="../_images/Image141.png" src="../_images/Image141.png" style="width: 6.15833in; height: 0.87500in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image141.png"><img alt="../_images/Image141.png" src="../_images/Image141.png" style="width: 6.15833in; height: 0.87500in;" /></a>
 </figure>
 </section>
 </section>
 <section id="general-operations">
-<h3><a class="toc-backref" href="#id43" role="doc-backlink">General Operations</a><a class="headerlink" href="#general-operations" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">General Operations</a><a class="headerlink" href="#general-operations" title="Permalink to this heading"></a></h3>
 <section id="addressing-scheme">
-<h4>Addressing Scheme<a class="headerlink" href="#addressing-scheme" title="Link to this heading"></a></h4>
+<h4>Addressing Scheme<a class="headerlink" href="#addressing-scheme" title="Permalink to this heading"></a></h4>
 <p>The source or destination for a given GPR packet is identified by a
 32-bit service ID (see section
 <a class="reference internal" href="#source-and-destination-port-fields"><span class="std std-ref">Source and Destination Port Fields</span></a>) and the 8-bit
@@ -622,7 +611,7 @@ For a given service, the service ID must be unique within the
 domain. All services within a domain have the same domain ID.</p>
 </section>
 <section id="registration">
-<h4>Registration<a class="headerlink" href="#registration" title="Link to this heading"></a></h4>
+<h4>Registration<a class="headerlink" href="#registration" title="Permalink to this heading"></a></h4>
 <p>To send or receive packets, each service or module must first
 register with the GPR. Registration can be done at any time by
 calling the
@@ -637,14 +626,14 @@ All entries in the database can be identified by their unique
 service IDs.</p>
 </section>
 <section id="deregistration">
-<h4>Deregistration<a class="headerlink" href="#deregistration" title="Link to this heading"></a></h4>
+<h4>Deregistration<a class="headerlink" href="#deregistration" title="Permalink to this heading"></a></h4>
 <p>During a power-down sequence, services or modules must deregister
 from the GPR by calling
 <a class="reference external" href="#static-uint32-t-gpr-cmd-deregister-uint32-t-src-port">gpr_cmd_deregister()</a>.
 Each registered service ID is to be deregistered only once.</p>
 </section>
 <section id="send-messages">
-<h4>Send Messages<a class="headerlink" href="#send-messages" title="Link to this heading"></a></h4>
+<h4>Send Messages<a class="headerlink" href="#send-messages" title="Permalink to this heading"></a></h4>
 <p>Services or modules use
 <a class="reference external" href="#static-uint32-t-gpr-cmd-async-send-gpr-packet-t-packet">gpr_cmd_async_send()</a>
 to send messages in the form of packets through the GPR service.
@@ -661,7 +650,7 @@ easier. These functions are not mandatory. The caller can use any
 utility library to help with packet allocation and error management.</p>
 </section>
 <section id="receive-messages">
-<h4>Receive Messages<a class="headerlink" href="#receive-messages" title="Link to this heading"></a></h4>
+<h4>Receive Messages<a class="headerlink" href="#receive-messages" title="Permalink to this heading"></a></h4>
 <p>Services can start receiving messages immediately after registering
 with the GPR service. The registered packet callback routine is
 assumed to run in the ISR context. All the restrictions in the ISR
@@ -676,7 +665,7 @@ will cause system instability and performance problems.</p>
 </section>
 </section>
 <section id="routing">
-<h2><a class="toc-backref" href="#id44" role="doc-backlink">Routing</a><a class="headerlink" href="#routing" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">Routing</a><a class="headerlink" href="#routing" title="Permalink to this heading"></a></h2>
 <p>Routing refers to the GPR’s ability to send and receive data packets
 to and from clients or other GPR instances. Depending on the source
 and destination domain IDs, the GPR must do either local or remote
@@ -685,14 +674,13 @@ Below figure illustrates the difference between
 local and remote routing, which is explained in the following
 sections.</p>
 <figure class="fig-center align-default" id="id34">
-<a class="reference internal image-reference" href="../_images/Image151.png"><img alt="../_images/Image151.png" src="../_images/Image151.png" style="width: 5.88083in; height: 3.50833in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image151.png"><img alt="../_images/Image151.png" src="../_images/Image151.png" style="width: 5.88083in; height: 3.50833in;" /></a>
 <figcaption>
-<p><span class="caption-text">Local and remote routing through GPR</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+<p><span class="caption-text">Local and remote routing through GPR</span><a class="headerlink" href="#id34" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <section id="local-routing">
-<h3><a class="toc-backref" href="#id45" role="doc-backlink">Local Routing</a><a class="headerlink" href="#local-routing" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">Local Routing</a><a class="headerlink" href="#local-routing" title="Permalink to this heading"></a></h3>
 <p>Local routing refers to the transmission of packets within the same
 domain.
 The GPR determines a given routing to be local if the source domain
@@ -706,15 +694,14 @@ service on the same domain. Both services must first register their
 callback functions with the GPR, and then they can exchange
 messages.</p>
 <figure class="fig-center align-default" id="id35">
-<a class="reference internal image-reference" href="../_images/Image161.png"><img alt="../_images/Image161.png" src="../_images/Image161.png" style="width: 5.37396in; height: 4.83437in;" />
-</a>
+<a class="reference internal image-reference" href="../_images/Image161.png"><img alt="../_images/Image161.png" src="../_images/Image161.png" style="width: 5.37396in; height: 4.83437in;" /></a>
 <figcaption>
-<p><span class="caption-text">Local routing call flow between two services on same domain</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
+<p><span class="caption-text">Local routing call flow between two services on same domain</span><a class="headerlink" href="#id35" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="remote-routing">
-<h3><a class="toc-backref" href="#id46" role="doc-backlink">Remote Routing</a><a class="headerlink" href="#remote-routing" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">Remote Routing</a><a class="headerlink" href="#remote-routing" title="Permalink to this heading"></a></h3>
 <p>Remote routing refers to the transmission of packets between
 different domains or processors. The GPR and IPC data link layers
 interact and exchange GPR-IPC callback functions during
@@ -761,18 +748,17 @@ This vtable invokes the data link layer’s free() function to free
 the packet.</p></li>
 </ol>
 <figure class="fig-center align-default" id="id36">
-<span id="remote-routing-call-flow"></span><a class="reference internal image-reference" href="../_images/Image171.png"><img alt="../_images/Image171.png" src="../_images/Image171.png" style="width: 6.65792in; height: 8.45229in;" />
-</a>
+<span id="remote-routing-call-flow"></span><a class="reference internal image-reference" href="../_images/Image171.png"><img alt="../_images/Image171.png" src="../_images/Image171.png" style="width: 6.65792in; height: 8.45229in;" /></a>
 <figcaption>
-<p><span class="caption-text">Remote routing call flow between GPR and IPC data link layer</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+<p><span class="caption-text">Remote routing call flow between GPR and IPC data link layer</span><a class="headerlink" href="#id36" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="gpr-infrastructure-interfaces">
-<h2><a class="toc-backref" href="#id47" role="doc-backlink">GPR Infrastructure Interfaces</a><a class="headerlink" href="#gpr-infrastructure-interfaces" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id47" role="doc-backlink">GPR Infrastructure Interfaces</a><a class="headerlink" href="#gpr-infrastructure-interfaces" title="Permalink to this heading"></a></h2>
 <section id="gpr-constants-and-macros">
-<span id="gpr-contants-and-macros"></span><h3><a class="toc-backref" href="#id48" role="doc-backlink">GPR Constants and Macros</a><a class="headerlink" href="#gpr-constants-and-macros" title="Link to this heading"></a></h3>
+<span id="gpr-contants-and-macros"></span><h3><a class="toc-backref" href="#id48" role="doc-backlink">GPR Constants and Macros</a><a class="headerlink" href="#gpr-constants-and-macros" title="Permalink to this heading"></a></h3>
 <p><strong>GPR Core Export Macros</strong></p>
 <ul class="simple">
 <li><p>#define <a class="reference external" href="#define-gpr-internal-extern-c">GPR_INTERNAL</a> extern “C”</p></li>
@@ -861,266 +847,266 @@ packet_ptr)</p></li>
 </ul>
 </section>
 <section id="define-documentation">
-<h3><a class="toc-backref" href="#id49" role="doc-backlink">Define Documentation</a><a class="headerlink" href="#define-documentation" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id49" role="doc-backlink">Define Documentation</a><a class="headerlink" href="#define-documentation" title="Permalink to this heading"></a></h3>
 <section id="define-gpr-internal-extern-c">
-<h4>#define GPR_INTERNAL extern “C”<a class="headerlink" href="#define-gpr-internal-extern-c" title="Link to this heading"></a></h4>
+<h4>#define GPR_INTERNAL extern “C”<a class="headerlink" href="#define-gpr-internal-extern-c" title="Permalink to this heading"></a></h4>
 <p>Export macro that indicates a function is internal to the GPR.</p>
 </section>
 <section id="define-gpr-external-extern-c">
-<h4>#define GPR_EXTERNAL extern “C”<a class="headerlink" href="#define-gpr-external-extern-c" title="Link to this heading"></a></h4>
+<h4>#define GPR_EXTERNAL extern “C”<a class="headerlink" href="#define-gpr-external-extern-c" title="Permalink to this heading"></a></h4>
 <p>Export macro that indicates an external function, which is intended
 for client use.</p>
 </section>
 <section id="define-gpr-ids-domain-id-invalid-v-0">
-<h4>#define GPR_IDS_DOMAIN_ID_INVALID_V 0<a class="headerlink" href="#define-gpr-ids-domain-id-invalid-v-0" title="Link to this heading"></a></h4>
+<h4>#define GPR_IDS_DOMAIN_ID_INVALID_V 0<a class="headerlink" href="#define-gpr-ids-domain-id-invalid-v-0" title="Permalink to this heading"></a></h4>
 <p>Invalid domain.</p>
 </section>
 <section id="define-gpr-ids-domain-id-modem-v-1">
-<h4>#define GPR_IDS_DOMAIN_ID_MODEM_V 1<a class="headerlink" href="#define-gpr-ids-domain-id-modem-v-1" title="Link to this heading"></a></h4>
+<h4>#define GPR_IDS_DOMAIN_ID_MODEM_V 1<a class="headerlink" href="#define-gpr-ids-domain-id-modem-v-1" title="Permalink to this heading"></a></h4>
 <p>Modem DSP (mDSP) domain.</p>
 </section>
 <section id="define-gpr-ids-domain-id-adsp-v-2">
-<h4>#define GPR_IDS_DOMAIN_ID_ADSP_V 2<a class="headerlink" href="#define-gpr-ids-domain-id-adsp-v-2" title="Link to this heading"></a></h4>
+<h4>#define GPR_IDS_DOMAIN_ID_ADSP_V 2<a class="headerlink" href="#define-gpr-ids-domain-id-adsp-v-2" title="Permalink to this heading"></a></h4>
 <p>Audio DSP (aDSP) domain.</p>
 </section>
 <section id="define-gpr-ids-domain-id-apps-v-3">
-<h4>#define GPR_IDS_DOMAIN_ID_APPS_V 3<a class="headerlink" href="#define-gpr-ids-domain-id-apps-v-3" title="Link to this heading"></a></h4>
+<h4>#define GPR_IDS_DOMAIN_ID_APPS_V 3<a class="headerlink" href="#define-gpr-ids-domain-id-apps-v-3" title="Permalink to this heading"></a></h4>
 <p>Applications domain.</p>
 </section>
 <section id="define-gpr-ids-domain-id-sdsp-v-4">
-<h4>#define GPR_IDS_DOMAIN_ID_SDSP_V 4<a class="headerlink" href="#define-gpr-ids-domain-id-sdsp-v-4" title="Link to this heading"></a></h4>
+<h4>#define GPR_IDS_DOMAIN_ID_SDSP_V 4<a class="headerlink" href="#define-gpr-ids-domain-id-sdsp-v-4" title="Permalink to this heading"></a></h4>
 <p>Sensors DSP (sDSP) domain.</p>
 </section>
 <section id="define-gpr-ids-domain-id-cdsp-v-5">
-<h4>#define GPR_IDS_DOMAIN_ID_CDSP_V 5<a class="headerlink" href="#define-gpr-ids-domain-id-cdsp-v-5" title="Link to this heading"></a></h4>
+<h4>#define GPR_IDS_DOMAIN_ID_CDSP_V 5<a class="headerlink" href="#define-gpr-ids-domain-id-cdsp-v-5" title="Permalink to this heading"></a></h4>
 <p>Compute DSP (cDSP) domain.</p>
 </section>
 <section id="define-gpr-pl-max-domain-id-v">
-<h4>#define GPR_PL_MAX_DOMAIN_ID_V<a class="headerlink" href="#define-gpr-pl-max-domain-id-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PL_MAX_DOMAIN_ID_V<a class="headerlink" href="#define-gpr-pl-max-domain-id-v" title="Permalink to this heading"></a></h4>
 <p>Highest domain ID.</p>
 </section>
 <section id="define-gpr-pl-num-total-domains-v">
-<h4>#define GPR_PL_NUM_TOTAL_DOMAINS_V<a class="headerlink" href="#define-gpr-pl-num-total-domains-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PL_NUM_TOTAL_DOMAINS_V<a class="headerlink" href="#define-gpr-pl-num-total-domains-v" title="Permalink to this heading"></a></h4>
 <p>Total number of domains.</p>
 </section>
 <section id="define-gpr-pkt-version-v">
-<h4>#define GPR_PKT_VERSION_V<a class="headerlink" href="#define-gpr-pkt-version-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_VERSION_V<a class="headerlink" href="#define-gpr-pkt-version-v" title="Permalink to this heading"></a></h4>
 <p>Defines the layout of the packet structure.</p>
 </section>
 <section id="define-gpr-pkt-init-port-v">
-<h4>#define GPR_PKT_INIT_PORT_V<a class="headerlink" href="#define-gpr-pkt-init-port-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_INIT_PORT_V<a class="headerlink" href="#define-gpr-pkt-init-port-v" title="Permalink to this heading"></a></h4>
 <p>Uninitialized port value.</p>
 </section>
 <section id="define-gpr-pkt-init-reserved-v">
-<h4>#define GPR_PKT_INIT_RESERVED_V<a class="headerlink" href="#define-gpr-pkt-init-reserved-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_INIT_RESERVED_V<a class="headerlink" href="#define-gpr-pkt-init-reserved-v" title="Permalink to this heading"></a></h4>
 <p>Uninitialized reserved field value.</p>
 </section>
 <section id="define-gpr-pkt-init-domain-id-v">
-<h4>#define GPR_PKT_INIT_DOMAIN_ID_V<a class="headerlink" href="#define-gpr-pkt-init-domain-id-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_INIT_DOMAIN_ID_V<a class="headerlink" href="#define-gpr-pkt-init-domain-id-v" title="Permalink to this heading"></a></h4>
 <p>Uninitialized domain ID value.</p>
 </section>
 <section id="define-gpr-pkt-header-word-size-v">
-<h4>#define GPR_PKT_HEADER_WORD_SIZE_V<a class="headerlink" href="#define-gpr-pkt-header-word-size-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_HEADER_WORD_SIZE_V<a class="headerlink" href="#define-gpr-pkt-header-word-size-v" title="Permalink to this heading"></a></h4>
 <p>Header size in number of 32-bit words.</p>
 </section>
 <section id="define-gpr-pkt-header-byte-size-v">
-<h4>#define GPR_PKT_HEADER_BYTE_SIZE_V<a class="headerlink" href="#define-gpr-pkt-header-byte-size-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_HEADER_BYTE_SIZE_V<a class="headerlink" href="#define-gpr-pkt-header-byte-size-v" title="Permalink to this heading"></a></h4>
 <p>Header size in number of bytes.</p>
 </section>
 <section id="define-gpr-undefined-id-v">
-<h4>#define GPR_UNDEFINED_ID_V<a class="headerlink" href="#define-gpr-undefined-id-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_UNDEFINED_ID_V<a class="headerlink" href="#define-gpr-undefined-id-v" title="Permalink to this heading"></a></h4>
 <p>Undefined value where a valid GUID is expected.</p>
 </section>
 <section id="define-gpr-pkt-init-client-data-v">
-<h4>#define GPR_PKT_INIT_CLIENT_DATA_V<a class="headerlink" href="#define-gpr-pkt-init-client-data-v" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_INIT_CLIENT_DATA_V<a class="headerlink" href="#define-gpr-pkt-init-client-data-v" title="Permalink to this heading"></a></h4>
 <p>Uninitialized client data value.</p>
 </section>
 <section id="define-gpr-pkt-version-mask-0x0000000f">
-<h4>#define GPR_PKT_VERSION_MASK ( 0x0000000F )<a class="headerlink" href="#define-gpr-pkt-version-mask-0x0000000f" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_VERSION_MASK ( 0x0000000F )<a class="headerlink" href="#define-gpr-pkt-version-mask-0x0000000f" title="Permalink to this heading"></a></h4>
 <p>Bitmask of the version field.</p>
 </section>
 <section id="define-gpr-pkt-version-shft-0">
-<h4>#define GPR_PKT_VERSION_SHFT ( 0 )<a class="headerlink" href="#define-gpr-pkt-version-shft-0" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_VERSION_SHFT ( 0 )<a class="headerlink" href="#define-gpr-pkt-version-shft-0" title="Permalink to this heading"></a></h4>
 <p>Bit shift of the version field.</p>
 </section>
 <section id="define-gpr-pkt-header-size-mask-0x000000f0">
-<h4>#define GPR_PKT_HEADER_SIZE_MASK ( 0x000000F0 )<a class="headerlink" href="#define-gpr-pkt-header-size-mask-0x000000f0" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_HEADER_SIZE_MASK ( 0x000000F0 )<a class="headerlink" href="#define-gpr-pkt-header-size-mask-0x000000f0" title="Permalink to this heading"></a></h4>
 <p>Bitmask of the header size field.</p>
 </section>
 <section id="define-gpr-pkt-header-size-shft-4">
-<h4>#define GPR_PKT_HEADER_SIZE_SHFT ( 4 )<a class="headerlink" href="#define-gpr-pkt-header-size-shft-4" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_HEADER_SIZE_SHFT ( 4 )<a class="headerlink" href="#define-gpr-pkt-header-size-shft-4" title="Permalink to this heading"></a></h4>
 <p>Bit shift of the header size field.</p>
 </section>
 <section id="define-gpr-pkt-reserved-mask-0xfff00000">
-<h4>#define GPR_PKT_RESERVED_MASK ( 0xFFF00000 )<a class="headerlink" href="#define-gpr-pkt-reserved-mask-0xfff00000" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_RESERVED_MASK ( 0xFFF00000 )<a class="headerlink" href="#define-gpr-pkt-reserved-mask-0xfff00000" title="Permalink to this heading"></a></h4>
 <p>Bitmask of the reserved field. Includes four reserved bits from the
 client data field.</p>
 </section>
 <section id="define-gpr-pkt-reserved-shft-20">
-<h4>#define GPR_PKT_RESERVED_SHFT ( 20 )<a class="headerlink" href="#define-gpr-pkt-reserved-shft-20" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_RESERVED_SHFT ( 20 )<a class="headerlink" href="#define-gpr-pkt-reserved-shft-20" title="Permalink to this heading"></a></h4>
 <p>Bit shift of the reserved field.</p>
 </section>
 <section id="define-gpr-pkt-packet-size-mask-0xffffff00">
-<h4>#define GPR_PKT_PACKET_SIZE_MASK ( 0xFFFFFF00 )<a class="headerlink" href="#define-gpr-pkt-packet-size-mask-0xffffff00" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_PACKET_SIZE_MASK ( 0xFFFFFF00 )<a class="headerlink" href="#define-gpr-pkt-packet-size-mask-0xffffff00" title="Permalink to this heading"></a></h4>
 <p>Bitmask of the packet size field.</p>
 </section>
 <section id="define-gpr-pkt-packet-size-shft-8">
-<h4>#define GPR_PKT_PACKET_SIZE_SHFT ( 8 )<a class="headerlink" href="#define-gpr-pkt-packet-size-shft-8" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_PACKET_SIZE_SHFT ( 8 )<a class="headerlink" href="#define-gpr-pkt-packet-size-shft-8" title="Permalink to this heading"></a></h4>
 <p>Bit shift of the packet size field.</p>
 </section>
 <section id="define-gpr-get-bitmask-mask-shift-value">
-<h4>#define GPR_GET_BITMASK( <em>mask, shift, value</em> )<a class="headerlink" href="#define-gpr-get-bitmask-mask-shift-value" title="Link to this heading"></a></h4>
+<h4>#define GPR_GET_BITMASK( <em>mask, shift, value</em> )<a class="headerlink" href="#define-gpr-get-bitmask-mask-shift-value" title="Permalink to this heading"></a></h4>
 <p>Gets the value of a field, including the specified mask and shift.</p>
 </section>
 <section id="define-gpr-set-bitmask-mask-shift-value">
-<h4>#define GPR_SET_BITMASK( <em>mask, shift, value</em> )<a class="headerlink" href="#define-gpr-set-bitmask-mask-shift-value" title="Link to this heading"></a></h4>
+<h4>#define GPR_SET_BITMASK( <em>mask, shift, value</em> )<a class="headerlink" href="#define-gpr-set-bitmask-mask-shift-value" title="Permalink to this heading"></a></h4>
 <p>Sets a value in a field, including the specified mask and shift.</p>
 </section>
 <section id="define-gpr-get-field-field-value">
-<h4>#define GPR_GET_FIELD( <em>field, value</em> )<a class="headerlink" href="#define-gpr-get-field-field-value" title="Link to this heading"></a></h4>
+<h4>#define GPR_GET_FIELD( <em>field, value</em> )<a class="headerlink" href="#define-gpr-get-field-field-value" title="Permalink to this heading"></a></h4>
 <p>Gets the value of a field.</p>
 </section>
 <section id="define-gpr-set-field-field-value">
-<h4>#define GPR_SET_FIELD( <em>field, value</em> )<a class="headerlink" href="#define-gpr-set-field-field-value" title="Link to this heading"></a></h4>
+<h4>#define GPR_SET_FIELD( <em>field, value</em> )<a class="headerlink" href="#define-gpr-set-field-field-value" title="Permalink to this heading"></a></h4>
 <p>Sets a value in a field.</p>
 </section>
 <section id="define-gpr-ptr-end-of-base-ptr-offset">
-<h4>#define GPR_PTR_END_OF( <em>base_ptr, offset</em> )<a class="headerlink" href="#define-gpr-ptr-end-of-base-ptr-offset" title="Link to this heading"></a></h4>
+<h4>#define GPR_PTR_END_OF( <em>base_ptr, offset</em> )<a class="headerlink" href="#define-gpr-ptr-end-of-base-ptr-offset" title="Permalink to this heading"></a></h4>
 <p>Returns an 8-bit aligned pointer to a base address pointer plus an
 offset in bytes.</p>
 </section>
 <section id="define-gpr-pkt-get-packet-byte-size-header">
-<h4>#define GPR_PKT_GET_PACKET_BYTE_SIZE( <em>header</em> )<a class="headerlink" href="#define-gpr-pkt-get-packet-byte-size-header" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_GET_PACKET_BYTE_SIZE( <em>header</em> )<a class="headerlink" href="#define-gpr-pkt-get-packet-byte-size-header" title="Permalink to this heading"></a></h4>
 <p>Given the packet header, returns the packet’s current size in bytes.
 The current packet byte size is the sum of the base packet structure
 and the used portion of the payload.</p>
 </section>
 <section id="define-gpr-pkt-get-header-byte-size-header">
-<h4>#define GPR_PKT_GET_HEADER_BYTE_SIZE( <em>header</em> )<a class="headerlink" href="#define-gpr-pkt-get-header-byte-size-header" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_GET_HEADER_BYTE_SIZE( <em>header</em> )<a class="headerlink" href="#define-gpr-pkt-get-header-byte-size-header" title="Permalink to this heading"></a></h4>
 <p>Given the packet header, returns the header’s current size in bytes.</p>
 </section>
 <section id="define-gpr-pkt-get-payload-byte-size-header">
-<h4>#define GPR_PKT_GET_PAYLOAD_BYTE_SIZE( <em>header</em> )<a class="headerlink" href="#define-gpr-pkt-get-payload-byte-size-header" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_GET_PAYLOAD_BYTE_SIZE( <em>header</em> )<a class="headerlink" href="#define-gpr-pkt-get-payload-byte-size-header" title="Permalink to this heading"></a></h4>
 <p>Given the packet header, returns the payload’s current size in
 bytes.
 The current payload byte size is the difference between the packet
 size and the header size.</p>
 </section>
 <section id="define-gpr-pkt-get-payload-type-packet-ptr">
-<h4>#define GPR_PKT_GET_PAYLOAD( <em>type, packet_ptr</em> )<a class="headerlink" href="#define-gpr-pkt-get-payload-type-packet-ptr" title="Link to this heading"></a></h4>
+<h4>#define GPR_PKT_GET_PAYLOAD( <em>type, packet_ptr</em> )<a class="headerlink" href="#define-gpr-pkt-get-payload-type-packet-ptr" title="Permalink to this heading"></a></h4>
 <p>Given the packet, returns a pointer to the beginning of the packet’s
 payload.</p>
 </section>
 </section>
 </section>
 <section id="gpr-status-and-error-codes">
-<span id="id5"></span><h2><a class="toc-backref" href="#id50" role="doc-backlink">GPR Status and Error Codes</a><a class="headerlink" href="#gpr-status-and-error-codes" title="Link to this heading"></a></h2>
+<span id="id5"></span><h2><a class="toc-backref" href="#id50" role="doc-backlink">GPR Status and Error Codes</a><a class="headerlink" href="#gpr-status-and-error-codes" title="Permalink to this heading"></a></h2>
 <section id="id6">
-<h3><a class="toc-backref" href="#id51" role="doc-backlink">Define Documentation</a><a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">Define Documentation</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <section id="define-ar-eok-0">
-<h4>#define AR_EOK (0)<a class="headerlink" href="#define-ar-eok-0" title="Link to this heading"></a></h4>
+<h4>#define AR_EOK (0)<a class="headerlink" href="#define-ar-eok-0" title="Permalink to this heading"></a></h4>
 <p>Success. The operation completed with no errors.</p>
 </section>
 <section id="define-ar-efailed-1">
-<h4>#define AR_EFAILED (1)<a class="headerlink" href="#define-ar-efailed-1" title="Link to this heading"></a></h4>
+<h4>#define AR_EFAILED (1)<a class="headerlink" href="#define-ar-efailed-1" title="Permalink to this heading"></a></h4>
 <p>General failure.</p>
 </section>
 <section id="define-ar-ebadparam-2">
-<h4>#define AR_EBADPARAM (2)<a class="headerlink" href="#define-ar-ebadparam-2" title="Link to this heading"></a></h4>
+<h4>#define AR_EBADPARAM (2)<a class="headerlink" href="#define-ar-ebadparam-2" title="Permalink to this heading"></a></h4>
 <p>Bad operation parameter.</p>
 </section>
 <section id="define-ar-eunsupported-3">
-<h4>#define AR_EUNSUPPORTED (3)<a class="headerlink" href="#define-ar-eunsupported-3" title="Link to this heading"></a></h4>
+<h4>#define AR_EUNSUPPORTED (3)<a class="headerlink" href="#define-ar-eunsupported-3" title="Permalink to this heading"></a></h4>
 <p>Unsupported routine or operation.</p>
 </section>
 <section id="define-ar-eversion-4">
-<h4>#define AR_EVERSION (4)<a class="headerlink" href="#define-ar-eversion-4" title="Link to this heading"></a></h4>
+<h4>#define AR_EVERSION (4)<a class="headerlink" href="#define-ar-eversion-4" title="Permalink to this heading"></a></h4>
 <p>Unsupported version.</p>
 </section>
 <section id="define-ar-eunexpected-5">
-<h4>#define AR_EUNEXPECTED (5)<a class="headerlink" href="#define-ar-eunexpected-5" title="Link to this heading"></a></h4>
+<h4>#define AR_EUNEXPECTED (5)<a class="headerlink" href="#define-ar-eunexpected-5" title="Permalink to this heading"></a></h4>
 <p>Unexpected problem encountered.</p>
 </section>
 <section id="define-ar-epanic-6">
-<h4>#define AR_EPANIC (6)<a class="headerlink" href="#define-ar-epanic-6" title="Link to this heading"></a></h4>
+<h4>#define AR_EPANIC (6)<a class="headerlink" href="#define-ar-epanic-6" title="Permalink to this heading"></a></h4>
 <p>Unhandled problem occurred.</p>
 </section>
 <section id="define-ar-enoresource-7">
-<h4>#define AR_ENORESOURCE (7)<a class="headerlink" href="#define-ar-enoresource-7" title="Link to this heading"></a></h4>
+<h4>#define AR_ENORESOURCE (7)<a class="headerlink" href="#define-ar-enoresource-7" title="Permalink to this heading"></a></h4>
 <p>Unable to allocate resource.</p>
 </section>
 <section id="define-ar-ehandle-8">
-<h4>#define AR_EHANDLE (8)<a class="headerlink" href="#define-ar-ehandle-8" title="Link to this heading"></a></h4>
+<h4>#define AR_EHANDLE (8)<a class="headerlink" href="#define-ar-ehandle-8" title="Permalink to this heading"></a></h4>
 <p>Invalid handle.</p>
 </section>
 <section id="define-ar-ealready-9">
-<h4>#define AR_EALREADY (9)<a class="headerlink" href="#define-ar-ealready-9" title="Link to this heading"></a></h4>
+<h4>#define AR_EALREADY (9)<a class="headerlink" href="#define-ar-ealready-9" title="Permalink to this heading"></a></h4>
 <p>Operation is already processed.</p>
 </section>
 <section id="define-ar-enotready-10">
-<h4>#define AR_ENOTREADY (10)<a class="headerlink" href="#define-ar-enotready-10" title="Link to this heading"></a></h4>
+<h4>#define AR_ENOTREADY (10)<a class="headerlink" href="#define-ar-enotready-10" title="Permalink to this heading"></a></h4>
 <p>Operation is not ready to be processed.</p>
 </section>
 <section id="define-ar-epending-11">
-<h4>#define AR_EPENDING (11)<a class="headerlink" href="#define-ar-epending-11" title="Link to this heading"></a></h4>
+<h4>#define AR_EPENDING (11)<a class="headerlink" href="#define-ar-epending-11" title="Permalink to this heading"></a></h4>
 <p>Operation is pending completion.</p>
 </section>
 <section id="define-ar-ebusy-12">
-<h4>#define AR_EBUSY (12)<a class="headerlink" href="#define-ar-ebusy-12" title="Link to this heading"></a></h4>
+<h4>#define AR_EBUSY (12)<a class="headerlink" href="#define-ar-ebusy-12" title="Permalink to this heading"></a></h4>
 <p>Operation cannot be accepted or processed.</p>
 </section>
 <section id="define-ar-eaborted-13">
-<h4>#define AR_EABORTED (13)<a class="headerlink" href="#define-ar-eaborted-13" title="Link to this heading"></a></h4>
+<h4>#define AR_EABORTED (13)<a class="headerlink" href="#define-ar-eaborted-13" title="Permalink to this heading"></a></h4>
 <p>Operation was aborted due to an error.</p>
 </section>
 <section id="define-ar-econtinue-14">
-<h4>#define AR_ECONTINUE (14)<a class="headerlink" href="#define-ar-econtinue-14" title="Link to this heading"></a></h4>
+<h4>#define AR_ECONTINUE (14)<a class="headerlink" href="#define-ar-econtinue-14" title="Permalink to this heading"></a></h4>
 <p>Operation requests an intervention to complete.</p>
 </section>
 <section id="define-ar-eimmediate-15">
-<h4>#define AR_EIMMEDIATE (15)<a class="headerlink" href="#define-ar-eimmediate-15" title="Link to this heading"></a></h4>
+<h4>#define AR_EIMMEDIATE (15)<a class="headerlink" href="#define-ar-eimmediate-15" title="Permalink to this heading"></a></h4>
 <p>Operation requests an immediate intervention to complete.</p>
 </section>
 <section id="define-ar-enotimpl-16">
-<h4>#define AR_ENOTIMPL (16)<a class="headerlink" href="#define-ar-enotimpl-16" title="Link to this heading"></a></h4>
+<h4>#define AR_ENOTIMPL (16)<a class="headerlink" href="#define-ar-enotimpl-16" title="Permalink to this heading"></a></h4>
 <p>Operation was not implemented.</p>
 </section>
 <section id="define-ar-eneedmore-17">
-<h4>#define AR_ENEEDMORE (17)<a class="headerlink" href="#define-ar-eneedmore-17" title="Link to this heading"></a></h4>
+<h4>#define AR_ENEEDMORE (17)<a class="headerlink" href="#define-ar-eneedmore-17" title="Permalink to this heading"></a></h4>
 <p>Operation needs more data or resources.</p>
 </section>
 <section id="define-ar-enomemory-18">
-<h4>#define AR_ENOMEMORY (18)<a class="headerlink" href="#define-ar-enomemory-18" title="Link to this heading"></a></h4>
+<h4>#define AR_ENOMEMORY (18)<a class="headerlink" href="#define-ar-enomemory-18" title="Permalink to this heading"></a></h4>
 <p>Operation does not have memory.</p>
 </section>
 <section id="define-ar-enotexist-19">
-<h4>#define AR_ENOTEXIST (19)<a class="headerlink" href="#define-ar-enotexist-19" title="Link to this heading"></a></h4>
+<h4>#define AR_ENOTEXIST (19)<a class="headerlink" href="#define-ar-enotexist-19" title="Permalink to this heading"></a></h4>
 <p>Item does not exist.</p>
 </section>
 <section id="define-ar-eterminated-20">
-<h4>#define AR_ETERMINATED (20)<a class="headerlink" href="#define-ar-eterminated-20" title="Link to this heading"></a></h4>
+<h4>#define AR_ETERMINATED (20)<a class="headerlink" href="#define-ar-eterminated-20" title="Permalink to this heading"></a></h4>
 <p>Operation is finished.</p>
 </section>
 <section id="define-ar-etimeout-21">
-<h4>#define AR_ETIMEOUT (21)<a class="headerlink" href="#define-ar-etimeout-21" title="Link to this heading"></a></h4>
+<h4>#define AR_ETIMEOUT (21)<a class="headerlink" href="#define-ar-etimeout-21" title="Permalink to this heading"></a></h4>
 <p>Operation timeout.</p>
 </section>
 <section id="define-ar-succeeded-x">
-<h4>#define AR_SUCCEEDED( <em>x</em> )<a class="headerlink" href="#define-ar-succeeded-x" title="Link to this heading"></a></h4>
+<h4>#define AR_SUCCEEDED( <em>x</em> )<a class="headerlink" href="#define-ar-succeeded-x" title="Permalink to this heading"></a></h4>
 <p>Macro that checks whether a result is a success.</p>
 </section>
 <section id="define-ar-failed-x">
-<h4>#define AR_FAILED( <em>x</em> )<a class="headerlink" href="#define-ar-failed-x" title="Link to this heading"></a></h4>
+<h4>#define AR_FAILED( <em>x</em> )<a class="headerlink" href="#define-ar-failed-x" title="Permalink to this heading"></a></h4>
 <p>Macro that checks whether a result is a failure.</p>
 </section>
 </section>
 </section>
 <section id="gpr-core-packet-structure">
-<h2><a class="toc-backref" href="#id52" role="doc-backlink">GPR Core Packet Structure</a><a class="headerlink" href="#gpr-core-packet-structure" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id52" role="doc-backlink">GPR Core Packet Structure</a><a class="headerlink" href="#gpr-core-packet-structure" title="Permalink to this heading"></a></h2>
 <section id="data-structure-documentation">
-<h3><a class="toc-backref" href="#id53" role="doc-backlink">Data Structure Documentation</a><a class="headerlink" href="#data-structure-documentation" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id53" role="doc-backlink">Data Structure Documentation</a><a class="headerlink" href="#data-structure-documentation" title="Permalink to this heading"></a></h3>
 <section id="struct-gpr-packet-t">
-<h4>struct gpr_packet_t<a class="headerlink" href="#struct-gpr-packet-t" title="Link to this heading"></a></h4>
+<h4>struct gpr_packet_t<a class="headerlink" href="#struct-gpr-packet-t" title="Permalink to this heading"></a></h4>
 <p>Core header structure necessary to route a packet from a source to a
 destination.</p>
 <table class="docutils align-default">
@@ -1236,11 +1222,11 @@ destination.</p>
 </section>
 </section>
 <section id="callback-function-prototype">
-<h2><a class="toc-backref" href="#id54" role="doc-backlink">Callback Function Prototype</a><a class="headerlink" href="#callback-function-prototype" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id54" role="doc-backlink">Callback Function Prototype</a><a class="headerlink" href="#callback-function-prototype" title="Permalink to this heading"></a></h2>
 <section id="typedef-documentation">
-<h3><a class="toc-backref" href="#id55" role="doc-backlink">Typedef Documentation</a><a class="headerlink" href="#typedef-documentation" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">Typedef Documentation</a><a class="headerlink" href="#typedef-documentation" title="Permalink to this heading"></a></h3>
 <section id="typedef-uint32-t-gpr-callback-fn-t-gpr-packet-t-packet-void-callback-data">
-<h4>typedef uint32_t(gpr_callback_fn_t)(gpr_packet_t ∗packet, void callback_data)<a class="headerlink" href="#typedef-uint32-t-gpr-callback-fn-t-gpr-packet-t-packet-void-callback-data" title="Link to this heading"></a></h4>
+<h4>typedef uint32_t(gpr_callback_fn_t)(gpr_packet_t ∗packet, void callback_data)<a class="headerlink" href="#typedef-uint32-t-gpr-callback-fn-t-gpr-packet-t-packet-void-callback-data" title="Permalink to this heading"></a></h4>
 <p>Prototype of a packet callback function.</p>
 <p><strong>Associated data types</strong></p>
 <blockquote>
@@ -1276,11 +1262,11 @@ returned to the caller.</p>
 </section>
 </section>
 <section id="gpr-core-routines">
-<h2><a class="toc-backref" href="#id56" role="doc-backlink">GPR Core Routines</a><a class="headerlink" href="#gpr-core-routines" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id56" role="doc-backlink">GPR Core Routines</a><a class="headerlink" href="#gpr-core-routines" title="Permalink to this heading"></a></h2>
 <section id="function-documentation">
-<h3><a class="toc-backref" href="#id57" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#function-documentation" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id57" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#function-documentation" title="Permalink to this heading"></a></h3>
 <section id="gpr-external-uint32-t-gpr-init-void">
-<h4>GPR_EXTERNAL uint32_t gpr_init ( void )<a class="headerlink" href="#gpr-external-uint32-t-gpr-init-void" title="Link to this heading"></a></h4>
+<h4>GPR_EXTERNAL uint32_t gpr_init ( void )<a class="headerlink" href="#gpr-external-uint32-t-gpr-init-void" title="Permalink to this heading"></a></h4>
 <blockquote>
 <div><p>Performs external initialization of the GPR infrastructure.</p>
 <p>Each supported domain calls this function once during system
@@ -1308,7 +1294,7 @@ other GPR APIs can be called.</p>
 </div>
 </section>
 <section id="gpr-external-uint32-t-gpr-deinit-void">
-<h4>GPR_EXTERNAL uint32_t gpr_deinit ( void )<a class="headerlink" href="#gpr-external-uint32-t-gpr-deinit-void" title="Link to this heading"></a></h4>
+<h4>GPR_EXTERNAL uint32_t gpr_deinit ( void )<a class="headerlink" href="#gpr-external-uint32-t-gpr-deinit-void" title="Permalink to this heading"></a></h4>
 <p>Performs external deinitialization of the GPR infrastructure.
 Each supported domain calls this function once during system
 shutdown or during runtime to deinitialize the GPR infrastructure
@@ -1331,7 +1317,7 @@ after the GPR infrastructure is deinitialized.</p>
 </div>
 </section>
 <section id="gpr-external-uint32-t-gpr-drv-init-void">
-<h4>GPR_EXTERNAL uint32_t gpr_drv_init ( void )<a class="headerlink" href="#gpr-external-uint32-t-gpr-drv-init-void" title="Link to this heading"></a></h4>
+<h4>GPR_EXTERNAL uint32_t gpr_drv_init ( void )<a class="headerlink" href="#gpr-external-uint32-t-gpr-drv-init-void" title="Permalink to this heading"></a></h4>
 <p>Called from <a class="reference external" href="#gpr-external-uint32-t-gpr-init-void">gpr_init()</a>
 to initialize the GPR infrastructure.
 This function is defined in each platform wrapper( see Section
@@ -1344,7 +1330,7 @@ internal initialization.</p>
 <p>None.</p>
 </section>
 <section id="gpr-internal-uint32-t-gpr-drv-deinit-void">
-<h4>GPR_INTERNAL uint32_t gpr_drv_deinit ( void )<a class="headerlink" href="#gpr-internal-uint32-t-gpr-drv-deinit-void" title="Link to this heading"></a></h4>
+<h4>GPR_INTERNAL uint32_t gpr_drv_deinit ( void )<a class="headerlink" href="#gpr-internal-uint32-t-gpr-drv-deinit-void" title="Permalink to this heading"></a></h4>
 <p>Called from
 <a class="reference external" href="#gpr-external-uint32-t-gpr-deinit-void">gpr_deinit()</a> to
 deinitialize the GPR infrastructure.</p>
@@ -1356,13 +1342,13 @@ deinitialize the GPR infrastructure.</p>
 </section>
 </section>
 <section id="gpr-fundamental-controls">
-<h2><a class="toc-backref" href="#id58" role="doc-backlink">GPR Fundamental Controls</a><a class="headerlink" href="#gpr-fundamental-controls" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id58" role="doc-backlink">GPR Fundamental Controls</a><a class="headerlink" href="#gpr-fundamental-controls" title="Permalink to this heading"></a></h2>
 <section id="register-a-service">
-<h3><a class="toc-backref" href="#id59" role="doc-backlink">Register a Service</a><a class="headerlink" href="#register-a-service" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id59" role="doc-backlink">Register a Service</a><a class="headerlink" href="#register-a-service" title="Permalink to this heading"></a></h3>
 <section id="id7">
-<h4>Function Documentation<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-register-uint32-t-src-port-gpr-callback-fn-t-void-callback-data">
-<h5>static uint32_t gpr_cmd_register ( uint32_t <em>src_port,</em> gpr_callback_fn_t, void * callback_data)<a class="headerlink" href="#static-uint32-t-gpr-cmd-register-uint32-t-src-port-gpr-callback-fn-t-void-callback-data" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_register ( uint32_t <em>src_port,</em> gpr_callback_fn_t, void * callback_data)<a class="headerlink" href="#static-uint32-t-gpr-cmd-register-uint32-t-src-port-gpr-callback-fn-t-void-callback-data" title="Permalink to this heading"></a></h5>
 <p>Registers a service, by its unique service ID, with the GPR.</p>
 <p><strong>Associated data types</strong></p>
 <p>gpr_callback_fn_t</p>
@@ -1473,11 +1459,11 @@ registered.</p>
 </section>
 </section>
 <section id="deregister-a-service">
-<h3><a class="toc-backref" href="#id60" role="doc-backlink">Deregister a Service</a><a class="headerlink" href="#deregister-a-service" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id60" role="doc-backlink">Deregister a Service</a><a class="headerlink" href="#deregister-a-service" title="Permalink to this heading"></a></h3>
 <section id="id8">
-<h4>Function Documentation<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-deregister-uint32-t-src-port">
-<h5>static uint32_t gpr_cmd_deregister ( uint32_t src_port )<a class="headerlink" href="#static-uint32-t-gpr-cmd-deregister-uint32-t-src-port" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_deregister ( uint32_t src_port )<a class="headerlink" href="#static-uint32-t-gpr-cmd-deregister-uint32-t-src-port" title="Permalink to this heading"></a></h5>
 <p>Deregisters a service from the GPR.</p>
 <p><strong>Parameters</strong></p>
 <table class="docutils align-default">
@@ -1529,9 +1515,9 @@ to deregister their presence from the GPR.</p>
 </section>
 </section>
 <section id="query-for-registered-service">
-<h3><a class="toc-backref" href="#id61" role="doc-backlink">Query for Registered Service</a><a class="headerlink" href="#query-for-registered-service" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id61" role="doc-backlink">Query for Registered Service</a><a class="headerlink" href="#query-for-registered-service" title="Permalink to this heading"></a></h3>
 <section id="id9">
-<h4>Function Documentation<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
 <p><strong>static uint32_t</strong> <strong>gpr_cmd_is_registered ( uint32_t port, bool_t *is_registered)</strong></p>
 <p>Called by the framework to check whether a service is registered
 with the GPR.</p>
@@ -1577,11 +1563,11 @@ with the GPR.</p>
 </section>
 </section>
 <section id="query-for-local-or-host-domain">
-<h3><a class="toc-backref" href="#id62" role="doc-backlink">Query for Local or Host Domain</a><a class="headerlink" href="#query-for-local-or-host-domain" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id62" role="doc-backlink">Query for Local or Host Domain</a><a class="headerlink" href="#query-for-local-or-host-domain" title="Permalink to this heading"></a></h3>
 <section id="id10">
-<h4>Function Documentation<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-get-host-domain-id-uint32-t-host-domain-id">
-<h5>static uint32_t gpr_cmd_get_host_domain_id (uint32_t *host_domain_id)<a class="headerlink" href="#static-uint32-t-gpr-cmd-get-host-domain-id-uint32-t-host-domain-id" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_get_host_domain_id (uint32_t *host_domain_id)<a class="headerlink" href="#static-uint32-t-gpr-cmd-get-host-domain-id-uint32-t-host-domain-id" title="Permalink to this heading"></a></h5>
 <p>Queries the GPR to get the local or host domain ID.</p>
 <p><strong>Parameters</strong></p>
 <table class="docutils align-default">
@@ -1609,11 +1595,11 @@ with the GPR.</p>
 </section>
 </section>
 <section id="query-for-packet-pool-information">
-<h3><a class="toc-backref" href="#id63" role="doc-backlink">Query for Packet Pool Information</a><a class="headerlink" href="#query-for-packet-pool-information" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id63" role="doc-backlink">Query for Packet Pool Information</a><a class="headerlink" href="#query-for-packet-pool-information" title="Permalink to this heading"></a></h3>
 <section id="id11">
-<h4>Function Documentation<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-get-gpr-packet-info-gpr-cmd-gpr-packet-pool-info-t-args">
-<h5>static uint32_t gpr_cmd_get_gpr_packet_info (gpr_cmd_gpr_packet_pool_info_t *args)<a class="headerlink" href="#static-uint32-t-gpr-cmd-get-gpr-packet-info-gpr-cmd-gpr-packet-pool-info-t-args" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_get_gpr_packet_info (gpr_cmd_gpr_packet_pool_info_t *args)<a class="headerlink" href="#static-uint32-t-gpr-cmd-get-gpr-packet-info-gpr-cmd-gpr-packet-pool-info-t-args" title="Permalink to this heading"></a></h5>
 <p>Queries for the GPR’s packet pool information.</p>
 <p><strong>Associated data types</strong></p>
 <blockquote>
@@ -1668,7 +1654,7 @@ information.</p>
 </section>
 </section>
 <section id="struct-gpr-cmd-gpr-packet-pool-info-t">
-<h4>struct gpr_cmd_gpr_packet_pool_info_t<a class="headerlink" href="#struct-gpr-cmd-gpr-packet-pool-info-t" title="Link to this heading"></a></h4>
+<h4>struct gpr_cmd_gpr_packet_pool_info_t<a class="headerlink" href="#struct-gpr-cmd-gpr-packet-pool-info-t" title="Permalink to this heading"></a></h4>
 <p>Contains the packet pool information for
 <a class="reference external" href="#static-uint32-t-gpr-cmd-get-gpr-packet-info-gpr-cmd-gpr-packet-pool-info-t-args">gpr_cmd_get_gpr_packet_info()</a>.</p>
 <table class="docutils align-default">
@@ -1708,11 +1694,11 @@ information.</p>
 </section>
 </section>
 <section id="send-an-asynchronous-message">
-<h3><a class="toc-backref" href="#id64" role="doc-backlink">Send an Asynchronous Message</a><a class="headerlink" href="#send-an-asynchronous-message" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id64" role="doc-backlink">Send an Asynchronous Message</a><a class="headerlink" href="#send-an-asynchronous-message" title="Permalink to this heading"></a></h3>
 <section id="id12">
-<h4>Function Documentation<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-async-send-gpr-packet-t-packet">
-<h5>static uint32_t gpr_cmd_async_send (gpr_packet_t <em>packet</em> )<a class="headerlink" href="#static-uint32-t-gpr-cmd-async-send-gpr-packet-t-packet" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_async_send (gpr_packet_t <em>packet</em> )<a class="headerlink" href="#static-uint32-t-gpr-cmd-async-send-gpr-packet-t-packet" title="Permalink to this heading"></a></h5>
 <p>Sends an asynchronous message to other services.</p>
 <p><strong>Associated data types</strong></p>
 <blockquote>
@@ -1804,11 +1790,11 @@ The source and destination services must be registered with the GPR.</p>
 </section>
 </section>
 <section id="allocate-a-free-message-for-delivery">
-<h3><a class="toc-backref" href="#id65" role="doc-backlink">Allocate a Free Message for Delivery</a><a class="headerlink" href="#allocate-a-free-message-for-delivery" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id65" role="doc-backlink">Allocate a Free Message for Delivery</a><a class="headerlink" href="#allocate-a-free-message-for-delivery" title="Permalink to this heading"></a></h3>
 <section id="id13">
-<h4>Function Documentation<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-alloc-uint32-t-alloc-size-gpr-packet-t-ret-packet">
-<h5>static uint32_t gpr_cmd_alloc ( uint32_t alloc_size, gpr_packet_t **ret_packet)<a class="headerlink" href="#static-uint32-t-gpr-cmd-alloc-uint32-t-alloc-size-gpr-packet-t-ret-packet" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_alloc ( uint32_t alloc_size, gpr_packet_t **ret_packet)<a class="headerlink" href="#static-uint32-t-gpr-cmd-alloc-uint32-t-alloc-size-gpr-packet-t-ret-packet" title="Permalink to this heading"></a></h5>
 <p>Allocates a free message for delivery.</p>
 <p><strong>Associated data types</strong></p>
 <blockquote>
@@ -1850,11 +1836,11 @@ as
 </section>
 </section>
 <section id="free-a-packet-from-a-queue">
-<h3><a class="toc-backref" href="#id66" role="doc-backlink">Free a Packet from a Queue</a><a class="headerlink" href="#free-a-packet-from-a-queue" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id66" role="doc-backlink">Free a Packet from a Queue</a><a class="headerlink" href="#free-a-packet-from-a-queue" title="Permalink to this heading"></a></h3>
 <section id="id14">
-<h4>Function Documentation<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-free-gpr-packet-t-packet">
-<h5>static uint32_t gpr_cmd_free ( gpr_packet_t *packet)<a class="headerlink" href="#static-uint32-t-gpr-cmd-free-gpr-packet-t-packet" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_free ( gpr_packet_t *packet)<a class="headerlink" href="#static-uint32-t-gpr-cmd-free-gpr-packet-t-packet" title="Permalink to this heading"></a></h5>
 <p>Frees a specified GPR packet and returns it to the owner.</p>
 <p><strong>Associated data types</strong></p>
 <p><a class="reference external" href="#struct-gpr-packet-t">gpr_packet_t</a></p>
@@ -1880,13 +1866,13 @@ as
 </section>
 </section>
 <section id="gpr-utility-controls">
-<h2><a class="toc-backref" href="#id67" role="doc-backlink">GPR Utility Controls</a><a class="headerlink" href="#gpr-utility-controls" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id67" role="doc-backlink">GPR Utility Controls</a><a class="headerlink" href="#gpr-utility-controls" title="Permalink to this heading"></a></h2>
 <section id="allocate-part-of-a-message">
-<h3><a class="toc-backref" href="#id68" role="doc-backlink">Allocate Part of a Message</a><a class="headerlink" href="#allocate-part-of-a-message" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id68" role="doc-backlink">Allocate Part of a Message</a><a class="headerlink" href="#allocate-part-of-a-message" title="Permalink to this heading"></a></h3>
 <section id="id15">
-<h4>Function Documentation<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
 <section id="static-uint32-t-gpr-cmd-alloc-ext-gpr-cmd-alloc-ext-t-args">
-<h5>static uint32_t gpr_cmd_alloc_ext (gpr_cmd_alloc_ext_t *args )<a class="headerlink" href="#static-uint32-t-gpr-cmd-alloc-ext-gpr-cmd-alloc-ext-t-args" title="Link to this heading"></a></h5>
+<h5>static uint32_t gpr_cmd_alloc_ext (gpr_cmd_alloc_ext_t *args )<a class="headerlink" href="#static-uint32-t-gpr-cmd-alloc-ext-gpr-cmd-alloc-ext-t-args" title="Permalink to this heading"></a></h5>
 <p>Allocates a formatted free packet for delivery.</p>
 <p><strong>Associated data types</strong></p>
 <blockquote>
@@ -1959,7 +1945,7 @@ The source and destination services must be registered with the GPR.</p>
 </section>
 </section>
 <section id="struct-gpr-cmd-alloc-ext-t">
-<h4>struct gpr_cmd_alloc_ext_t<a class="headerlink" href="#struct-gpr-cmd-alloc-ext-t" title="Link to this heading"></a></h4>
+<h4>struct gpr_cmd_alloc_ext_t<a class="headerlink" href="#struct-gpr-cmd-alloc-ext-t" title="Permalink to this heading"></a></h4>
 <p>Contains the allocated packet information for <a class="reference external" href="#static-uint32-t-gpr-cmd-alloc-ext-gpr-cmd-alloc-ext-t-args">gpr_cmd_alloc_ext()</a>.</p>
 <table class="docutils align-default">
 <thead>
@@ -2013,11 +1999,11 @@ The source and destination services must be registered with the GPR.</p>
 </section>
 </section>
 <section id="allocate-and-send-a-message">
-<h2><a class="toc-backref" href="#id69" role="doc-backlink">Allocate and Send a Message</a><a class="headerlink" href="#allocate-and-send-a-message" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id69" role="doc-backlink">Allocate and Send a Message</a><a class="headerlink" href="#allocate-and-send-a-message" title="Permalink to this heading"></a></h2>
 <section id="id16">
-<h3><a class="toc-backref" href="#id70" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id70" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
 <section id="static-uint32-t-gpr-cmd-alloc-send-gpr-cmd-alloc-send-t-args">
-<h4>static uint32_t gpr_cmd_alloc_send (gpr_cmd_alloc_send_t args )<a class="headerlink" href="#static-uint32-t-gpr-cmd-alloc-send-gpr-cmd-alloc-send-t-args" title="Link to this heading"></a></h4>
+<h4>static uint32_t gpr_cmd_alloc_send (gpr_cmd_alloc_send_t args )<a class="headerlink" href="#static-uint32-t-gpr-cmd-alloc-send-gpr-cmd-alloc-send-t-args" title="Permalink to this heading"></a></h4>
 <p>Allocates and sends a formatted free packet.</p>
 <p><strong>Associated data types</strong></p>
 <p><a class="reference external" href="#struct-gpr-cmd-alloc-send-t">gpr_cmd_alloc_send_t</a></p>
@@ -2079,7 +2065,7 @@ The source and destination services must be registered with the GPR.</p>
 </div>
 </section>
 <section id="struct-gpr-cmd-alloc-send-t">
-<h4>struct gpr_cmd_alloc_send_t<a class="headerlink" href="#struct-gpr-cmd-alloc-send-t" title="Link to this heading"></a></h4>
+<h4>struct gpr_cmd_alloc_send_t<a class="headerlink" href="#struct-gpr-cmd-alloc-send-t" title="Permalink to this heading"></a></h4>
 <p>Contains the allocated packet information for <a class="reference external" href="#static-uint32-t-gpr-cmd-alloc-send-gpr-cmd-alloc-send-t-args">gpr_cmd_alloc_send()</a>.</p>
 <table class="docutils align-default">
 <thead>
@@ -2135,11 +2121,11 @@ The source and destination services must be registered with the GPR.</p>
 </section>
 </section>
 <section id="accept-a-command-message">
-<h2><a class="toc-backref" href="#id71" role="doc-backlink">Accept a Command Message</a><a class="headerlink" href="#accept-a-command-message" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id71" role="doc-backlink">Accept a Command Message</a><a class="headerlink" href="#accept-a-command-message" title="Permalink to this heading"></a></h2>
 <section id="id17">
-<h3><a class="toc-backref" href="#id72" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id72" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
 <section id="static-uint32-t-gpr-cmd-accept-command-gpr-packet-t-packet">
-<h4>static uint32_t gpr_cmd_accept_command (gpr_packet_t *packet)<a class="headerlink" href="#static-uint32-t-gpr-cmd-accept-command-gpr-packet-t-packet" title="Link to this heading"></a></h4>
+<h4>static uint32_t gpr_cmd_accept_command (gpr_packet_t *packet)<a class="headerlink" href="#static-uint32-t-gpr-cmd-accept-command-gpr-packet-t-packet" title="Permalink to this heading"></a></h4>
 <p>Accepts a command packet by replying with a
 <a class="reference external" href="#define-gpr-ibasic-evt-accepted-0x02001006">GPR_IBASIC_EVT_ACCEPTED</a>
 message to the sender.</p>
@@ -2173,11 +2159,11 @@ The source and destination services must be registered with the GPR.</p>
 </section>
 </section>
 <section id="send-a-command-response">
-<h2><a class="toc-backref" href="#id73" role="doc-backlink">Send a Command Response</a><a class="headerlink" href="#send-a-command-response" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id73" role="doc-backlink">Send a Command Response</a><a class="headerlink" href="#send-a-command-response" title="Permalink to this heading"></a></h2>
 <section id="id18">
-<h3><a class="toc-backref" href="#id74" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id74" role="doc-backlink">Function Documentation</a><a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
 <section id="static-uint32-t-gpr-cmd-end-command-gpr-packet-t-packet-uint32-t-status">
-<h4>static uint32_t gpr_cmd_end_command ( gpr_packet_t *packet, uint32_t status )<a class="headerlink" href="#static-uint32-t-gpr-cmd-end-command-gpr-packet-t-packet-uint32-t-status" title="Link to this heading"></a></h4>
+<h4>static uint32_t gpr_cmd_end_command ( gpr_packet_t *packet, uint32_t status )<a class="headerlink" href="#static-uint32-t-gpr-cmd-end-command-gpr-packet-t-packet-uint32-t-status" title="Permalink to this heading"></a></h4>
 <p>Completes a command message by replying with a
 <a class="reference external" href="#define-gpr-ibasic-rsp-result-0x02001005">GPR_IBASIC_RSP_RESULT</a>
 command response message to the sender. The indicated packet is then
@@ -2224,12 +2210,12 @@ The source and destination services must be registered with the GPR.</p>
 </section>
 </section>
 <section id="gpr-standard-response-opcodes">
-<h3><a class="toc-backref" href="#id75" role="doc-backlink">GPR Standard Response Opcodes</a><a class="headerlink" href="#gpr-standard-response-opcodes" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id75" role="doc-backlink">GPR Standard Response Opcodes</a><a class="headerlink" href="#gpr-standard-response-opcodes" title="Permalink to this heading"></a></h3>
 <section id="id19">
-<h4>Define Documentation<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<h4>Define Documentation<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h4>
 </section>
 <section id="define-gpr-ibasic-rsp-result-0x02001005">
-<h4>#define GPR_IBASIC_RSP_RESULT ( 0x02001005 )<a class="headerlink" href="#define-gpr-ibasic-rsp-result-0x02001005" title="Link to this heading"></a></h4>
+<h4>#define GPR_IBASIC_RSP_RESULT ( 0x02001005 )<a class="headerlink" href="#define-gpr-ibasic-rsp-result-0x02001005" title="Permalink to this heading"></a></h4>
 <p>Response message opcode that indicates a command has completed. All
 services and clients must handle this response opcode.</p>
 <p><strong>Payload (gpr_ibasic_rsp_result_t)</strong></p>
@@ -2253,7 +2239,7 @@ services and clients must handle this response opcode.</p>
 </table>
 </section>
 <section id="define-gpr-ibasic-evt-accepted-0x02001006">
-<h4>#define GPR_IBASIC_EVT_ACCEPTED ( 0x02001006 )<a class="headerlink" href="#define-gpr-ibasic-evt-accepted-0x02001006" title="Link to this heading"></a></h4>
+<h4>#define GPR_IBASIC_EVT_ACCEPTED ( 0x02001006 )<a class="headerlink" href="#define-gpr-ibasic-evt-accepted-0x02001006" title="Permalink to this heading"></a></h4>
 <p>Standard message opcode that indicates a command was accepted.
 The generation and processing of this event is optional. Clients
 that do not understand this event must drop it by freeing the
@@ -2277,17 +2263,17 @@ received packet.</p>
 </section>
 </section>
 <section id="ipc-interfaces">
-<h2><a class="toc-backref" href="#id76" role="doc-backlink">IPC Interfaces</a><a class="headerlink" href="#ipc-interfaces" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id76" role="doc-backlink">IPC Interfaces</a><a class="headerlink" href="#ipc-interfaces" title="Permalink to this heading"></a></h2>
 <section id="gpr-to-ipc-callback-functions">
-<span id="id20"></span><h3><a class="toc-backref" href="#id77" role="doc-backlink">GPR-to-IPC Callback Functions</a><a class="headerlink" href="#gpr-to-ipc-callback-functions" title="Link to this heading"></a></h3>
+<span id="id20"></span><h3><a class="toc-backref" href="#id77" role="doc-backlink">GPR-to-IPC Callback Functions</a><a class="headerlink" href="#gpr-to-ipc-callback-functions" title="Permalink to this heading"></a></h3>
 <p>To enable remote communication, both the GPR and IPC data link
 layers must implement and exchange callback functions during
 initialization.</p>
 <section id="id21">
-<h4>Data Structure Documentation<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<h4>Data Structure Documentation<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h4>
 </section>
 <section id="struct-gpr-to-ipc-vtbl-t">
-<h4>struct gpr_to_ipc_vtbl_t<a class="headerlink" href="#struct-gpr-to-ipc-vtbl-t" title="Link to this heading"></a></h4>
+<h4>struct gpr_to_ipc_vtbl_t<a class="headerlink" href="#struct-gpr-to-ipc-vtbl-t" title="Permalink to this heading"></a></h4>
 <p>Table of callback functions exposed by the GPR to the IPC data link
 layers. The GPR sends this table to the data link layers during data
 link layer initialization.</p>
@@ -2350,15 +2336,15 @@ function to signal the GPR to free the packet.</p>
 </section>
 </section>
 <section id="ipc-to-gpr-virtual-function-wrapper">
-<span id="id22"></span><h3><a class="toc-backref" href="#id78" role="doc-backlink">IPC-to-GPR Virtual Function Wrapper</a><a class="headerlink" href="#ipc-to-gpr-virtual-function-wrapper" title="Link to this heading"></a></h3>
+<span id="id22"></span><h3><a class="toc-backref" href="#id78" role="doc-backlink">IPC-to-GPR Virtual Function Wrapper</a><a class="headerlink" href="#ipc-to-gpr-virtual-function-wrapper" title="Permalink to this heading"></a></h3>
 <p>To enable remote communication, both the GPR and IPC data link
 layers must implement and exchange callback functions during
 initialization time.</p>
 <section id="id23">
-<h4>Data Structure Documentation<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<h4>Data Structure Documentation<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h4>
 </section>
 <section id="struct-ipc-to-gpr-vtbl-t">
-<h4>struct ipc_to_gpr_vtbl_t<a class="headerlink" href="#struct-ipc-to-gpr-vtbl-t" title="Link to this heading"></a></h4>
+<h4>struct ipc_to_gpr_vtbl_t<a class="headerlink" href="#struct-ipc-to-gpr-vtbl-t" title="Permalink to this heading"></a></h4>
 <p>Table of functions exposed by data link layers to the GPR. The
 functions must be populated by every data link layer when
 <a class="reference external" href="#gpr-external-uint32-t-gpr-init-void">gpr_init()</a> calls for
@@ -2429,7 +2415,7 @@ free the buffer.</p>
 </section>
 </section>
 <section id="ipc-data-link-function-prototypes">
-<span id="id24"></span><h3><a class="toc-backref" href="#id79" role="doc-backlink">IPC Data Link Function Prototypes</a><a class="headerlink" href="#ipc-data-link-function-prototypes" title="Link to this heading"></a></h3>
+<span id="id24"></span><h3><a class="toc-backref" href="#id79" role="doc-backlink">IPC Data Link Function Prototypes</a><a class="headerlink" href="#ipc-data-link-function-prototypes" title="Permalink to this heading"></a></h3>
 <p>A data link layer is used for two-way communication between a given
 source domain and a destination domain. The source domain can set up
 communication with multiple destination domains through different
@@ -2437,10 +2423,10 @@ data link layers.
 This section outlines the function prototypes used for
 initialization and de-initialization of any data link layer.</p>
 <section id="id25">
-<h4>Typedef Documentation<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
+<h4>Typedef Documentation<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h4>
 </section>
 <section id="typedef-uint32-t-ipc-dl-init-fn-t-uint32-t-src-domain-id-uint32-t-dest-domain-id-const-gpr-to-ipc-vtbl-t-p-gpr-to-ipc-vtbl-ipc-to-gpr-vtbl-t-pp-ipc-to-gpr-vtbl">
-<h4>typedef uint32_t(∗ ipc_dl_init_fn_t)(uint32_t src_domain_id, uint32_t dest_domain_id, const gpr_to_ipc_vtbl_t *p_gpr_to_ipc_vtbl, ipc_to_gpr_vtbl_t **pp_ipc_to_gpr_vtbl)<a class="headerlink" href="#typedef-uint32-t-ipc-dl-init-fn-t-uint32-t-src-domain-id-uint32-t-dest-domain-id-const-gpr-to-ipc-vtbl-t-p-gpr-to-ipc-vtbl-ipc-to-gpr-vtbl-t-pp-ipc-to-gpr-vtbl" title="Link to this heading"></a></h4>
+<h4>typedef uint32_t(∗ ipc_dl_init_fn_t)(uint32_t src_domain_id, uint32_t dest_domain_id, const gpr_to_ipc_vtbl_t *p_gpr_to_ipc_vtbl, ipc_to_gpr_vtbl_t **pp_ipc_to_gpr_vtbl)<a class="headerlink" href="#typedef-uint32-t-ipc-dl-init-fn-t-uint32-t-src-domain-id-uint32-t-dest-domain-id-const-gpr-to-ipc-vtbl-t-p-gpr-to-ipc-vtbl-ipc-to-gpr-vtbl-t-pp-ipc-to-gpr-vtbl" title="Permalink to this heading"></a></h4>
 <p>Initializes a data link or IPC layer that communicates between two
 domains.</p>
 <p><strong>Associated data types</strong></p>
@@ -2533,7 +2519,7 @@ GPR.</p>
 </div>
 </section>
 <section id="typedef-uint32-t-ipc-dl-deinit-fn-t-uint32-t-src-domain-id-uint32-t-dest-domain-id">
-<h4>typedef uint32_t(∗ ipc_dl_deinit_fn_t)(uint32_t src_domain_id, uint32_t dest_domain_id)<a class="headerlink" href="#typedef-uint32-t-ipc-dl-deinit-fn-t-uint32-t-src-domain-id-uint32-t-dest-domain-id" title="Link to this heading"></a></h4>
+<h4>typedef uint32_t(∗ ipc_dl_deinit_fn_t)(uint32_t src_domain_id, uint32_t dest_domain_id)<a class="headerlink" href="#typedef-uint32-t-ipc-dl-deinit-fn-t-uint32-t-src-domain-id-uint32-t-dest-domain-id" title="Permalink to this heading"></a></h4>
 <p>Deinitializes a data link or IPC layer that was set up to
 communicate between two domains.</p>
 <p><strong>Parameters</strong></p>
@@ -2586,15 +2572,15 @@ deinitialization.</p>
 </section>
 </section>
 <section id="gpr-functions-for-local-routing">
-<h3><a class="toc-backref" href="#id80" role="doc-backlink">GPR Functions for Local Routing</a><a class="headerlink" href="#gpr-functions-for-local-routing" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id80" role="doc-backlink">GPR Functions for Local Routing</a><a class="headerlink" href="#gpr-functions-for-local-routing" title="Permalink to this heading"></a></h3>
 <p>GPR functions used for local routing, which is routing between two
 services on the same domain, should also follow IPC data link
 function prototype (see Section
 <a class="reference internal" href="#ipc-data-link-function-prototypes"><span class="std std-ref">IPC Data Link Function Prototypes</span></a>).</p>
 <section id="id26">
-<h4>Function Documentation<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h4>
 <section id="gpr-external-uint32-t-ipc-dl-local-init-uint32-t-src-domain-id-uint32-t-dest-domain-id-const-gpr-to-ipc-vtbl-t-p-gpr-to-ipc-vtbl-ipc-to-gpr-vtbl-t-pp-ipc-to-gpr-vtbl">
-<h5>GPR_EXTERNAL uint32_t ipc_dl_local_init ( uint32_t src_domain_id, uint32_t dest_domain_id, const gpr_to_ipc_vtbl_t *p_gpr_to_ipc_vtbl, ipc_to_gpr_vtbl_t **pp_ipc_to_gpr_vtbl )<a class="headerlink" href="#gpr-external-uint32-t-ipc-dl-local-init-uint32-t-src-domain-id-uint32-t-dest-domain-id-const-gpr-to-ipc-vtbl-t-p-gpr-to-ipc-vtbl-ipc-to-gpr-vtbl-t-pp-ipc-to-gpr-vtbl" title="Link to this heading"></a></h5>
+<h5>GPR_EXTERNAL uint32_t ipc_dl_local_init ( uint32_t src_domain_id, uint32_t dest_domain_id, const gpr_to_ipc_vtbl_t *p_gpr_to_ipc_vtbl, ipc_to_gpr_vtbl_t **pp_ipc_to_gpr_vtbl )<a class="headerlink" href="#gpr-external-uint32-t-ipc-dl-local-init-uint32-t-src-domain-id-uint32-t-dest-domain-id-const-gpr-to-ipc-vtbl-t-p-gpr-to-ipc-vtbl-ipc-to-gpr-vtbl-t-pp-ipc-to-gpr-vtbl" title="Permalink to this heading"></a></h5>
 <p>Performs initialization of the GPR functionality used for local
 routing of packets.</p>
 <p><strong>Associated data types</strong></p>
@@ -2683,7 +2669,7 @@ configuration wrappers (see Section
 </section>
 </section>
 <section id="platform-specific-configuration-wrappers">
-<span id="id27"></span><h3><a class="toc-backref" href="#id81" role="doc-backlink">Platform-specific Configuration Wrappers</a><a class="headerlink" href="#platform-specific-configuration-wrappers" title="Link to this heading"></a></h3>
+<span id="id27"></span><h3><a class="toc-backref" href="#id81" role="doc-backlink">Platform-specific Configuration Wrappers</a><a class="headerlink" href="#platform-specific-configuration-wrappers" title="Permalink to this heading"></a></h3>
 <p>The platform-specific configuration wrappers allow each platform to
 provide specific configuration and perform GPR instantiation with
 this configuration. GPR instantiation is done by calling
@@ -2704,9 +2690,9 @@ which the given processor is to establish communication.</p></li>
 domains that are present.</p></li>
 </ul>
 <section id="id28">
-<h4>Data Structure Documentation<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
+<h4>Data Structure Documentation<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h4>
 <section id="struct-ipc-dl-t">
-<h5>struct ipc_dl_t<a class="headerlink" href="#struct-ipc-dl-t" title="Link to this heading"></a></h5>
+<h5>struct ipc_dl_t<a class="headerlink" href="#struct-ipc-dl-t" title="Permalink to this heading"></a></h5>
 <p>Contains the domain ID to which communication is to be established
 through a specified IPC data link layer. This structure includes the
 corresponding data link initialization and deinitialization
@@ -2736,9 +2722,9 @@ functions to be called.</p>
 </section>
 </section>
 <section id="id29">
-<h4>Function Documentation<a class="headerlink" href="#id29" title="Link to this heading"></a></h4>
+<h4>Function Documentation<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h4>
 <section id="gpr-external-uint32-t-gpr-drv-internal-init-struct-ipc-dl-t-gpr-ipc-dl-table-uint32-t-num-domains-uint32-t-default-domain-id-uint32-t-buf-size-1-uint32-t-num-packets-1-uint32-t-buf-size-2-uint32-t-num-packets-2">
-<span id="gpr-drv-internal-init"></span><h5>GPR_EXTERNAL uint32_t gpr_drv_internal_init ( struct ipc_dl_t gpr_ipc_dl_table[ ], uint32_t num_domains, uint32_t default_domain_id, uint32_t buf_size_1, uint32_t num_packets_1, uint32_t buf_size_2, uint32_t num_packets_2 )<a class="headerlink" href="#gpr-external-uint32-t-gpr-drv-internal-init-struct-ipc-dl-t-gpr-ipc-dl-table-uint32-t-num-domains-uint32-t-default-domain-id-uint32-t-buf-size-1-uint32-t-num-packets-1-uint32-t-buf-size-2-uint32-t-num-packets-2" title="Link to this heading"></a></h5>
+<span id="gpr-drv-internal-init"></span><h5>GPR_EXTERNAL uint32_t gpr_drv_internal_init ( struct ipc_dl_t gpr_ipc_dl_table[ ], uint32_t num_domains, uint32_t default_domain_id, uint32_t buf_size_1, uint32_t num_packets_1, uint32_t buf_size_2, uint32_t num_packets_2 )<a class="headerlink" href="#gpr-external-uint32-t-gpr-drv-internal-init-struct-ipc-dl-t-gpr-ipc-dl-table-uint32-t-num-domains-uint32-t-default-domain-id-uint32-t-buf-size-1-uint32-t-num-packets-1-uint32-t-buf-size-2-uint32-t-num-packets-2" title="Permalink to this heading"></a></h5>
 <p>Performs internal initialization of the GPR infrastructure.</p>
 <p><strong>Associated data types</strong></p>
 <blockquote>
@@ -2868,13 +2854,13 @@ functionality.</p>
 </section>
 </section>
 <section id="custom-implementations">
-<h2><a class="toc-backref" href="#id82" role="doc-backlink">Custom Implementations</a><a class="headerlink" href="#custom-implementations" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id82" role="doc-backlink">Custom Implementations</a><a class="headerlink" href="#custom-implementations" title="Permalink to this heading"></a></h2>
 <p>Customize the GPR protocol by following the basic guidelines
 outlined in this chapter. Custom implementations include adding a
 custom domain ID, a custom platform wrapper, or a custom data link
 layer.</p>
 <section id="custom-platform-wrapper">
-<span id="gpr-custom-platform-wrapper"></span><h3><a class="toc-backref" href="#id83" role="doc-backlink">Custom Platform Wrapper</a><a class="headerlink" href="#custom-platform-wrapper" title="Link to this heading"></a></h3>
+<span id="gpr-custom-platform-wrapper"></span><h3><a class="toc-backref" href="#id83" role="doc-backlink">Custom Platform Wrapper</a><a class="headerlink" href="#custom-platform-wrapper" title="Permalink to this heading"></a></h3>
 <p>A custom platform wrapper allows control of the following:</p>
 <ul>
 <li><p>The number of packets and size of packets the GPR is to allocate.</p></li>
@@ -2893,7 +2879,7 @@ compile time.</p>
 </ul>
 </section>
 <section id="custom-domain-id">
-<span id="gpr-custom-domain-id"></span><h3><a class="toc-backref" href="#id84" role="doc-backlink">Custom Domain ID</a><a class="headerlink" href="#custom-domain-id" title="Link to this heading"></a></h3>
+<span id="gpr-custom-domain-id"></span><h3><a class="toc-backref" href="#id84" role="doc-backlink">Custom Domain ID</a><a class="headerlink" href="#custom-domain-id" title="Permalink to this heading"></a></h3>
 <p>Add a custom or new domain ID by expanding the list of existing
 domain IDs in the API file, gpr_domain_ids.h (see Section
 <a class="reference internal" href="#gpr-contants-and-macros"><span class="std std-ref">GPR Constants and Macros</span></a>). Update the GPR_PL_MAX_DOMAIN_ID_V and
@@ -2902,7 +2888,7 @@ domain ID and the total number of domain IDs respectively.
 Following are two updates that are required to ensure packet
 transmission to and from this custom domain.</p>
 <section id="for-gpr-on-a-custom-domain-or-processor">
-<h4>For GPR on a Custom Domain or Processor<a class="headerlink" href="#for-gpr-on-a-custom-domain-or-processor" title="Link to this heading"></a></h4>
+<h4>For GPR on a Custom Domain or Processor<a class="headerlink" href="#for-gpr-on-a-custom-domain-or-processor" title="Permalink to this heading"></a></h4>
 <p>Add a new platform wrapper file that specifies the GPR packet pool
 information and the IPC data link function table, depending on which
 processing domains the host domain is to communicate with.
@@ -2985,7 +2971,7 @@ and deinitialization functions.</p>
 </div>
 </section>
 <section id="for-gpr-on-another-domain-or-processor">
-<h4>For GPR on Another Domain or Processor<a class="headerlink" href="#for-gpr-on-another-domain-or-processor" title="Link to this heading"></a></h4>
+<h4>For GPR on Another Domain or Processor<a class="headerlink" href="#for-gpr-on-another-domain-or-processor" title="Permalink to this heading"></a></h4>
 <p>Update the platform wrapper for all other domains that are to
 communicate with the custom domain. Add an entry for this custom
 domain to the existing IPC data link function table. This entry is
@@ -3060,7 +3046,7 @@ link to the custom domain</strong></p>
 </section>
 </section>
 <section id="custom-ipc-data-link-or-transport-layer">
-<span id="gpr-custom-ipc-data-link"></span><h3><a class="toc-backref" href="#id85" role="doc-backlink">Custom IPC Data Link or Transport Layer</a><a class="headerlink" href="#custom-ipc-data-link-or-transport-layer" title="Link to this heading"></a></h3>
+<span id="gpr-custom-ipc-data-link"></span><h3><a class="toc-backref" href="#id85" role="doc-backlink">Custom IPC Data Link or Transport Layer</a><a class="headerlink" href="#custom-ipc-data-link-or-transport-layer" title="Permalink to this heading"></a></h3>
 <p>To communicate through custom data link layers, the GPR on both
 domains is to implement a custom IPC data link as follows:</p>
 <ol class="arabic simple">
@@ -3151,7 +3137,7 @@ data link layer during initialization.</p></li>
 </section>
 </section>
 <section id="acronyms-and-terms">
-<h2><a class="toc-backref" href="#id86" role="doc-backlink">Acronyms and Terms</a><a class="headerlink" href="#acronyms-and-terms" title="Link to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id86" role="doc-backlink">Acronyms and Terms</a><a class="headerlink" href="#acronyms-and-terms" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Acronym or term</strong></p></th>

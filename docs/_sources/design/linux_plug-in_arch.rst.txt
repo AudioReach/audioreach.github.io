@@ -224,7 +224,24 @@ Graph Overview
    Sample Audio Graph for MSSD Scenario
 
 Figure depicts the reference design of audio graph for MSSD playback scenario. In this example, stream sub-graph and stream-PP sub graph are consolidated into just stream sub-graph. Stream subgraph consists of write shared memory endpoint, PCM decoder, PCM converter. Client passes PCM samples to write shared memory endpoint. PCM converter is put in place to convert PCM samples to format supported by the stream-specific post-processing modules if conversion is necessary. Output of stream subgraph is fed into stream-device subgraph which consists of media format converter(MFC). MFC is put in place to convert stream-leg PCM to device-leg PCM format. After conversion, output of stream-device sub-graph is fed into device PP subgraph for device-specific post-processing. Note that mixer is placed at the beginning of subgraph to mix input streams. Output of device PP subgraph is then feed into device subgraph containing hardware endpoint module such as I2S driver for eventual rendering out of SoC.
-   
+
+The reference playback graphs for Linux platforms typically consists of the following subgraphs:
+
+1. **Stream** – The software interface between the DSP and high-level operating system.
+2. **Stream-PP** – Contains postprocessing (PP) modules specific to a stream (for example, bass boost, reverb, etc.)
+3. **Stream-Device** – Consists of any per stream per device modules such as sample rate/media format conversion
+4. **Device-PP** – Contains PP modules specific to a hardware device (common examples include IIR Filter, MBDRC, etc.)
+5. **Device** – The hardware endpoint, most often a mic or a speaker.
+
+An Rx (audio output) use case will follow this order (Stream -> Device), while a Tx (audio input) use case will be
+reversed (Device -> Stream).
+By default, GKVs are defined for Stream, StreamPP, Device, and DevicePP. StreamDevice subgraphs do not have a unique GKV, but instead use a combination of Stream
+and Device GKVs.
+
+Please note that it is not necessary for every graph to have a Stream-PP, Stream-Device, or Device-PP subgraph.
+Most commonly, subgraphs are only defined once for each Stream or Device, and
+different calibrations are realized with the PP subgraphs.
+
 Key Vector Design
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -256,6 +273,28 @@ Key Vector Design
 +-----------------------------+------------------------------------------+
 | Stream2 + Device Metadata   | StreamRX2DeviceRX KVs, DeviceRX PP KVs   |
 +-----------------------------+------------------------------------------+
+
+Below is a breakdown of a Low Latency playback graph from the RB3 Gen2 ACDB file:
+
+StreamRX Subgraph:
+
+.. figure:: images/linux/stream_subgraph.png
+   :figclass: fig-center
+
+Stream-Device Subgraph:
+
+.. figure:: images/linux/stream-device_subgraph.png
+   :figclass: fig-center
+
+Device PP Subgraph:
+
+.. figure:: images/linux/device_pp_subgraph.png
+   :figclass: fig-center
+
+Device Subgraph:
+
+.. figure:: images/linux/device_subgraph.png
+   :figclass: fig-center
 
 **GKV**
 
