@@ -1,7 +1,7 @@
 name: Qualcomm Preflight Checks
 
 on:
-  pull_request_target:
+  pull_request:
     branches: [ master ]
   push:
     branches: [ master ]
@@ -15,4 +15,4 @@ jobs:
   qcom-preflight-checks:
     uses: Audioreach/audioreach-workflows/.github/workflows/qcom-preflight-checks.yml@master
     with:
-      semgrep: false
+      enable-semgrep-scan: false
