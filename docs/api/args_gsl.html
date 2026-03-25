@@ -92,7 +92,7 @@
   <section id="graph-service-layer">
 <span id="args-gsl-api"></span><h1>Graph Service Layer<a class="headerlink" href="#graph-service-layer" title="Permalink to this heading"></a></h1>
 <p>Defines public APIs for Graph Service Layer (GSL) </p>
-<p>Copyright (c) Qualcomm Innovation Center, Inc. All rights reserved. SPDX-License-Identifier: BSD-3-Clause </p>
+<p>Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries. SPDX-License-Identifier: BSD-3-Clause </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
 <dl class="cpp macro">
@@ -253,6 +253,26 @@
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv412gsl_mem_id_t">
+<span id="_CPPv312gsl_mem_id_t"></span><span id="_CPPv212gsl_mem_id_t"></span><span id="gsl_mem_id_t"></span><span class="target" id="gsl__intf_8h_1a70f1c468786568ffdc40b5a13c00dad8"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_mem_id_t</span></span></span><a class="headerlink" href="#_CPPv412gsl_mem_id_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv421gsl_cshm_cache_type_t">
+<span id="_CPPv321gsl_cshm_cache_type_t"></span><span id="_CPPv221gsl_cshm_cache_type_t"></span><span id="gsl_cshm_cache_type_t"></span><span class="target" id="gsl__intf_8h_1aa5d0f57611abfb8647573d77a7aaecaf"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv419gsl_cshm_cache_type" title="gsl_cshm_cache_type"><span class="n"><span class="pre">gsl_cshm_cache_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_cache_type_t</span></span></span><a class="headerlink" href="#_CPPv421gsl_cshm_cache_type_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv415gsl_subsystem_t">
+<span id="_CPPv315gsl_subsystem_t"></span><span id="_CPPv215gsl_subsystem_t"></span><span id="gsl_subsystem_t"></span><span class="target" id="gsl__intf_8h_1a5b46f8cf9595176c78e9f152d51e3568"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv413gsl_subsystem" title="gsl_subsystem"><span class="n"><span class="pre">gsl_subsystem</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_subsystem_t</span></span></span><a class="headerlink" href="#_CPPv415gsl_subsystem_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv415gsl_cshm_info_t">
+<span id="_CPPv315gsl_cshm_info_t"></span><span id="_CPPv215gsl_cshm_info_t"></span><span id="gsl_cshm_info_t"></span><span class="target" id="gsl__intf_8h_1a4926fd0bed561d6905a630f4614a6f01"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv413gsl_cshm_info" title="gsl_cshm_info"><span class="n"><span class="pre">gsl_cshm_info</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_info_t</span></span></span><a class="headerlink" href="#_CPPv415gsl_cshm_info_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -490,6 +510,72 @@
 
 </dd></dl>
 
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv419gsl_cshm_cache_type">
+<span id="_CPPv319gsl_cshm_cache_type"></span><span id="_CPPv219gsl_cshm_cache_type"></span><span class="target" id="gsl__intf_8h_1aae9ba6e2527b52d7b79af994f933cbd9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_cache_type</span></span></span><a class="headerlink" href="#_CPPv419gsl_cshm_cache_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N19gsl_cshm_cache_type15GSL_CSHM_CACHEDE">
+<span id="_CPPv3N19gsl_cshm_cache_type15GSL_CSHM_CACHEDE"></span><span id="_CPPv2N19gsl_cshm_cache_type15GSL_CSHM_CACHEDE"></span><span class="target" id="gsl__intf_8h_1aae9ba6e2527b52d7b79af994f933cbd9ae66448edd40b9213f4d77823a0f21ebb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_CSHM_CACHED</span></span></span><a class="headerlink" href="#_CPPv4N19gsl_cshm_cache_type15GSL_CSHM_CACHEDE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>0 cached. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N19gsl_cshm_cache_type17GSL_CSHM_UNCACHEDE">
+<span id="_CPPv3N19gsl_cshm_cache_type17GSL_CSHM_UNCACHEDE"></span><span id="_CPPv2N19gsl_cshm_cache_type17GSL_CSHM_UNCACHEDE"></span><span class="target" id="gsl__intf_8h_1aae9ba6e2527b52d7b79af994f933cbd9ae156fa185a8bb713acab718699584eb9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_CSHM_UNCACHED</span></span></span><a class="headerlink" href="#_CPPv4N19gsl_cshm_cache_type17GSL_CSHM_UNCACHEDE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>1 uncached. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413gsl_subsystem">
+<span id="_CPPv313gsl_subsystem"></span><span id="_CPPv213gsl_subsystem"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_subsystem</span></span></span><a class="headerlink" href="#_CPPv413gsl_subsystem" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_subsystem14GSL_SS_INVALIDE">
+<span id="_CPPv3N13gsl_subsystem14GSL_SS_INVALIDE"></span><span id="_CPPv2N13gsl_subsystem14GSL_SS_INVALIDE"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97baa99d13a8bf8ac7aa10ac79e66df38e62"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_SS_INVALID</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_subsystem14GSL_SS_INVALIDE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Invalid sub system. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_subsystem16GSL_SS_MODEM_DSPE">
+<span id="_CPPv3N13gsl_subsystem16GSL_SS_MODEM_DSPE"></span><span id="_CPPv2N13gsl_subsystem16GSL_SS_MODEM_DSPE"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97baf82921e2014b558a9bf1514bfa324405"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_SS_MODEM_DSP</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_subsystem16GSL_SS_MODEM_DSPE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for MODEM DSP sub system. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_subsystem11GSL_SS_APPSE">
+<span id="_CPPv3N13gsl_subsystem11GSL_SS_APPSE"></span><span id="_CPPv2N13gsl_subsystem11GSL_SS_APPSE"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97ba42afbbff34db4b80fa259072532559a7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_SS_APPS</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_subsystem11GSL_SS_APPSE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for APPS sub system. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_subsystem17GSL_SS_SENSOR_DSPE">
+<span id="_CPPv3N13gsl_subsystem17GSL_SS_SENSOR_DSPE"></span><span id="_CPPv2N13gsl_subsystem17GSL_SS_SENSOR_DSPE"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97ba252fde0027b323fb51e3991324292ac2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_SS_SENSOR_DSP</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_subsystem17GSL_SS_SENSOR_DSPE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for SENSOR DSP sub system. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_subsystem18GSL_SS_COMPUTE_DSPE">
+<span id="_CPPv3N13gsl_subsystem18GSL_SS_COMPUTE_DSPE"></span><span id="_CPPv2N13gsl_subsystem18GSL_SS_COMPUTE_DSPE"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97ba6e28876473d9c7599d8a0cda0a2d8328"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_SS_COMPUTE_DSP</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_subsystem18GSL_SS_COMPUTE_DSPE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for COMPUTE DSP sub system. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_subsystem13GSL_SS_CC_DSPE">
+<span id="_CPPv3N13gsl_subsystem13GSL_SS_CC_DSPE"></span><span id="_CPPv2N13gsl_subsystem13GSL_SS_CC_DSPE"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97ba0eb5ae1add4823dddc14d3fea8c05fe2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_SS_CC_DSP</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_subsystem13GSL_SS_CC_DSPE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for Companion chip DSP (CC_DSP) sub system. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_subsystem11GSL_SS_ADSPE">
+<span id="_CPPv3N13gsl_subsystem11GSL_SS_ADSPE"></span><span id="_CPPv2N13gsl_subsystem11GSL_SS_ADSPE"></span><span class="target" id="gsl__intf_8h_1addde43cfe4b0e62bc546d1ea571ca97ba110ef95a008f4099130e6be379f179e5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GSL_SS_ADSP</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_subsystem11GSL_SS_ADSPE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for ADSP sub system. </p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
@@ -516,6 +602,23 @@
 <dd class="field-odd"><p><strong>init_data</strong> – <strong>[in]</strong> data used during initialization </p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413gsl_cshm_init8uint32_t">
+<span id="_CPPv313gsl_cshm_init8uint32_t"></span><span id="_CPPv213gsl_cshm_init8uint32_t"></span><span id="gsl_cshm_init__uint32_t"></span><span class="target" id="gsl__intf_8h_1a818e1e2209fe42f236d6cf9f6e507ec4"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_init</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_client</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413gsl_cshm_init8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Initialize GSL cshm, must be called before any other cshm calls. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num_client</strong> – <strong>[in]</strong> number of clients to be intialized with. If 0, then default value of CSHM_DEFAULT_INIT_CLIENT_NUM will be used. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415gsl_cshm_deinitv">
+<span id="_CPPv315gsl_cshm_deinitv"></span><span id="_CPPv215gsl_cshm_deinitv"></span><span id="gsl_cshm_deinit__void"></span><span class="target" id="gsl__intf_8h_1aa4d065edf8c7165b36370c80d4ec88b8"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_deinit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415gsl_cshm_deinitv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>De-Initialize GSL cshm, must be called after <a class="reference internal" href="#gsl__intf_8h_1aa542a8ce8c1f86d575f903858d0b1724"><span class="std std-ref">gsl_deinit()</span></a></p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -1133,6 +1236,53 @@ see ACDB_CMD_GET_TAG_DATA in acdb.h for more documentation </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>acdb_handle</strong> – <strong>[in]</strong> A handle to the database to remove </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>AR_EOK in success, error code otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414gsl_cshm_alloc8uint32_tP15gsl_cshm_info_t">
+<span id="_CPPv314gsl_cshm_alloc8uint32_tP15gsl_cshm_info_t"></span><span id="_CPPv214gsl_cshm_alloc8uint32_tP15gsl_cshm_info_t"></span><span id="gsl_cshm_alloc__uint32_t.gsl_cshm_info_tP"></span><span class="target" id="gsl__intf_8h_1aa84c14118dcc0bf191c0619c52e34b8b"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_alloc</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span>, <a class="reference internal" href="#_CPPv415gsl_cshm_info_t" title="gsl_cshm_info_t"><span class="n"><span class="pre">gsl_cshm_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414gsl_cshm_alloc8uint32_tP15gsl_cshm_info_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Allocates shared memory for external clients. Send APM_CMD_GLOBAL_SHARED_MEM_MAP_REGIONS commands to SPF to map allocated memory. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size</strong> – <strong>[in]</strong> number of bytes to be allocated </p>
+</dd>
+<dt class="field-even">Param <span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416gsl_cshm_dealloc12gsl_mem_id_t">
+<span id="_CPPv316gsl_cshm_dealloc12gsl_mem_id_t"></span><span id="_CPPv216gsl_cshm_dealloc12gsl_mem_id_t"></span><span id="gsl_cshm_dealloc__gsl_mem_id_t"></span><span class="target" id="gsl__intf_8h_1a264c9009b03b3bd59415634cdc1c1756"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_dealloc</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412gsl_mem_id_t" title="gsl_mem_id_t"><span class="n"><span class="pre">gsl_mem_id_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mem_id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416gsl_cshm_dealloc12gsl_mem_id_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Deallocates shared memory for external clients. Send APM_CMD_GLOBAL_SHARED_MEM_UNMAP_REGIONS commands to SPF to unmap memory to be deallocated. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mem_id</strong> – <strong>[in]</strong> identifier to shared memory to be deallocated </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>AR_EOK in success, error code otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412gsl_cshm_msg12gsl_mem_id_t8uint32_t8uint32_t8uint32_t8uint32_t">
+<span id="_CPPv312gsl_cshm_msg12gsl_mem_id_t8uint32_t8uint32_t8uint32_t8uint32_t"></span><span id="_CPPv212gsl_cshm_msg12gsl_mem_id_t8uint32_t8uint32_t8uint32_t8uint32_t"></span><span id="gsl_cshm_msg__gsl_mem_id_t.uint32_t.uint32_t.uint32_t.uint32_t"></span><span class="target" id="gsl__intf_8h_1a406ca6389dce1cb72a157e0ecc0accad"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_msg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412gsl_mem_id_t" title="gsl_mem_id_t"><span class="n"><span class="pre">gsl_mem_id_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mem_id</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">offset</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">length</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">miid</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">prop_flag</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412gsl_cshm_msg12gsl_mem_id_t8uint32_t8uint32_t8uint32_t8uint32_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send notification to module running in SPF w.r.t particular operation on shared memory block. Operation is opaque to gsl. AR_SPF_MSG_GLOBAL_SH_MEM commands to SPF to forwards it to custom module. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mem_id</strong> – <strong>[in]</strong> identifier to shared memory to be deallocated </p></li>
+<li><p><strong>offset</strong> – <strong>[in]</strong> Offset (in bytes) from where the chunk of memory starts. This is relative to the beginning of the total shared memory allocated </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Size of the chunk of memory. </p></li>
+<li><p><strong>miid</strong> – <strong>[in]</strong> Module Instance ID of the module to which this call is intended for. In case of invalid/inactive miid, error is returned. </p></li>
+<li><p><strong>prop_flag</strong> – <strong>[in]</strong> Flags to provide additional information for this call Bit 0 – Release memory Bit used to convey if client wants the module to release/stop using a chunk of previously informed memory. 0 – Default. Not a release message. 1 – Here, if length is zero, module is asked to release entire memory mapped to it with mem_id. If length is non-zero, the module is asked to release this chunck only.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>AR_EOK in success, error code otherwise </p>
@@ -1899,6 +2049,46 @@ see ACDB_CMD_GET_TAG_DATA in acdb.h for more documentation </p>
 <dt class="sig sig-object cpp" id="_CPPv4N19gsl_event_cb_params13event_payloadE">
 <span id="_CPPv3N19gsl_event_cb_params13event_payloadE"></span><span id="_CPPv2N19gsl_event_cb_params13event_payloadE"></span><span id="gsl_event_cb_params::event_payload__voidP"></span><span class="target" id="structgsl__event__cb__params_1a007a984cd7aa654da765fd2e41950fcb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">event_payload</span></span></span><a class="headerlink" href="#_CPPv4N19gsl_event_cb_params13event_payloadE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>payload associated with the event if any </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv413gsl_cshm_info">
+<span id="_CPPv313gsl_cshm_info"></span><span id="_CPPv213gsl_cshm_info"></span><span id="gsl_cshm_info"></span><span class="target" id="structgsl__cshm__info"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gsl_cshm_info</span></span></span><a class="headerlink" href="#_CPPv413gsl_cshm_info" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;gsl_intf.h&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_cshm_info4typeE">
+<span id="_CPPv3N13gsl_cshm_info4typeE"></span><span id="_CPPv2N13gsl_cshm_info4typeE"></span><span id="gsl_cshm_info::type__gsl_cshm_cache_type_t"></span><span class="target" id="structgsl__cshm__info_1a689b6f4f4854d64c65a7a8eb30396a4b"></span><a class="reference internal" href="#_CPPv421gsl_cshm_cache_type_t" title="gsl_cshm_cache_type_t"><span class="n"><span class="pre">gsl_cshm_cache_type_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_cshm_info4typeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Cached or uncached memory type. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_cshm_info14subsystem_maskE">
+<span id="_CPPv3N13gsl_cshm_info14subsystem_maskE"></span><span id="_CPPv2N13gsl_cshm_info14subsystem_maskE"></span><span id="gsl_cshm_info::subsystem_mask__gsl_subsystem_t"></span><span class="target" id="structgsl__cshm__info_1ade972fcf8583c1c2b9ea0d37d6f6c275"></span><a class="reference internal" href="#_CPPv415gsl_subsystem_t" title="gsl_subsystem_t"><span class="n"><span class="pre">gsl_subsystem_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">subsystem_mask</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_cshm_info14subsystem_maskE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Allows rouing shared memory access across multiple DSPs. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_cshm_info4flagE">
+<span id="_CPPv3N13gsl_cshm_info4flagE"></span><span id="_CPPv2N13gsl_cshm_info4flagE"></span><span id="gsl_cshm_info::flag__int32_t"></span><span class="target" id="structgsl__cshm__info_1ab72af40031d5cebd178f11e5e41f5ab9"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flag</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_cshm_info4flagE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flags for shared memory allocation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_cshm_info2fdE">
+<span id="_CPPv3N13gsl_cshm_info2fdE"></span><span id="_CPPv2N13gsl_cshm_info2fdE"></span><span id="gsl_cshm_info::fd__uint64_t"></span><span class="target" id="structgsl__cshm__info_1a87057904aa331413da8513a785298174"></span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fd</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_cshm_info2fdE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>File descriptor for mapped memory region. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13gsl_cshm_info6mem_idE">
+<span id="_CPPv3N13gsl_cshm_info6mem_idE"></span><span id="_CPPv2N13gsl_cshm_info6mem_idE"></span><span id="gsl_cshm_info::mem_id__gsl_mem_id_t"></span><span class="target" id="structgsl__cshm__info_1a9e6dfab2648940f5cef17bb09368497f"></span><a class="reference internal" href="#_CPPv412gsl_mem_id_t" title="gsl_mem_id_t"><span class="n"><span class="pre">gsl_mem_id_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mem_id</span></span></span><a class="headerlink" href="#_CPPv4N13gsl_cshm_info6mem_idE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Unique GSL memory identifier. </p>
 </dd></dl>
 
 </div>
