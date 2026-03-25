@@ -12,4 +12,3 @@ AudioReach Designs
    args_design
    gpr_design	      
    lx_design
-   arc_design

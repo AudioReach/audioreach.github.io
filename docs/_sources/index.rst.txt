@@ -30,6 +30,7 @@ Table of Contents
    design/index.rst
    api/index.rst
    dev/index.rst
+   arc/index.rst
    platform/index.rst
    
 Indices and tables
