@@ -69,6 +69,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#running-an-audioreach-usecase">Running an AudioReach Usecase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-alsa-lib-with-audioreach">Using ALSA lib with AudioReach</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-aplay-for-audio-playback">Using aplay for Audio Playback</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#check-the-sound-card">Check the sound card</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#check-the-sound-card-id">Check the sound card ID</a></li>
@@ -113,6 +117,7 @@
 <li><p><a class="reference external" href="#create-a-yocto-image">Create a Yocto Image</a></p></li>
 <li><p><a class="reference external" href="#setting-up-the-raspberry-pi">Setting up the Raspberry Pi</a></p></li>
 <li><p><a class="reference external" href="#running-an-audioreach-usecase">Running an AudioReach Usecase</a></p></li>
+<li><p><a class="reference external" href="#using-alsa-lib-with-audioreach">Using ALSA lib with AudioReach</a></p></li>
 <li><p><a class="reference external" href="#troubleshooting">Troubleshooting</a></p></li>
 </ol>
 <p>This guide provides AudioReach Architecture overview on Raspberry Pi platform and walks through steps on how to create a Yocto image that integrates AudioReach,
@@ -228,6 +233,17 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Audio
 <p>To ensure the AudioReach system image is compiled as a part of the full Yocto build, navigate to the file “&lt;yocto_build_root&gt;/build/conf/local.conf” and append the below line:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;audioreach-graphservices tinyalsa audioreach-graphmgr audioreach-engine audioreach-conf&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To enable ALSA lib support, add the following ALSA packages to the “local.conf” file:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
+<span class="s2">alsa-lib \</span>
+<span class="s2">alsa-utils \</span>
+<span class="s2">alsa-tools \</span>
+<span class="s2">alsa-state \</span>
+<span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -414,6 +430,41 @@ audio usecase in real time. For more information on ARC, please refer to the <a 
 </div></blockquote>
 <p>Now the “.wav” file should play through the external audio device. If the Raspberry Pi is connected to ARC, the current usecase graph will appear in the graph view.
 The system logs for the usecase will be saved in the file “/var/log/messages”.</p>
+</section>
+<section id="using-alsa-lib-with-audioreach">
+<h2>Using ALSA lib with AudioReach<a class="headerlink" href="#using-alsa-lib-with-audioreach" title="Permalink to this heading"></a></h2>
+<p>ALSA lib provides an alternative interface for audio playback and capture on the Raspberry Pi.
+The ALSA lib packages included in the Yocto build provide additional audio utilities and tools
+that can be used alongside AudioReach.</p>
+<p>For detailed information on ALSA lib integration with AudioReach, including metadata generation,
+configuration, and advanced use-cases, please refer to <a class="reference internal" href="../dev/alsalib_using_audioreach.html#alsa-lib-using-audioreach"><span class="std std-ref">ALSA lib using AudioReach</span></a>.</p>
+<section id="using-aplay-for-audio-playback">
+<h3>Using aplay for Audio Playback<a class="headerlink" href="#using-aplay-for-audio-playback" title="Permalink to this heading"></a></h3>
+<p><strong>aplay</strong> is an ALSA lib test application that serves as an alternative
+to <strong>agmplay</strong> for audio playback. To use aplay with AudioReach:</p>
+<blockquote>
+<div><ul>
+<li><p>Ensure the <strong>agm_server</strong> is running in a terminal:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>agm_server
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>In another terminal, use aplay to play an audio file:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aplay<span class="w"> </span>-D<span class="w"> </span>agm:100,100<span class="w"> </span>/<span class="o">[</span>path_to_audio_file<span class="o">]</span>/&lt;clip_name&gt;.wav
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The arguments <code class="docutils literal notranslate"><span class="pre">agm:100,100</span></code> correspond to <code class="docutils literal notranslate"><span class="pre">CARD=100</span></code> and <code class="docutils literal notranslate"><span class="pre">DEV=100</span></code> as defined in the AGM virtual sound card configuration. Card ID <code class="docutils literal notranslate"><span class="pre">100</span></code> identifies the AGM virtual sound card (<code class="docutils literal notranslate"><span class="pre">virtualsndcard</span></code>), and device ID <code class="docutils literal notranslate"><span class="pre">100</span></code> refers to <code class="docutils literal notranslate"><span class="pre">PCM100</span></code>, the playback PCM device defined under that card. For capture, device ID <code class="docutils literal notranslate"><span class="pre">101</span></code> (<code class="docutils literal notranslate"><span class="pre">PCM101</span></code>) would be used instead. These IDs are not fixed by the plugin itself — they are defined in the virtual sound card definition file and must match accordingly.</p>
+</div>
+</section>
 </section>
 <section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
