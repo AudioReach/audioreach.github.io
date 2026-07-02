@@ -1,28 +1,26 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RB3 Gen2 &mdash; AudioReach Documentation 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/audioreach.css?v=cd7bb9cf" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NXP IMX8M Plus" href="nxp.html" />
     <link rel="prev" title="Raspberry Pi 4" href="raspberry_pi4.html" /> 
 </head>
 
@@ -81,6 +79,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="nxp.html">NXP IMX8M Plus</a></li>
 </ul>
 </li>
 </ul>
@@ -111,7 +110,7 @@
            <div itemprop="articleBody">
              
   <section id="rb3-gen2">
-<span id="id1"></span><h1>RB3 Gen2<a class="headerlink" href="#rb3-gen2" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>RB3 Gen2<a class="headerlink" href="#rb3-gen2" title="Link to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="#ArchitectureOverview">Architecture Overview</a></p></li>
 <li><p><a class="reference external" href="#create-a-yocto-image">Create a Yocto Image</a></p></li>
@@ -126,10 +125,11 @@ and walks through steps on how to create a Yocto image that integrates
 AudioReach, load that image on a RB3 Gen2 device, and then run an AudioReach
 usecase.</p>
 <section id="architecture-overview">
-<h2>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permalink to this heading"></a></h2>
+<h2>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Link to this heading"></a></h2>
 <blockquote>
 <div><figure class="fig-center align-default">
-<a class="reference internal image-reference" href="../_images/rb3_gen2_reference.png"><img alt="../_images/rb3_gen2_reference.png" src="../_images/rb3_gen2_reference.png" style="width: 669.5px; height: 544.0500000000001px;" /></a>
+<a class="reference internal image-reference" href="../_images/rb3_gen2_reference.png"><img alt="../_images/rb3_gen2_reference.png" height="544" src="../_images/rb3_gen2_reference.png" width="670" />
+</a>
 </figure>
 </div></blockquote>
 <p>The above architecture diagram illustrates the playback/record use-case on a
@@ -145,13 +145,13 @@ progresses.</p>
 </div>
 </section>
 <section id="create-a-yocto-image">
-<h2>Create a Yocto image<a class="headerlink" href="#create-a-yocto-image" title="Permalink to this heading"></a></h2>
+<h2>Create a Yocto image<a class="headerlink" href="#create-a-yocto-image" title="Link to this heading"></a></h2>
 <p>The first step is to integrate AudioReach components
 into a Yocto build that can be loaded onto the RB3 device. This involves syncing a Yocto build and then integrating the meta-audioreach layer, which is currently available as a Github repository.</p>
 <p>Before following these steps, it would be helpful to learn the basics of how to use a Yocto project. To do this, please refer to the official <a class="reference external" href="https://docs.yoctoproject.org/">Yocto</a> documentation site.</p>
 <p>There are two options for building a Yocto image that incorporates AudioReach components. One option is to use the Qualcomm Linux builds and the other option is using meta layers directly.</p>
 <section id="using-qualcomm-linux-builds-released-crm-builds">
-<h3>Using Qualcomm Linux builds (Released CRM builds)<a class="headerlink" href="#using-qualcomm-linux-builds-released-crm-builds" title="Permalink to this heading"></a></h3>
+<h3>Using Qualcomm Linux builds (Released CRM builds)<a class="headerlink" href="#using-qualcomm-linux-builds-released-crm-builds" title="Link to this heading"></a></h3>
 <p>For instructions on setting up a Yocto build with AudioReach components, refer  <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-254/build_landing_page.html?vproduct=1601111740013072&amp;version=1.5">build guide</a>.</p>
 <p>The build setup process varies based on your Qualcomm access level. For comprehensive details about different access levels, visit the <a class="reference external" href="https://www.qualcomm.com/support/working-with-qualcomm">Working with Qualcomm</a> page.
 <strong>Important Note:</strong> While unregistered users can access basic images for flashing, meaningful AudioReach development requires at least a registered user access level. Registered users gain access to essential development tools like AudioReach Creator
@@ -171,7 +171,7 @@ into a Yocto build that can be loaded onto the RB3 device. This involves syncing
 </ul>
 </section>
 <section id="directly-pulling-using-meta-layers-audioreach-latest-source-code">
-<h3>Directly pulling using meta layers (AudioReach latest source code)<a class="headerlink" href="#directly-pulling-using-meta-layers-audioreach-latest-source-code" title="Permalink to this heading"></a></h3>
+<h3>Directly pulling using meta layers (AudioReach latest source code)<a class="headerlink" href="#directly-pulling-using-meta-layers-audioreach-latest-source-code" title="Link to this heading"></a></h3>
 <p>The current Qualcomm Linux builds for RB3 utilize components from the Code
 Linaro codebase. We are actively working to enable direct integration from
 upstream GitHub repositories, which will allow developers to access the latest
@@ -179,11 +179,11 @@ AudioReach source code directly.</p>
 </section>
 </section>
 <section id="flash-the-yocto-image">
-<h2>Flash the Yocto image<a class="headerlink" href="#flash-the-yocto-image" title="Permalink to this heading"></a></h2>
+<h2>Flash the Yocto image<a class="headerlink" href="#flash-the-yocto-image" title="Link to this heading"></a></h2>
 <p>To flash the Yocto image onto your RB3 Gen2 device, follow the instructions provided in the <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-254/flash_images.html?vproduct=1601111740013072&amp;version=1.5#flash-images">Flashing Guide</a>.</p>
 </section>
 <section id="setting-up-the-rb3-gen2">
-<h2>Setting up the RB3 Gen2<a class="headerlink" href="#setting-up-the-rb3-gen2" title="Permalink to this heading"></a></h2>
+<h2>Setting up the RB3 Gen2<a class="headerlink" href="#setting-up-the-rb3-gen2" title="Link to this heading"></a></h2>
 <p>Setup the RB3 hardware using <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-251/set_up_the_device.html#panel-0-V2luZG93cyBob3N0">Qualcomm Linux documentation</a></p>
 <p>Follow below sections to setup the device for this guide:</p>
 <ul class="simple">
@@ -193,11 +193,11 @@ AudioReach source code directly.</p>
 <li><p>Connect to a network</p></li>
 </ul>
 <section id="set-up-audio-hardware">
-<h3>Set up Audio hardware<a class="headerlink" href="#set-up-audio-hardware" title="Permalink to this heading"></a></h3>
+<h3>Set up Audio hardware<a class="headerlink" href="#set-up-audio-hardware" title="Link to this heading"></a></h3>
 <p>Activate the digital microphone interface (DMIC) on the board, by following steps in section “Set up audio hardware” from <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-16/enable-audio.html#enable-audio">here</a></p>
 </section>
 <section id="check-for-sound-card">
-<h3>Check for Sound Card<a class="headerlink" href="#check-for-sound-card" title="Permalink to this heading"></a></h3>
+<h3>Check for Sound Card<a class="headerlink" href="#check-for-sound-card" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Check if Sound card is enumerated:</p>
 <blockquote>
@@ -209,7 +209,7 @@ AudioReach source code directly.</p>
 </ul>
 </section>
 <section id="check-for-pulseaudio-service">
-<h3>Check for PulseAudio Service<a class="headerlink" href="#check-for-pulseaudio-service" title="Permalink to this heading"></a></h3>
+<h3>Check for PulseAudio Service<a class="headerlink" href="#check-for-pulseaudio-service" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Check if PulseAudio service is running</p>
 <blockquote>
@@ -221,7 +221,7 @@ AudioReach source code directly.</p>
 </ul>
 </section>
 <section id="enable-real-time-calibration-mode">
-<h3>Enable Real-time Calibration Mode<a class="headerlink" href="#enable-real-time-calibration-mode" title="Permalink to this heading"></a></h3>
+<h3>Enable Real-time Calibration Mode<a class="headerlink" href="#enable-real-time-calibration-mode" title="Link to this heading"></a></h3>
 <p>ARC (AudioReach Creator) is a tool that allows the user to perform several
 functionalities related to the audio usecase, including creating and editing
 audio usecase graphs, and editing audio configurations while running an
@@ -238,12 +238,12 @@ usecase graph can be viewed in real time.</p>
 </section>
 </section>
 <section id="running-an-audioreach-usecase">
-<h2>Running an AudioReach Usecase<a class="headerlink" href="#running-an-audioreach-usecase" title="Permalink to this heading"></a></h2>
+<h2>Running an AudioReach Usecase<a class="headerlink" href="#running-an-audioreach-usecase" title="Link to this heading"></a></h2>
 <p>Once all of the above setup is complete, we are ready to run Audio use-case on RB3.
 The below section list steps to run playback and record use-case using PulseAudio.
 Check out <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-16/enable-audio.html#enable-audio-with-pulseaudio">Enable Audio use-cases using PulseAudio</a> to know more.</p>
 <section id="playback">
-<h3>Playback<a class="headerlink" href="#playback" title="Permalink to this heading"></a></h3>
+<h3>Playback<a class="headerlink" href="#playback" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Push a “.wav” file onto some location in the RB3, such as the “/etc” folder.</p>
 <blockquote>
@@ -272,7 +272,7 @@ Check out <a class="reference external" href="https://docs.qualcomm.com/bundle/p
 The system logs for the usecase will be saved in the file “/var/log/messages”.</p>
 </section>
 <section id="record">
-<h3>Record<a class="headerlink" href="#record" title="Permalink to this heading"></a></h3>
+<h3>Record<a class="headerlink" href="#record" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Open serial shell terminal window on host machine and run below command to start the record usecase:</p>
 <blockquote>
@@ -286,9 +286,9 @@ The system logs for the usecase will be saved in the file “/var/log/messages�
 </section>
 </section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading"></a></h2>
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
 <section id="exploring-audioreach-components-in-the-qclinux-build">
-<h3>Exploring AudioReach Components in the QCLINUX Build<a class="headerlink" href="#exploring-audioreach-components-in-the-qclinux-build" title="Permalink to this heading"></a></h3>
+<h3>Exploring AudioReach Components in the QCLINUX Build<a class="headerlink" href="#exploring-audioreach-components-in-the-qclinux-build" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Recipes for AudioReach components are available at Path: &lt;WORKSPACE_ROOT&gt;/workspace/layers/meta-qcom-hwe/recipes-multimedia/audio/.</p></li>
 <li><p>To modify existing code follow below steps:</p>
@@ -341,7 +341,7 @@ devtool<span class="w"> </span>modify<span class="w"> </span>qcom-agm
 </ul>
 </section>
 <section id="adding-a-new-module-to-adsp-image">
-<h3>Adding a new Module to ADSP Image<a class="headerlink" href="#adding-a-new-module-to-adsp-image" title="Permalink to this heading"></a></h3>
+<h3>Adding a new Module to ADSP Image<a class="headerlink" href="#adding-a-new-module-to-adsp-image" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>ADSP source code is available only for Authorized users.</p></li>
 <li><p>If you have Authorized access, refer to <a class="reference external" href="https://docs.qualcomm.com/bundle/80-VN500-28/resource/80-VN500-28_REV_AE_CAPI_Custom_Module_Integration_Into_SPF_for_OEMS_User_Guide.pdf">Adding a Custom Module in SPF</a> guide to integrate a new module into ADSP Image.</p></li>
@@ -350,7 +350,7 @@ devtool<span class="w"> </span>modify<span class="w"> </span>qcom-agm
 </section>
 </section>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <p>Checkout <a class="reference external" href="https://docs.qualcomm.com/bundle/publicresource/topics/80-70020-16/troubleshoot.html">Audio Troubleshooting</a> guide for Audio logging and debugging.</p>
 </section>
 </section>
@@ -360,6 +360,7 @@ devtool<span class="w"> </span>modify<span class="w"> </span>qcom-agm
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="raspberry_pi4.html" class="btn btn-neutral float-left" title="Raspberry Pi 4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nxp.html" class="btn btn-neutral float-right" title="NXP IMX8M Plus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
