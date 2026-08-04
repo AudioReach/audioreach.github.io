@@ -222,7 +222,23 @@ full build:</p>
 AudioReach components in the full Yocto build:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>IMAGE_INSTALL:append<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;audioreach-graphservices tinyalsa audioreach-graphmgr audioreach-conf audioreach-kernel&quot;</span>
 PACKAGECONFIG:pn-audioreach-graphmgr<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;use_default_acdb_path&quot;</span>
+PACKAGECONFIG:append:pn-audioreach-graphservices<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; audio_dma_support&quot;</span>
 EXTRA_OECONF:append:pn-audioreach-conf<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; --with-nxp&quot;</span>
+</pre></div>
+</div>
+<p>Before running the final build, apply the following change to the Linux kernel device tree.
+The <code class="docutils literal notranslate"><span class="pre">audioreach-kernel</span></code> package includes the <code class="docutils literal notranslate"><span class="pre">q6apm_audio_mem</span></code> driver, which manages shared
+memory between the APPS processor and the ADSP. This driver probes on the <code class="docutils literal notranslate"><span class="pre">qcom,q6apm-dais</span></code>
+compatible string to enable the audio memory device node.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">devtool</span> <span class="pre">modify</span></code> to check out the kernel source into the workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>devtool<span class="w"> </span>modify<span class="w"> </span>virtual/kernel
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">&lt;yocto_build_root&gt;/sources/linux-imx/arch/arm64/boot/dts/freescale/imx8mp-evk-dsp.dts</span></code>,
+add the following inside the root <code class="docutils literal notranslate"><span class="pre">/</span> <span class="pre">{</span> <span class="pre">}</span></code> block:</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nl">q6apmdai</span><span class="p">:</span><span class="w"> </span><span class="nf">dais</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">   </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;qcom,q6apm-dais&quot;</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>Once the configuration is complete, run the following command to generate the full build with
